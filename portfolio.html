@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sofía Garnier | Portfolio</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23faf8f5'/><text x='16' y='23' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='18' fill='%230f7173'>SG</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+/* ===== VARIABLES & RESET ===== */
+:root {
+  --bg:        #faf8f5;
+  --surface:   #ffffff;
+  --surface2:  #f2f7f7;
+  --border:    rgba(15, 113, 115, 0.12);
+  --shadow:    rgba(0,  50,  50,  0.07);
+  --primary:   #0f7173;
+  --primary-d: #0b5c5e;
+  --secondary: #2a9d8f;
+  --accent:    #5bbfba;
+  --text:      #0f1f1f;
+  --muted:     #4a6b6b;
+  --dim:       #8aabab;
+  --radius:    12px;
+  --t:         0.3s ease;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ===== UTILITIES ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.section   { padding: 100px 0; }
+.surface   { background: var(--surface); }
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 800;
+  margin-bottom: 56px;
+  position: relative;
+  display: inline-block;
+  color: var(--text);
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; left: 0;
+  width: 50px; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  border-radius: 2px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== NAV ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: all var(--t);
+}
+nav.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 20px var(--shadow);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; }
+
+.logo {
+  font-size: 1.4rem; font-weight: 900; text-decoration: none;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+.nav-links { display: flex; list-style: none; gap: 32px; align-items: center; }
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color var(--t); }
+.nav-links a:hover { color: var(--text); }
+.btn-nav {
+  background: var(--primary);
+  color: white !important; padding: 8px 20px; border-radius: 40px; font-weight: 700 !important;
+  transition: background var(--t);
+}
+.btn-nav:hover { background: var(--primary-d) !important; }
+.hamburger { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
+
+/* ===== HERO ===== */
+#hero {
+  min-height: 100vh; display: flex; align-items: center;
+  position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(15,113,115,.10) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 18%, rgba(42,157,143,.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 85%, rgba(91,191,186,.06) 0%, transparent 50%);
+  animation: pulse-bg 9s ease-in-out infinite alternate;
+}
+@keyframes pulse-bg { 0% { opacity:.6; } 100% { opacity:1; transform:scale(1.03); } }
+
+.hero-bg::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,50,50,.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,50,50,.028) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.hero-content { position: relative; z-index: 1; padding-top: 80px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(15,113,115,.08); border: 1px solid rgba(15,113,115,.25);
+  color: var(--primary); padding: 6px 16px; border-radius: 40px;
+  font-size: .84rem; font-weight: 600; margin-bottom: 24px; letter-spacing: .5px;
+}
+.hero-badge::before {
+  content: ''; width: 8px; height: 8px; background: var(--primary);
+  border-radius: 50%; animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+.hero-title {
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 900; line-height: .95; letter-spacing: -3px; margin-bottom: 22px;
+}
+
+.hero-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: clamp(.95rem, 2.5vw, 1.2rem);
+  color: var(--primary); margin-bottom: 22px; font-weight: 500;
+}
+.cursor { animation: blink 1s step-end infinite; }
+
+.hero-desc { color: var(--muted); font-size: 1.05rem; max-width: 520px; margin-bottom: 36px; line-height: 1.75; }
+
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.btn-primary {
+  background: var(--primary);
+  color: #fff; padding: 13px 30px; border-radius: 40px;
+  text-decoration: none; font-weight: 700; font-size: .92rem;
+  transition: all var(--t); box-shadow: 0 4px 20px rgba(15,113,115,.3);
+}
+.btn-primary:hover { transform: translateY(-2px); background: var(--primary-d); box-shadow: 0 8px 28px rgba(15,113,115,.4); }
+
+.btn-secondary {
+  background: transparent; color: var(--text); padding: 13px 30px; border-radius: 40px;
+  text-decoration: none; font-weight: 600; font-size: .92rem;
+  border: 1.5px solid rgba(0,50,50,.2); transition: all var(--t);
+}
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: rgba(15,113,115,.05); }
+
+.hero-scroll {
+  position: absolute; bottom: 38px; left: 50%; transform: translateX(-50%);
+  color: var(--dim); font-size: .75rem; letter-spacing: 2px; text-transform: uppercase;
+  animation: float 2.2s ease-in-out infinite;
+}
+@keyframes float { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(-8px)} }
+
+/* ===== ABOUT ===== */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.about-text p { color: var(--muted); margin-bottom: 18px; font-size: 1.04rem; line-height: 1.8; }
+.about-text strong { color: var(--text); }
+
+.about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.about-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 18px; display: flex; gap: 12px; align-items: flex-start; transition: all var(--t);
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.about-card:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(15,113,115,.1); }
+.about-card-icon { font-size: 1.4rem; flex-shrink: 0; }
+.about-card strong { display: block; font-size: .88rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+.about-card span { font-size: .78rem; color: var(--dim); }
+
+/* ===== SKILLS ===== */
+.skills-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start; }
+.skill-item { margin-bottom: 22px; }
+.skill-header { display: flex; justify-content: space-between; margin-bottom: 7px; font-size: .88rem; font-weight: 600; }
+.skill-header span:last-child { color: var(--primary); font-family: 'JetBrains Mono', monospace; font-size: .82rem; }
+.skill-bar { height: 5px; background: rgba(0,50,50,.1); border-radius: 3px; overflow: hidden; }
+.skill-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 3px; transition: width 1.3s cubic-bezier(.4,0,.2,1);
+}
+
+.skills-tags h3 { font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-bottom: 16px; }
+.tags { display: flex; flex-wrap: wrap; gap: 9px; }
+.tag {
+  background: rgba(15,113,115,.07); border: 1px solid rgba(15,113,115,.18);
+  color: var(--primary); padding: 5px 13px; border-radius: 20px; font-size: .82rem; font-weight: 500;
+  transition: all var(--t);
+}
+.tag:hover { background: rgba(15,113,115,.14); transform: translateY(-1px); }
+
+.sql-teaser {
+  margin-top: 28px; padding: 18px 20px;
+  background: #0d1f1f; border-radius: 10px;
+  animation: float-term 4.5s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+.sql-teaser code {
+  font-family: 'JetBrains Mono', monospace; font-size: .8rem;
+  color: #8896a8; line-height: 1.95; display: block;
+}
+.sql-teaser code .kw  { color: #4ec9c0; }
+.sql-teaser code .str { color: #85e89d; }
+.sql-teaser code .com { color: #6a737d; }
+
+/* ===== PROJECTS ===== */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px; }
+
+.project-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 30px; transition: all var(--t); position: relative; overflow: hidden;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.project-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transform: scaleX(0); transform-origin: left; transition: transform var(--t);
+}
+.project-card:hover { border-color: rgba(15,113,115,.3); transform: translateY(-5px); box-shadow: 0 16px 40px rgba(15,113,115,.12); }
+.project-card:hover::before { transform: scaleX(1); }
+
+.project-badge {
+  display: inline-block; padding: 4px 12px; border-radius: 20px;
+  font-size: .72rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: .5px;
+}
+.badge-js  { background: rgba(180,140,0,.08); color: #8a6800; border: 1px solid rgba(180,140,0,.25); }
+.badge-sql { background: rgba(15,113,115,.07); color: var(--secondary); border: 1px solid rgba(15,113,115,.22); }
+
+.project-card h3 { font-size: 1.2rem; font-weight: 800; margin-bottom: 10px; color: var(--text); }
+.project-card p  { color: var(--muted); font-size: .9rem; line-height: 1.7; margin-bottom: 18px; }
+
+.project-features { list-style: none; margin-bottom: 22px; }
+.project-features li {
+  color: var(--muted); font-size: .83rem; padding: 3px 0 3px 16px; position: relative;
+}
+.project-features li::before { content: '→'; position: absolute; left: 0; color: var(--primary); }
+
+.btn-gh {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 8px 18px; border-radius: 8px;
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); text-decoration: none; font-size: .83rem; font-weight: 600;
+  transition: all var(--t);
+}
+.btn-gh:hover { border-color: var(--primary); color: var(--primary); background: rgba(15,113,115,.05); }
+
+/* ===== SQL PLAYGROUND ===== */
+.sql-intro { color: var(--muted); font-size: 1.02rem; max-width: 600px; margin-top: 10px; margin-bottom: 40px; line-height: 1.7; }
+
+.sql-layout { display: grid; grid-template-columns: 1fr 270px; gap: 22px; align-items: start; }
+
+.sql-editor-area { display: flex; flex-direction: column; gap: 14px; }
+
+.sql-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  background: #0d2020; border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius) var(--radius) 0 0; padding: 10px 16px;
+}
+.sql-bar span { font-family: 'JetBrains Mono', monospace; font-size: .78rem; color: #6a737d; }
+.sql-bar-dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot-r { background: #ff5f56; } .dot-y { background: #ffbd2e; } .dot-g { background: #27c93f; }
+
+.btn-run {
+  background: var(--primary);
+  color: #fff; border: none; padding: 7px 22px; border-radius: 8px;
+  font-weight: 700; font-size: .85rem; cursor: pointer; transition: all var(--t);
+  font-family: 'JetBrains Mono', monospace;
+}
+.btn-run:hover { transform: translateY(-1px); background: var(--primary-d); box-shadow: 0 4px 14px rgba(15,113,115,.35); }
+
+#sql-input {
+  width: 100%; height: 150px;
+  background: #081818; color: #c9d1d9;
+  border: 1px solid rgba(255,255,255,.08); border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 14px 18px; font-family: 'JetBrains Mono', monospace; font-size: .88rem;
+  resize: vertical; outline: none; line-height: 1.65;
+}
+#sql-input:focus { border-color: rgba(15,113,115,.5); }
+
+.sql-hint { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--dim); text-align: right; }
+
+.sql-result {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; min-height: 110px; box-shadow: 0 1px 4px var(--shadow);
+}
+.result-bar {
+  padding: 10px 18px; background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  font-size: .75rem; color: var(--dim); font-family: 'JetBrains Mono', monospace;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.result-ok  { color: #2a8a4a; font-size: .7rem; font-weight: 700; }
+.result-err { color: #c0392b; font-size: .7rem; }
+
+.result-body { overflow-x: auto; padding: 12px 0; }
+.result-table { width: 100%; border-collapse: collapse; font-size: .83rem; font-family: 'JetBrains Mono', monospace; }
+.result-table th {
+  color: var(--secondary); text-align: left; padding: 7px 18px;
+  border-bottom: 1px solid var(--border); font-size: .75rem;
+  text-transform: uppercase; letter-spacing: .5px; white-space: nowrap;
+}
+.result-table td { padding: 7px 18px; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+.result-table tr:last-child td { border-bottom: none; }
+.result-table tr:hover td { background: rgba(15,113,115,.04); color: var(--text); }
+
+.result-msg { padding: 30px; text-align: center; color: var(--dim); font-size: .88rem; font-family: 'JetBrains Mono', monospace; }
+.result-err-msg { color: #c0392b; padding: 16px 18px; font-family: 'JetBrains Mono', monospace; font-size: .83rem; }
+
+/* Sidebar */
+.sql-sidebar h3 { font-size: .72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--dim); margin-bottom: 14px; font-weight: 700; }
+
+.sql-ex {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+  padding: 12px 14px; margin-bottom: 9px; cursor: pointer; transition: all var(--t);
+  box-shadow: 0 1px 3px var(--shadow);
+}
+.sql-ex:hover { border-color: var(--secondary); background: rgba(15,113,115,.03); box-shadow: 0 4px 12px rgba(15,113,115,.1); }
+.sql-ex-title { display: block; font-size: .82rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+.sql-ex-preview { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--dim); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; display: block; }
+
+.schema-box {
+  margin-top: 20px; padding: 14px 16px;
+  background: rgba(15,113,115,.05); border: 1px solid rgba(15,113,115,.15); border-radius: 8px;
+}
+.schema-box h4 { font-size: .72rem; color: var(--secondary); margin-bottom: 8px; font-family: 'JetBrains Mono', monospace; font-weight: 600; }
+.schema-box pre { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: var(--muted); line-height: 1.75; }
+
+/* ===== CHARTS ===== */
+.charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.chart-card {
+  background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 26px; box-shadow: 0 1px 4px var(--shadow);
+}
+.chart-card h3 { font-size: .98rem; font-weight: 700; margin-bottom: 3px; color: var(--text); }
+.chart-card p  { font-size: .78rem; color: var(--dim); margin-bottom: 20px; }
+
+/* ===== CONTACT ===== */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+.contact-info h3  { font-size: 1.45rem; font-weight: 800; margin-bottom: 14px; }
+.contact-info > p { color: var(--muted); margin-bottom: 30px; line-height: 1.75; }
+
+.contact-links { display: flex; flex-direction: column; gap: 12px; }
+.contact-link {
+  display: flex; align-items: center; gap: 14px;
+  padding: 15px 18px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); text-decoration: none; color: var(--text); transition: all var(--t);
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.contact-link:hover { border-color: var(--primary); transform: translateX(5px); box-shadow: 0 4px 14px rgba(15,113,115,.1); }
+.c-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+.c-text strong { display: block; font-size: .88rem; font-weight: 700; }
+.c-text span   { font-size: .78rem; color: var(--dim); }
+
+.contact-visual {
+  display: flex; align-items: center; justify-content: center;
+  padding: 28px 32px; background: #0d1f1f; border-radius: 16px;
+  align-self: center;
+  animation: float-term 4.5s ease-in-out infinite;
+  animation-delay: 3s;
+}
+.contact-visual code {
+  font-family: 'JetBrains Mono', monospace; font-size: .88rem;
+  color: #8896a8; line-height: 2.2; display: block;
+}
+.contact-visual .kw  { color: #4ec9c0; }
+.contact-visual .str { color: #85e89d; }
+.contact-visual .val { color: #ffab70; }
+.contact-visual .com { color: #6a737d; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #0d1f1f;
+  padding: 40px 0; text-align: center; color: #8896a8; font-size: .82rem;
+}
+footer .logo { display: inline-block; margin-bottom: 12px; }
+footer a { color: #4ec9c0; text-decoration: none; }
+
+/* ===== HERO STATS ===== */
+.hero-stats {
+  display: flex; gap: 28px; flex-wrap: wrap;
+  margin-top: 28px; padding-top: 22px;
+  border-top: 1px solid rgba(15,113,115,.12);
+}
+.hero-stat { color: var(--dim); font-size: .8rem; white-space: nowrap; }
+.hero-stat strong { font-family: 'JetBrains Mono', monospace; color: var(--primary); font-weight: 700; }
+
+/* ===== LEARNING NOW ===== */
+.learning-now {
+  margin-top: 52px; padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+.learning-header { margin-bottom: 22px; }
+.learning-title { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+.learning-subtitle { font-size: .78rem; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+.learning-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.learning-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  transition: border-color var(--t);
+}
+.learning-item:hover { border-color: var(--secondary); }
+.learning-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.learning-item-name { font-size: .86rem; font-weight: 700; color: var(--text); }
+.learning-item-tag {
+  font-size: .62rem; background: rgba(42,157,143,.1); color: var(--secondary);
+  border: 1px solid rgba(42,157,143,.25); padding: 2px 8px; border-radius: 10px; font-weight: 600;
+  white-space: nowrap;
+}
+.learning-bar { height: 4px; background: rgba(0,50,50,.08); border-radius: 2px; overflow: hidden; margin-bottom: 7px; }
+.learning-fill {
+  height: 100%; width: 0;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  border-radius: 2px; transition: width 1.6s cubic-bezier(.4,0,.2,1);
+}
+.learning-item p { font-size: .74rem; color: var(--dim); line-height: 1.5; }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .65s cubic-bezier(.4,0,.2,1), transform .65s cubic-bezier(.4,0,.2,1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+
+/* ===== HERO INNER GRID ===== */
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+}
+
+/* ===== TERMINAL ===== */
+.hero-terminal {
+  background: #0d1f1f;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,50,50,.3), 0 0 0 1px rgba(15,113,115,.2);
+  animation: float-term 4.5s ease-in-out infinite;
+}
+@keyframes float-term {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.t-bar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 10px 16px;
+  background: rgba(0,0,0,.25);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+.t-bar-title { font-family: 'JetBrains Mono', monospace; font-size: .7rem; color: #4a6b6b; margin-left: 6px; }
+.t-body {
+  padding: 20px 22px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: .8rem; line-height: 2; min-height: 220px;
+}
+.t-line { display: block; opacity: 0; transition: opacity .2s ease; }
+.t-line.t-on { opacity: 1; }
+.t-p   { color: var(--secondary); }
+.t-c   { color: #c9d1d9; }
+.t-o   { color: #4ec9c0; }
+.t-dim { color: #4a6b6b; }
+.t-cur {
+  display: inline-block; width: 7px; height: 13px;
+  background: var(--secondary); vertical-align: middle;
+  margin-left: 2px; animation: blink 1s step-end infinite;
+}
+
+/* ===== SQL CHIPS ===== */
+.sql-chips {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+}
+.sql-chip {
+  background: var(--surface); border: 1px solid var(--border);
+  color: var(--muted); padding: 6px 18px; border-radius: 20px;
+  font-size: .82rem; font-weight: 600; cursor: pointer;
+  transition: all var(--t); font-family: 'Inter', sans-serif;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+.sql-chip:hover { border-color: var(--secondary); color: var(--secondary); background: rgba(42,157,143,.04); }
+.sql-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(15,113,115,.25); }
+
+.schema-collapse { margin-top: 18px; }
+.schema-toggle {
+  background: none; border: none; cursor: pointer;
+  font-family: 'JetBrains Mono', monospace; font-size: .76rem;
+  color: var(--dim); padding: 6px 0; transition: color var(--t);
+  display: flex; align-items: center; gap: 6px;
+}
+.schema-toggle:hover { color: var(--secondary); }
+.schema-content {
+  display: none; margin-top: 10px;
+  background: rgba(15,113,115,.05); border: 1px solid rgba(15,113,115,.15);
+  border-radius: 8px; padding: 14px 16px;
+}
+.schema-content.open { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.schema-content pre { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--muted); line-height: 1.75; }
+.schema-content h4 { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--secondary); margin-bottom: 6px; font-weight: 600; }
+
+/* ===== JS DEMO ===== */
+.jsdemo-controls {
+  display: flex; gap: 14px; align-items: center;
+  margin-bottom: 22px; flex-wrap: wrap;
+}
+.jsdemo-search { flex: 1; min-width: 200px; }
+.jsdemo-search input {
+  width: 100%; padding: 10px 16px;
+  border: 1.5px solid var(--border); border-radius: 8px;
+  background: var(--surface); color: var(--text);
+  font-family: 'Inter', sans-serif; font-size: .9rem;
+  outline: none; transition: border-color var(--t);
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.jsdemo-search input:focus { border-color: var(--primary); }
+.jsdemo-search input::placeholder { color: var(--dim); }
+.jsdemo-filters { display: flex; gap: 8px; flex-wrap: wrap; }
+.js-filter {
+  background: var(--bg); border: 1px solid var(--border);
+  color: var(--muted); padding: 8px 18px; border-radius: 20px;
+  font-size: .82rem; font-weight: 600; cursor: pointer;
+  transition: all var(--t); font-family: 'Inter', sans-serif;
+}
+.js-filter:hover { border-color: var(--secondary); color: var(--secondary); }
+.js-filter.active { background: var(--primary); border-color: var(--primary); color: #fff; box-shadow: 0 4px 12px rgba(15,113,115,.25); }
+
+.jsdemo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+  gap: 14px; min-height: 180px;
+}
+.js-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px 16px;
+  transition: all var(--t);
+  animation: card-in .28s ease;
+  box-shadow: 0 1px 4px var(--shadow);
+}
+@keyframes card-in { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
+.js-card:hover { border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(15,113,115,.1); }
+.js-cat { font-size: .68rem; text-transform: uppercase; letter-spacing: .5px; color: var(--secondary); font-weight: 700; margin-bottom: 8px; display: block; }
+.js-name { font-size: .9rem; font-weight: 700; color: var(--text); margin-bottom: 10px; line-height: 1.3; }
+.js-price { font-family: 'JetBrains Mono', monospace; font-size: .88rem; color: var(--primary); font-weight: 600; }
+
+.jsdemo-footer {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 18px; padding-top: 14px;
+  border-top: 1px solid var(--border);
+}
+#js-count { font-size: .82rem; color: var(--dim); font-family: 'JetBrains Mono', monospace; }
+.jsdemo-tag {
+  font-size: .72rem; background: rgba(15,113,115,.07);
+  border: 1px solid rgba(15,113,115,.18); color: var(--primary);
+  padding: 4px 12px; border-radius: 20px;
+  font-family: 'JetBrains Mono', monospace; font-weight: 600;
+}
+.js-empty {
+  grid-column: 1/-1; text-align: center; padding: 48px;
+  color: var(--dim); font-family: 'JetBrains Mono', monospace; font-size: .88rem;
+}
+.js-level-bar { height: 3px; background: rgba(0,50,50,.1); border-radius: 2px; overflow: hidden; margin-bottom: 5px; }
+.js-level-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--secondary)); border-radius: 2px; }
+.js-nivel { font-family: 'JetBrains Mono', monospace; font-size: .76rem; color: var(--primary); font-weight: 600; }
+.js-card.learning { border-style: dashed; border-color: var(--accent); }
+.js-card.learning .js-cat { color: var(--accent); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 820px) {
+  .nav-links { display: none; }
+  .hamburger { display: block; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: fixed;
+    top: 65px; left: 0; right: 0;
+    background: rgba(255,255,255,.97); backdrop-filter: blur(20px);
+    padding: 24px; border-bottom: 1px solid var(--border); gap: 20px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+  .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+  .about-cards { grid-template-columns: 1fr 1fr; }
+  .sql-layout  { grid-template-columns: 1fr; }
+  .charts-grid { grid-template-columns: 1fr; }
+  .hero-title  { letter-spacing: -2px; }
+  .learning-grid { grid-template-columns: 1fr; }
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-terminal { display: none; }
+}
+@media (max-width: 480px) {
+  .about-cards { grid-template-columns: 1fr; }
+  .projects-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav id="nav">
+  <div class="nav-inner container">
+    <a href="#" class="logo">SG</a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#sobre-mi">Sobre mí</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#sql">SQL</a></li>
+      <li><a href="#jsdemo">JS</a></li>
+      <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge">Disponible para trabajar</div>
+        <h1 class="hero-title">
+          <span class="gradient-text">Sofía</span><br>Garnier
+        </h1>
+        <div class="hero-role">
+          &gt;&nbsp;<span id="typing-text"></span>
+        </div>
+        <p class="hero-desc">
+          Próxima a recibirme de Tecnicatura en Programación (UTN).
+          Me gusta entender el detrás y el por qué de las cosas —
+          trabajo con Java, JavaScript y SQL y busco mi primer trabajo en IT.
+        </p>
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn-primary">Ver proyectos</a>
+          <a href="#sql" class="btn-secondary">Demo SQL interactiva ↓</a>
+          <a href="CV.md" download="Sofia_Garnier_CV.md" class="btn-secondary">↓ Descargar CV</a>
+        </div>
+        <div class="hero-stats">
+<div class="hero-stat"><strong class="count-up" data-target="3">0</strong> proyectos académicos</div>
+          <div class="hero-stat"><strong>CM freelance</strong> · 2+ años</div>
+          <div class="hero-stat"><strong>jul 2026</strong> egreso</div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-terminal">
+          <div class="t-bar">
+            <div class="dot dot-r"></div>
+            <div class="dot dot-y"></div>
+            <div class="dot dot-g"></div>
+            <span class="t-bar-title">sofia@dev ~</span>
+          </div>
+          <div class="t-body" id="terminal-body">
+            <span class="t-line"><span class="t-p">~$</span> <span class="t-c">whoami</span></span>
+            <span class="t-line"><span class="t-o">  Junior Developer · UTN</span></span>
+            <span class="t-line t-dim">&nbsp;</span>
+            <span class="t-line"><span class="t-p">~$</span> <span class="t-c">ls projects/</span></span>
+            <span class="t-line"><span class="t-o">  WMS &nbsp; Sabina-Accesorios &nbsp; Northwind</span></span>
+            <span class="t-line t-dim">&nbsp;</span>
+            <span class="t-line"><span class="t-p">~$</span> <span class="t-c">cat philosophy.txt</span></span>
+            <span class="t-line"><span class="t-o">  mejor hecho que perfecto</span></span>
+            <span class="t-line t-dim">&nbsp;</span>
+            <span class="t-line"><span class="t-p">~$</span> <span class="t-c">echo $STATUS</span></span>
+            <span class="t-line"><span class="t-o">  disponible · full-time ✓</span></span>
+            <span class="t-line"><span class="t-p">~$</span> <span class="t-cur"></span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOBRE MÍ ===== -->
+<section id="sobre-mi" class="section surface">
+  <div class="container">
+    <h2 class="section-title">Sobre mí</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          Estudiante avanzada de <strong>Tecnicatura en Programación en la UTN</strong>,
+          egresando en julio 2026. Trabajo con Java, JavaScript y SQL,
+          y me gusta entender cómo encajan las piezas.
+        </p>
+        <p>
+          Hace 4 años trabajo como <strong>Creadora de Contenido &amp; Community Manager</strong>
+          freelance — estrategia, fotos, videos, edición y gestión de comunidades. Eso, más
+          dos años de atención al cliente en comercio, me enseñó a comunicarme con personas
+          reales y trabajar con presión.
+        </p>
+        <p>
+          Busco mi primer trabajo en IT. No tengo experiencia formal todavía, pero cuando
+          quiero hacer algo y no sé cómo, le busco la vuelta hasta conseguirlo.
+        </p>
+      </div>
+      <div class="about-cards">
+        <div class="about-card">
+          <span class="about-card-icon">🎓</span>
+          <div>
+            <strong>Tecnicatura en Programación</strong>
+            <span>Egreso julio 2026</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">📍</span>
+          <div>
+            <strong>Argentina</strong>
+            <span>Disponible full-time</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">💡</span>
+          <div>
+            <strong>Analítica</strong>
+            <span>Me gustan los problemas con lógica</span>
+          </div>
+        </div>
+        <div class="about-card">
+          <span class="about-card-icon">💼</span>
+          <div>
+            <strong>Creadora de Contenido & CM</strong>
+            <span>Freelance · 4 años</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section">
+  <div class="container">
+    <h2 class="section-title">Stack técnico</h2>
+    <div class="skills-grid">
+      <div id="skills-bars">
+        <div class="skill-item">
+          <div class="skill-header"><span>HTML / CSS</span><span>80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>JavaScript</span><span>65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>Java (POO)</span><span>65%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>SQL / MySQL</span><span>72%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-header"><span>MongoDB</span><span>55%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="55"></div></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="margin-bottom: 28px;">
+          <h3 class="skills-tags" style="font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--dim); margin-bottom:14px;">También manejo</h3>
+          <div class="tags">
+            <span class="tag">Diseño de BD</span>
+            <span class="tag">POO</span>
+            <span class="tag">Git</span>
+            <span class="tag">GitHub</span>
+            <span class="tag">VS Code</span>
+            <span class="tag">Lógica estructurada</span>
+            <span class="tag">Maven</span>
+          </div>
+        </div>
+        <div>
+          <h3 class="skills-tags" style="font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:var(--dim); margin-bottom:14px;">Idiomas</h3>
+          <div class="tags">
+            <span class="tag">Español nativo</span>
+            <span class="tag">Inglés B1/B2</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="learning-now" id="learning-now">
+      <div class="learning-header">
+        <h3 class="learning-title">Aprendiendo ahora</h3>
+        <p class="learning-subtitle">-- próximos pasos</p>
+      </div>
+      <div class="learning-grid">
+        <div class="learning-item">
+          <div class="learning-item-header">
+            <span class="learning-item-name">Python</span>
+            <span class="learning-item-tag">28%</span>
+          </div>
+          <div class="learning-bar"><div class="learning-fill" data-width="28"></div></div>
+          <p>Scripting, estructuras de datos, control de flujo</p>
+        </div>
+        <div class="learning-item">
+          <div class="learning-item-header">
+            <span class="learning-item-name">React</span>
+            <span class="learning-item-tag">18%</span>
+          </div>
+          <div class="learning-bar"><div class="learning-fill" data-width="18"></div></div>
+          <p>Componentes, props, estado — arrancando desde JS</p>
+        </div>
+        <div class="learning-item">
+          <div class="learning-item-header">
+            <span class="learning-item-name">SQL avanzado</span>
+            <span class="learning-item-tag">35%</span>
+          </div>
+          <div class="learning-bar"><div class="learning-fill" data-width="35"></div></div>
+          <p>Window functions, CTEs, subqueries complejas</p>
+        </div>
+        <div class="learning-item">
+          <div class="learning-item-header">
+            <span class="learning-item-name">Spring Boot</span>
+            <span class="learning-item-tag">12%</span>
+          </div>
+          <div class="learning-bar"><div class="learning-fill" data-width="12"></div></div>
+          <p>APIs REST con Java — arrancando desde la base de POO</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROYECTOS ===== -->
+<section id="proyectos" class="section surface">
+  <div class="container">
+    <h2 class="section-title">Proyectos académicos</h2>
+    <div class="projects-grid">
+
+      <!-- WMS -->
+      <div class="project-card">
+        <span class="project-badge badge-sql">Java · SQL · POO</span>
+        <h3>Sistema WMS — Gestión de Almacenes</h3>
+        <p>
+          Sistema de gestión de almacenes hecho en Java. Tiene el ciclo completo:
+          ingreso, egreso, movimiento interno, control de capacidad y registro
+          de cada operación con fecha y usuario.
+        </p>
+        <ul class="project-features">
+          <li>Esquema de datos: productos, ubicaciones, naves, zonas y racks</li>
+          <li>Flujos estructurados de ingreso, egreso y movimiento interno</li>
+          <li>Control de capacidad por ubicación (máx. 1250 kg)</li>
+          <li>Trazabilidad completa: cada movimiento registrado con fecha y usuario</li>
+          <li>Validación de disponibilidad antes de ejecutar cualquier operación</li>
+        </ul>
+        <span style="font-size:.78rem; color:var(--dim); font-style:italic;">Trabajo académico</span>
+      </div>
+
+      <!-- Sabina Accesorios -->
+      <div class="project-card">
+        <span class="project-badge badge-js">React · Node.js · MongoDB</span>
+        <h3>Sabina Accesorios</h3>
+        <p>
+          E-commerce full-stack con arquitectura cliente-servidor.
+          Frontend en React, backend en Node.js con Express y
+          persistencia en MongoDB. Proyecto grupal académico — UTN Programación IV.
+        </p>
+        <ul class="project-features">
+          <li>Autenticación con JWT y roles: cliente y administrador</li>
+          <li>Catálogo, carrito de compras y generación de órdenes</li>
+          <li>Control de stock al confirmar compras</li>
+          <li>API REST con Node.js, Express y MongoDB (Mongoose)</li>
+          <li>Panel de administración: productos, usuarios y órdenes</li>
+        </ul>
+        <a href="https://github.com/lucasperinatto/ecommerce-university-project" target="_blank" class="btn-gh">⬡ Ver código</a>
+      </div>
+
+      <!-- Northwind -->
+      <div class="project-card">
+        <span class="project-badge badge-sql">SQL · MySQL</span>
+        <h3>Gestión de BD — Northwind</h3>
+        <p>
+          Trabajo con la BD Northwind: diseñé las tablas, las normalicé
+          y escribí consultas SQL para analizar ventas y logística.
+          JOINs, subconsultas, agregaciones.
+        </p>
+        <ul class="project-features">
+          <li>Diseño y normalización de tablas relacionales</li>
+          <li>Consultas complejas: JOINs múltiples, subconsultas, agregaciones</li>
+          <li>Análisis de datos de ventas, clientes y logística</li>
+          <li>Aplicación de buenas prácticas de modelado relacional</li>
+        </ul>
+        <span style="font-size:.78rem; color:var(--dim); font-style:italic;">Trabajo académico</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== SQL PLAYGROUND ===== -->
+<section id="sql" class="section">
+  <div class="container">
+    <h2 class="section-title">SQL en acción</h2>
+    <p class="sql-intro">
+      Motor SQL construido desde cero en JavaScript puro — sin librerías externas.
+      Soporta SELECT, WHERE, GROUP BY, ORDER BY, JOIN, subconsultas y funciones de agregación.
+      Los datos son métricas reales de Instagram de un cliente. Escribí tu propia consulta
+      o usá los ejemplos — corre directo en el browser.
+    </p>
+
+    <!-- Chips -->
+    <div class="sql-chips">
+      <button class="sql-chip active" onclick="loadChip(this, 0)">Ver publicaciones</button>
+      <button class="sql-chip" onclick="loadChip(this, 1)">Top 5 por views</button>
+      <button class="sql-chip" onclick="loadChip(this, 2)">Historias · alcance</button>
+      <button class="sql-chip" onclick="loadChip(this, 3)">Actividad semanal</button>
+      <button class="sql-chip" onclick="loadChip(this, 4)">JOIN</button>
+    </div>
+
+    <!-- Editor -->
+    <div class="sql-editor-area">
+      <div class="sql-bar">
+        <div class="sql-bar-dots">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+        </div>
+        <span>andika_metrics › query.sql</span>
+        <button class="btn-run" id="btn-run">▶ Ejecutar</button>
+      </div>
+      <textarea id="sql-input" spellcheck="false">SELECT *
+FROM publicaciones
+ORDER BY fecha;</textarea>
+      <p class="sql-hint">Ctrl + Enter para ejecutar</p>
+
+      <div class="sql-result" id="sql-result">
+        <div class="result-bar">
+          <span id="result-status">Listo — elegí un ejemplo o escribí tu consulta</span>
+        </div>
+        <div id="result-body">
+          <div class="result-msg">Hacé clic en un ejemplo o escribí tu propia consulta</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Schema colapsable -->
+    <div class="schema-collapse">
+      <button class="schema-toggle" onclick="toggleSchema()">
+        <span>-- Esquema de tablas</span><span id="schema-arrow">▾</span>
+      </button>
+      <div class="schema-content" id="schema-content">
+        <div>
+          <h4>publicaciones</h4>
+          <pre>id, semana_id, fecha, tipo,
+descripcion, visualizaciones,
+cuentas_alcanzadas</pre>
+        </div>
+        <div>
+          <h4>semanas</h4>
+          <pre>id, semana, desde, hasta,
+visualizaciones_total,
+cuentas_alcanzadas, visitas_perfil</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JS DEMO ===== -->
+<section id="jsdemo" class="section">
+  <div class="container">
+    <h2 class="section-title">JS en acción</h2>
+    <p class="sql-intro">
+      Mi stack técnico como cards filtrables — vanilla JavaScript puro, sin frameworks.
+      Búsqueda en tiempo real y filtrado por categoría con manipulación dinámica del DOM.
+    </p>
+
+    <div class="jsdemo-controls">
+      <div class="jsdemo-search">
+        <input type="text" id="js-search" placeholder="Buscar tecnología..." autocomplete="off">
+      </div>
+      <div class="jsdemo-filters">
+        <button class="js-filter active" data-cat="todos">Todos</button>
+        <button class="js-filter" data-cat="frontend">Frontend</button>
+        <button class="js-filter" data-cat="backend">Backend</button>
+        <button class="js-filter" data-cat="bases-datos">Bases de datos</button>
+        <button class="js-filter" data-cat="herramientas">Herramientas</button>
+        <button class="js-filter" data-cat="aprendiendo">Aprendiendo</button>
+      </div>
+    </div>
+
+    <div id="js-grid" class="jsdemo-grid"></div>
+
+    <div class="jsdemo-footer">
+      <span id="js-count">12 tecnologías</span>
+      <span class="jsdemo-tag">hecho con JavaScript puro</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h2 class="section-title">Contacto</h2>
+        <h3>¿Hablamos?</h3>
+        <p>
+          Estudiante de Tecnicatura en Programación, próxima a recibirme.
+          Tres proyectos reales, más de 2 años de trabajo freelance y ganas de
+          arrancar en IT. Si buscás alguien que aprenda rápido y quiera
+          trabajar de verdad, hablemos.
+        </p>
+        <div class="contact-links">
+          <a href="https://www.linkedin.com/in/sofia-garnier" target="_blank" class="contact-link">
+            <div class="c-icon" style="background:rgba(10,102,194,.15); color:#0a66c2;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </div>
+            <div class="c-text">
+              <strong>LinkedIn</strong>
+              <span>linkedin.com/in/sofia-garnier</span>
+            </div>
+          </a>
+          <a href="https://github.com/sofigarnier1" target="_blank" class="contact-link">
+            <div class="c-icon" style="background:rgba(0,50,50,.08); color:var(--text);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            </div>
+            <div class="c-text">
+              <strong>GitHub</strong>
+              <span>github.com/sofigarnier1</span>
+            </div>
+          </a>
+          <a href="mailto:sofigarnier1@gmail.com" class="contact-link">
+            <div class="c-icon" style="background:rgba(234,67,53,.12); color:#ea4335;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="c-text">
+              <strong>Email</strong>
+              <span>sofigarnier1@gmail.com</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-visual">
+        <code>
+<span class="kw">const</span> <span class="val">sofia</span> = {<br>
+&nbsp;&nbsp;rol:        <span class="str">'Junior Developer'</span>,<br>
+&nbsp;&nbsp;ubicacion:  <span class="str">'Argentina'</span>,<br>
+&nbsp;&nbsp;disponible: <span class="val">true</span>,<br>
+&nbsp;&nbsp;contactar:  <span class="val">() =></span> <span class="str">'hablemos'</span><br>
+}<br>
+<br>
+<span class="com">// lista para arrancar ✓</span>
+        </code>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <a href="#" class="logo">SG</a>
+    <p>Portfolio 2026 · <a href="https://github.com/sofigarnier1" target="_blank">GitHub</a></p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+/* ---- NAV ---- */
+const navEl    = document.getElementById('nav');
+const hamburger = document.getElementById('hamburger');
+const navLinks  = document.getElementById('nav-links');
+
+window.addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrollY > 50));
+hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+/* ---- TYPING ---- */
+const roles = [
+  'Junior Developer',
+  'Desarrolladora Web',
+  'status: aprendiendo',
+  'loading experience...'
+];
+let ri = 0, ci = 0, del = false;
+const typingEl = document.getElementById('typing-text');
+
+function type() {
+  const cur = roles[ri];
+  typingEl.textContent = del ? cur.slice(0, --ci) : cur.slice(0, ++ci);
+  if (!del && ci === cur.length) { del = true; setTimeout(type, 2200); return; }
+  if (del && ci === 0)           { del = false; ri = (ri + 1) % roles.length; setTimeout(type, 400); return; }
+  setTimeout(type, del ? 45 : 75);
+}
+type();
+
+/* ---- SKILL BARS ---- */
+const skillObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-fill').forEach(f => { f.style.width = f.dataset.width + '%'; });
+      skillObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.25 });
+const sb = document.getElementById('skills-bars');
+if (sb) skillObs.observe(sb);
+
+const learnObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.learning-fill').forEach(f => { f.style.width = f.dataset.width + '%'; });
+      learnObs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.25 });
+const ln = document.getElementById('learning-now');
+if (ln) learnObs.observe(ln);
+
+/* ---- SQL PLAYGROUND ---- */
+const QUERIES = [
+  `SELECT *\nFROM publicaciones\nORDER BY fecha;`,
+
+  `SELECT descripcion, tipo, visualizaciones, cuentas_alcanzadas\nFROM publicaciones\nORDER BY visualizaciones DESC\nLIMIT 5;`,
+
+  `SELECT descripcion, visualizaciones, cuentas_alcanzadas\nFROM publicaciones\nWHERE tipo = 'Historia'\nORDER BY cuentas_alcanzadas DESC;`,
+
+  `SELECT semana, desde, hasta,\n       visualizaciones_total, cuentas_alcanzadas,\n       visitas_perfil\nFROM semanas\nORDER BY id;`,
+
+  `SELECT p.descripcion, p.tipo,\n       p.visualizaciones, s.semana,\n       s.visitas_perfil\nFROM publicaciones p\nJOIN semanas s ON p.semana_id = s.id\nWHERE p.visualizaciones > 500\nORDER BY p.visualizaciones DESC;`
+];
+
+window.loadQuery = (i) => {
+  document.getElementById('sql-input').value = QUERIES[i];
+  runQuery();
+};
+
+window.loadChip = (btn, i) => {
+  document.querySelectorAll('.sql-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  loadQuery(i);
+};
+
+window.toggleSchema = () => {
+  const c = document.getElementById('schema-content');
+  const arrow = document.getElementById('schema-arrow');
+  c.classList.toggle('open');
+  arrow.textContent = c.classList.contains('open') ? '▴' : '▾';
+};
+
+/* Datos reales @andika.indum · período 20 abr – 19 may 2025 */
+const POSTS = [
+  {id:1,  semana_id:1, fecha:'2025-04-23', tipo:'Carrusel', descripcion:'Cardigan bordo + beige',       visualizaciones:2123, cuentas_alcanzadas:550},
+  {id:2,  semana_id:1, fecha:'2025-04-24', tipo:'Reel',     descripcion:'Look otoño (outfit video)',    visualizaciones:1926, cuentas_alcanzadas:746},
+  {id:3,  semana_id:1, fecha:'2025-04-22', tipo:'Carrusel', descripcion:'Sweater rugby marrón',         visualizaciones:1089, cuentas_alcanzadas:401},
+  {id:4,  semana_id:1, fecha:'2025-04-24', tipo:'Carrusel', descripcion:'Remera leopardo',              visualizaciones:899,  cuentas_alcanzadas:389},
+  {id:5,  semana_id:1, fecha:'2025-04-25', tipo:'Carrusel', descripcion:'Sweater rayado beige',         visualizaciones:872,  cuentas_alcanzadas:375},
+  {id:6,  semana_id:1, fecha:'2025-04-26', tipo:'Carrusel', descripcion:'Look chaleco + camisa',        visualizaciones:868,  cuentas_alcanzadas:415},
+  {id:7,  semana_id:2, fecha:'2025-04-29', tipo:'Historia', descripcion:'Cerrado por Duelo',            visualizaciones:777,  cuentas_alcanzadas:581},
+  {id:8,  semana_id:2, fecha:'2025-04-27', tipo:'Carrusel', descripcion:'Camisa escocesa',              visualizaciones:651,  cuentas_alcanzadas:268},
+  {id:9,  semana_id:2, fecha:'2025-04-30', tipo:'Historia', descripcion:'Abierto 30/04 17-20 hs',      visualizaciones:609,  cuentas_alcanzadas:476},
+  {id:10, semana_id:2, fecha:'2025-04-28', tipo:'Historia', descripcion:'Historia cuello polo rayado',  visualizaciones:573,  cuentas_alcanzadas:310},
+  {id:11, semana_id:1, fecha:'2025-04-21', tipo:'Carrusel', descripcion:'Collar perlas close-up',       visualizaciones:536,  cuentas_alcanzadas:414},
+  {id:12, semana_id:1, fecha:'2025-04-22', tipo:'Carrusel', descripcion:'Sweater azul trenzado',        visualizaciones:507,  cuentas_alcanzadas:375},
+  {id:13, semana_id:1, fecha:'2025-04-25', tipo:'Carrusel', descripcion:'Chaleco + collar Sabina',      visualizaciones:504,  cuentas_alcanzadas:393},
+  {id:14, semana_id:1, fecha:'2025-04-26', tipo:'Carrusel', descripcion:'Sweater rayado + cinturón',    visualizaciones:491,  cuentas_alcanzadas:375},
+  {id:15, semana_id:2, fecha:'2025-04-28', tipo:'Carrusel', descripcion:'Conjunto topo (maniquí)',      visualizaciones:450,  cuentas_alcanzadas:291},
+  {id:16, semana_id:2, fecha:'2025-04-27', tipo:'Historia', descripcion:'Look total @andreacorieta',    visualizaciones:439,  cuentas_alcanzadas:355},
+  {id:17, semana_id:1, fecha:'2025-04-21', tipo:'Carrusel', descripcion:'Cardigan bordo stack',         visualizaciones:427,  cuentas_alcanzadas:302},
+  {id:18, semana_id:1, fecha:'2025-04-23', tipo:'Carrusel', descripcion:'Cardigan crema',               visualizaciones:416,  cuentas_alcanzadas:300},
+  {id:19, semana_id:2, fecha:'2025-05-02', tipo:'Historia', descripcion:'Abierto 02/05 9:30-13 hs',    visualizaciones:380,  cuentas_alcanzadas:273},
+  {id:20, semana_id:2, fecha:'2025-05-01', tipo:'Historia', descripcion:'Nuevos ingresos ft. Tyron',    visualizaciones:350,  cuentas_alcanzadas:277},
+];
+
+/* Totales reales del período: 60.882 views · 2.641 alcanzadas · 594 visitas perfil */
+const SEMANAS = [
+  {id:1, semana:'Semana 1', desde:'2025-04-20', hasta:'2025-04-26', visualizaciones_total:35420, cuentas_alcanzadas:1180, visitas_perfil:285},
+  {id:2, semana:'Semana 2', desde:'2025-04-27', hasta:'2025-05-03', visualizaciones_total:15862, cuentas_alcanzadas:824,  visitas_perfil:178},
+  {id:3, semana:'Semana 3', desde:'2025-05-04', hasta:'2025-05-10', visualizaciones_total:6218,  cuentas_alcanzadas:412,  visitas_perfil:88},
+  {id:4, semana:'Semana 4', desde:'2025-05-11', hasta:'2025-05-19', visualizaciones_total:3382,  cuentas_alcanzadas:225,  visitas_perfil:43},
+];
+
+/* ---- MINI SQL ENGINE — con soporte JOIN (sin dependencias externas) ---- */
+(function() {
+  function norm(sql) { return sql.replace(/\s+/g, ' ').trim().replace(/;$/, '').trim(); }
+
+  function splitComma(str) {
+    const out = []; let depth = 0, start = 0;
+    for (let i = 0; i < str.length; i++) {
+      if (str[i] === '(') depth++;
+      else if (str[i] === ')') depth--;
+      else if (str[i] === ',' && depth === 0) { out.push(str.slice(start, i).trim()); start = i + 1; }
+    }
+    out.push(str.slice(start).trim());
+    return out.filter(Boolean);
+  }
+
+  function parseSel(s) {
+    s = s.trim();
+    const m = s.match(/^(.+?)\s+AS\s+(\w+)$/i);
+    if (m) return { expr: m[1].trim(), alias: m[2] };
+    const autoAlias = /^\w+\.\w+$/.test(s) ? s.split('.').pop() : null;
+    return { expr: s, alias: autoAlias };
+  }
+
+  function scalar(expr, row) {
+    expr = expr.trim();
+    const subM = expr.match(/^SUBSTR(?:ING)?\s*\(\s*([\w.]+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
+    if (subM) { const v = String(scalar(subM[1], row) ?? ''); const s = +subM[2]-1; return v.slice(s, s + +subM[3]); }
+    if (/^'[^']*'$/.test(expr)) return expr.slice(1, -1);
+    if (/^-?\d+(\.\d+)?$/.test(expr)) return parseFloat(expr);
+    if (/^\w+\.\w+$/.test(expr)) {
+      if (expr in row) return row[expr];
+      const col = expr.split('.').pop();
+      if (col in row) return row[col];
+      const k = Object.keys(row).find(k => k.toLowerCase() === expr.toLowerCase());
+      return k !== undefined ? row[k] : null;
+    }
+    if (/^\w+$/.test(expr)) {
+      if (expr in row) return row[expr];
+      const k = Object.keys(row).find(k => k.toLowerCase() === expr.toLowerCase());
+      return k !== undefined ? row[k] : null;
+    }
+    return null;
+  }
+
+  function agg(fn, arg, rows) {
+    fn = fn.toUpperCase();
+    if (fn === 'COUNT') return arg.trim() === '*' ? rows.length : rows.filter(r => scalar(arg, r) != null).length;
+    const vs = rows.map(r => parseFloat(scalar(arg, r))).filter(v => !isNaN(v));
+    if (!vs.length) return null;
+    if (fn === 'SUM') return vs.reduce((a, b) => a + b, 0);
+    if (fn === 'AVG') return vs.reduce((a, b) => a + b, 0) / vs.length;
+    if (fn === 'MAX') return Math.max(...vs);
+    if (fn === 'MIN') return Math.min(...vs);
+  }
+
+  function evalExpr(expr, grpRows, rep) {
+    expr = expr.trim();
+    const roundM = expr.match(/^ROUND\s*\(\s*(.+?)\s*,\s*(\d+)\s*\)$/i);
+    if (roundM) { const v = evalExpr(roundM[1].trim(), grpRows, rep); const f = Math.pow(10, +roundM[2]); return Math.round((v ?? 0) * f) / f; }
+    const aggM = expr.match(/^(SUM|COUNT|AVG|MAX|MIN)\s*\(\s*([\s\S]*?)\s*\)$/i);
+    if (aggM) return agg(aggM[1], aggM[2], grpRows);
+    return scalar(expr, rep);
+  }
+
+  function groupKeyOf(row, gExprs) {
+    return gExprs.map(g => {
+      const subM = g.match(/^SUBSTR(?:ING)?\s*\(\s*(\w+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i);
+      if (subM) { const v = String(row[subM[1]] ?? ''); const s = +subM[2]-1; return v.slice(s, s + +subM[3]); }
+      return scalar(g, row) ?? null;
+    }).join('\x00');
+  }
+
+  function splitLogical(str, kw) {
+    const re = new RegExp('\\b' + kw + '\\b', 'gi');
+    const cuts = []; let m2;
+    while ((m2 = re.exec(str)) !== null) {
+      let d = 0;
+      for (let i = 0; i < m2.index; i++) { if (str[i]==='(') d++; else if (str[i]===')') d--; }
+      if (d === 0) cuts.push({ s: m2.index, e: m2.index + m2[0].length });
+    }
+    if (!cuts.length) return [str];
+    const parts = []; let prev = 0;
+    for (const c of cuts) { parts.push(str.slice(prev, c.s).trim()); prev = c.e; }
+    parts.push(str.slice(prev).trim());
+    return parts.filter(Boolean);
+  }
+
+  function evalWhere(cond, row) {
+    cond = cond.trim();
+    const ors = splitLogical(cond, 'OR');
+    if (ors.length > 1) return ors.some(p => evalWhere(p, row));
+    const ands = splitLogical(cond, 'AND');
+    if (ands.length > 1) return ands.every(p => evalWhere(p, row));
+    const opM = cond.match(/^(.+?)\s*(>=|<=|!=|<>|=|>|<|\bLIKE\b)\s*(.+)$/i);
+    if (!opM) throw new Error('Condición no reconocida: ' + cond);
+    const lv = scalar(opM[1].trim(), row);
+    const op = opM[2].toUpperCase();
+    const rs = opM[3].trim();
+    const rv = /^'[^']*'$/.test(rs) ? rs.slice(1,-1) : /^-?\d+(\.\d+)?$/.test(rs) ? parseFloat(rs) : scalar(rs, row);
+    if (op === '=')  return lv == rv;
+    if (op === '!=' || op === '<>') return lv != rv;
+    if (op === '>')  return lv > rv;
+    if (op === '<')  return lv < rv;
+    if (op === '>=') return lv >= rv;
+    if (op === '<=') return lv <= rv;
+    if (op === 'LIKE') { const pat = '^' + String(rv).replace(/%/g,'.*').replace(/_/g,'.') + '$'; return new RegExp(pat,'i').test(String(lv??'')); }
+    return false;
+  }
+
+  function mergeRows(r1, a1, r2, a2) {
+    const out = {};
+    for (const [k, v] of Object.entries(r1)) { out[a1+'.'+k] = v; if (!(k in out)) out[k] = v; }
+    for (const [k, v] of Object.entries(r2)) { out[a2+'.'+k] = v; if (!(k in out)) out[k] = v; }
+    return out;
+  }
+
+  function buildRow(selItems, grpRows, rep) {
+    const out = {};
+    for (const si of selItems) {
+      if (si.expr === '*') {
+        for (const [k, v] of Object.entries(rep)) { if (!k.includes('.')) out[k] = v; }
+        continue;
+      }
+      out[si.alias || si.expr] = evalExpr(si.expr, grpRows, rep);
+    }
+    return out;
+  }
+
+  function execSQL(sql, tables) {
+    sql = norm(sql);
+    if (!/^SELECT\b/i.test(sql)) throw new Error('Solo se admiten consultas SELECT.');
+    const kwRe = /\b(FROM|WHERE|GROUP\s+BY|ORDER\s+BY|HAVING|LIMIT)\b/gi;
+    const clauses = []; let m;
+    while ((m = kwRe.exec(sql)) !== null)
+      clauses.push({ kw: m[1].replace(/\s+/g,'_').toUpperCase(), pos: m.index, end: m.index + m[0].length });
+
+    function getClause(name) {
+      const idx = clauses.findIndex(c => c.kw === name);
+      if (idx === -1) return null;
+      const next = clauses[idx + 1];
+      return sql.slice(clauses[idx].end, next ? next.pos : sql.length).trim();
+    }
+
+    const fromEntry = clauses.find(c => c.kw === 'FROM');
+    if (!fromEntry) throw new Error('Falta cláusula FROM.');
+    const selectStr = sql.slice(6, fromEntry.pos).trim();
+    const fromStr   = getClause('FROM');
+    const whereStr  = getClause('WHERE');
+    const groupStr  = getClause('GROUP_BY');
+    const orderStr  = getClause('ORDER_BY');
+    const limitStr  = getClause('LIMIT');
+
+    let rows;
+    const joinM = fromStr.match(/^(\w+)(?:\s+(\w+))?\s+(?:(?:INNER|LEFT)\s+)?JOIN\s+(\w+)(?:\s+(\w+))?\s+ON\s+(.+)$/i);
+    if (joinM) {
+      const t1 = joinM[1].toLowerCase(), a1 = (joinM[2]||joinM[1]).toLowerCase();
+      const t2 = joinM[3].toLowerCase(), a2 = (joinM[4]||joinM[3]).toLowerCase();
+      const onCond = joinM[5].trim();
+      if (!tables[t1]) throw new Error(`Tabla "${t1}" no encontrada.`);
+      if (!tables[t2]) throw new Error(`Tabla "${t2}" no encontrada.`);
+      rows = [];
+      for (const r1 of tables[t1])
+        for (const r2 of tables[t2]) {
+          const combined = mergeRows(r1, a1, r2, a2);
+          try { if (evalWhere(onCond, combined)) rows.push(combined); } catch(e) {}
+        }
+    } else {
+      const tbl = fromStr.split(/[\s,]/)[0].toLowerCase();
+      if (!tables[tbl]) throw new Error(`Tabla "${tbl}" no encontrada. Disponibles: ${Object.keys(tables).join(', ')}`);
+      rows = [...tables[tbl]];
+    }
+
+    const selItems = splitComma(selectStr).map(parseSel);
+    const hasAgg = selItems.some(s => /^(ROUND\s*\()?(SUM|COUNT|AVG|MAX|MIN)\s*\(/i.test(s.expr));
+
+    if (whereStr) rows = rows.filter(r => evalWhere(whereStr, r));
+
+    let output;
+    if (groupStr) {
+      const gExprs = splitComma(groupStr).map(g => {
+        const aliasItem = selItems.find(si => si.alias && si.alias.toLowerCase() === g.trim().toLowerCase());
+        return aliasItem ? aliasItem.expr : g.trim();
+      });
+      const map = new Map(), order = [];
+      for (const row of rows) {
+        const k = groupKeyOf(row, gExprs);
+        if (!map.has(k)) { map.set(k, []); order.push(k); }
+        map.get(k).push(row);
+      }
+      output = order.map(k => { const gr = map.get(k); return buildRow(selItems, gr, gr[0]); });
+    } else if (hasAgg) {
+      output = [buildRow(selItems, rows, rows[0] ?? {})];
+    } else {
+      output = rows.map(row => buildRow(selItems, [row], row));
+    }
+
+    if (orderStr) {
+      const orderItems = splitComma(orderStr).map(o => {
+        o = o.trim();
+        const dm = o.match(/^(.+?)\s+(ASC|DESC)$/i);
+        return dm ? { col: dm[1].trim(), dir: dm[2].toUpperCase() } : { col: o, dir: 'ASC' };
+      });
+      output.sort((a, b) => {
+        for (const { col, dir } of orderItems) {
+          const av = a[col] ?? null, bv = b[col] ?? null;
+          let cmp = av === null ? 1 : bv === null ? -1
+            : (typeof av === 'number' && typeof bv === 'number') ? av - bv
+            : String(av).localeCompare(String(bv), 'es');
+          if (cmp !== 0) return dir === 'DESC' ? -cmp : cmp;
+        }
+        return 0;
+      });
+    }
+
+    if (limitStr) output = output.slice(0, parseInt(limitStr));
+    return output;
+  }
+
+  window._sqlExec = sql => execSQL(sql, { publicaciones: window._POSTS, semanas: window._SEMANAS });
+})();
+
+function runQuery() {
+  const q      = document.getElementById('sql-input').value.trim();
+  const status = document.getElementById('result-status');
+  const body   = document.getElementById('result-body');
+  if (!q) return;
+
+  try {
+    const t0  = performance.now();
+    const res = window._sqlExec(q);
+    const ms  = (performance.now() - t0).toFixed(1);
+
+    if (!Array.isArray(res) || res.length === 0) {
+      status.innerHTML = `<span>0 resultados · ${ms}ms</span>`;
+      body.innerHTML   = '<div class="result-msg">La consulta no devolvió filas.</div>';
+      return;
+    }
+
+    const cols = Object.keys(res[0]);
+    status.innerHTML = `<span>${res.length} fila${res.length !== 1 ? 's' : ''} · ${ms}ms</span><span class="result-ok">✓ OK</span>`;
+
+    let html = '<div class="result-body"><table class="result-table"><thead><tr>';
+    cols.forEach(c => { html += `<th>${c}</th>`; });
+    html += '</tr></thead><tbody>';
+    res.slice(0, 100).forEach(row => {
+      html += '<tr>';
+      cols.forEach(c => {
+        const v = row[c];
+        const d = (typeof v === 'number') ? v.toLocaleString('es-AR') : (v ?? '—');
+        html += `<td>${d}</td>`;
+      });
+      html += '</tr>';
+    });
+    if (res.length > 100) html += `<tr><td colspan="${cols.length}" style="text-align:center;color:var(--dim);padding:10px">... y ${res.length-100} filas más</td></tr>`;
+    html += '</tbody></table></div>';
+
+    body.innerHTML = html;
+    body.style.opacity = '0';
+    requestAnimationFrame(() => { body.style.transition = 'opacity .25s'; body.style.opacity = '1'; });
+
+  } catch(err) {
+    status.innerHTML = `<span>Error</span><span class="result-err">✗</span>`;
+    body.innerHTML   = `<div class="result-err-msg">⚠ ${err.message}</div>`;
+  }
+}
+
+document.getElementById('btn-run').addEventListener('click', runQuery);
+document.getElementById('sql-input').addEventListener('keydown', e => {
+  if (e.ctrlKey && e.key === 'Enter') { e.preventDefault(); runQuery(); }
+});
+
+window.addEventListener('load', () => {
+  window._POSTS   = POSTS;
+  window._SEMANAS = SEMANAS;
+  setTimeout(runQuery, 100);
+});
+
+/* ---- CHARTS ---- */
+window.addEventListener('load', () => {
+  if (typeof Chart === 'undefined') return;
+
+  Chart.defaults.color = '#4a6b6b';
+
+  /* Views por tipo de contenido */
+  new Chart(document.getElementById('chart-cat').getContext('2d'), {
+    type: 'bar',
+    data: {
+      labels: ['Carrusel', 'Historia', 'Reel'],
+      datasets: [{
+        label: 'Visualizaciones',
+        data: [9833, 3128, 1926],
+        backgroundColor: ['rgba(15,113,115,.80)','rgba(42,157,143,.75)','rgba(91,191,186,.70)'],
+        borderColor:     ['rgba(15,113,115,1)',  'rgba(42,157,143,1)',  'rgba(91,191,186,1)'],
+        borderWidth: 1, borderRadius: 6,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ' ' + ctx.raw.toLocaleString('es-AR') + ' views' } }
+      },
+      scales: {
+        x: { grid: { color:'rgba(15,113,115,.07)' } },
+        y: { grid: { color:'rgba(15,113,115,.07)' }, ticks: { callback: v => (v/1000).toFixed(0) + 'k' } }
+      }
+    }
+  });
+
+  /* Visualizaciones semanales */
+  new Chart(document.getElementById('chart-month').getContext('2d'), {
+    type: 'line',
+    data: {
+      labels: ['S1 · 20-26 abr', 'S2 · 27 abr-3 may', 'S3 · 4-10 may', 'S4 · 11-19 may'],
+      datasets: [{
+        label: 'Visualizaciones',
+        data: [35420, 15862, 6218, 3382],
+        borderColor: '#0f7173',
+        backgroundColor: 'rgba(15,113,115,.08)',
+        tension: 0.4, fill: true,
+        pointBackgroundColor: '#0f7173', pointRadius: 5,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => ' ' + ctx.raw.toLocaleString('es-AR') + ' views' } }
+      },
+      scales: {
+        x: { grid: { color:'rgba(15,113,115,.07)' } },
+        y: { grid: { color:'rgba(15,113,115,.07)' }, ticks: { callback: v => (v/1000).toFixed(0) + 'k' } }
+      }
+    }
+  });
+});
+
+/* ---- JS DEMO ---- */
+(function() {
+  const SKILLS = [
+    { id:1,  nombre:'HTML / CSS',    categoria:'frontend',     nivel:80 },
+    { id:2,  nombre:'JavaScript',    categoria:'frontend',     nivel:65 },
+    { id:3,  nombre:'Java (POO)',     categoria:'backend',      nivel:65 },
+    { id:4,  nombre:'SQL / MySQL',   categoria:'bases-datos',  nivel:72 },
+    { id:5,  nombre:'MongoDB',       categoria:'bases-datos',  nivel:55 },
+    { id:6,  nombre:'Git',           categoria:'herramientas', nivel:70 },
+    { id:7,  nombre:'GitHub',        categoria:'herramientas', nivel:70 },
+    { id:8,  nombre:'VS Code',       categoria:'herramientas', nivel:75 },
+    { id:9,  nombre:'Python',        categoria:'aprendiendo',  nivel:28 },
+    { id:10, nombre:'React',         categoria:'aprendiendo',  nivel:18 },
+    { id:11, nombre:'SQL avanzado',  categoria:'aprendiendo',  nivel:35 },
+    { id:12, nombre:'Spring Boot',   categoria:'aprendiendo',  nivel:12 },
+  ];
+
+  let activeCat = 'todos', searchTerm = '';
+
+  function render() {
+    const grid  = document.getElementById('js-grid');
+    const count = document.getElementById('js-count');
+    if (!grid) return;
+    const filtered = SKILLS.filter(s =>
+      (activeCat === 'todos' || s.categoria === activeCat) &&
+      s.nombre.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    const label = activeCat === 'aprendiendo' ? 'tecnología' : 'tecnología';
+    count.textContent = filtered.length === 1 ? `1 ${label}` : `${filtered.length} tecnologías`;
+    grid.innerHTML = filtered.length
+      ? filtered.map(s => `
+          <div class="js-card${s.categoria === 'aprendiendo' ? ' learning' : ''}">
+            <span class="js-cat">${s.categoria === 'bases-datos' ? 'bases de datos' : s.categoria}</span>
+            <div class="js-name">${s.nombre}</div>
+            <div class="js-level-bar"><div class="js-level-fill" style="width:${s.nivel}%"></div></div>
+            <div class="js-nivel">${s.nivel}%</div>
+          </div>`).join('')
+      : '<div class="js-empty">// sin resultados</div>';
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    render();
+    document.getElementById('js-search').addEventListener('input', e => { searchTerm = e.target.value; render(); });
+    document.querySelectorAll('.js-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.js-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeCat = btn.dataset.cat;
+        render();
+      });
+    });
+  });
+})();
+
+/* ---- SCROLL REVEAL ---- */
+(function() {
+  const selectors = [
+    '.section-title', '.about-text p', '.about-card',
+    '.project-card', '.chart-card', '.contact-link',
+    '.sql-ex', '.sql-intro', '.hero-stats'
+  ];
+  const els = [];
+  selectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach((el, i) => {
+      el.classList.add('reveal');
+      const siblings = el.parentElement.querySelectorAll(':scope > ' + sel.split(' ').pop());
+      const idx = Array.from(siblings).indexOf(el);
+      if (idx > 0 && idx <= 4) el.classList.add('reveal-d' + idx);
+      els.push(el);
+    });
+  });
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  els.forEach(el => obs.observe(el));
+})();
+
+/* ---- COUNTER ANIMATION ---- */
+(function() {
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target, target = +el.dataset.target;
+      let start = null;
+      (function step(ts) {
+        if (!start) start = ts;
+        const p = Math.min((ts - start) / 1200, 1);
+        el.textContent = Math.floor(p * target);
+        if (p < 1) requestAnimationFrame(step); else el.textContent = target;
+      })(performance.now());
+      obs.unobserve(el);
+    });
+  }, { threshold: 1 });
+  document.querySelectorAll('.count-up').forEach(el => obs.observe(el));
+})();
+
+/* ---- TERMINAL ANIMATION ---- */
+(function() {
+  const lines = document.querySelectorAll('#terminal-body .t-line');
+  const delays = [200, 600, 900, 1100, 1500, 1800, 2000, 2400, 2700, 3000, 3200, 3600, 3900];
+  lines.forEach((line, i) => setTimeout(() => line.classList.add('t-on'), delays[i] ?? i * 280));
+})();
+</script>
+</body>
+</html>
