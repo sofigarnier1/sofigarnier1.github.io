@@ -93,13 +93,13 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 
 ## Habilidades
 
-- **Lenguajes:** JavaScript · TypeScript · Java (POO) · SQL · HTML · CSS
+- **Lenguajes:** JavaScript · TypeScript · Python · Java (POO) · SQL · HTML · CSS
 - **Frontend y frameworks:** Next.js · React · Tailwind CSS · Framer Motion · Electron
 - **Diseño:** diseño de interfaces · Canva · CapCut · identidad visual
 - **Datos:** SQLite · MySQL · diseño relacional
 - **Herramientas:** Git · GitHub · Azure DevOps · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven · npm
 - **Calidad y entrega:** pruebas automáticas · instaladores y actualizaciones
 - **Ventas y marketing:** Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · IA generativa
-- **Aprendiendo:** Python · Spring Boot · inglés
+- **Aprendiendo:** Spring Boot · inglés
 
 **Idiomas:** Inglés básico (aprendiendo)
