@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<base target="_blank">
+<title>Sofía Garnier — CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --bg:#faf8f5; --teal:#7a2e6e; --mostaza:#d9a21b; --malva:#f3e8f0; --text:#1b1b1b; --muted:#555; --dim:#8a8378; --line:#e6dde3; }
+html, body { background: var(--bg); }
+body { width: 210mm; font-family: 'Inter', sans-serif; color: var(--text); font-size: 8.8pt; line-height: 1.52; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+.top { display: grid; grid-template-columns: 1fr 33mm; gap: 6mm; align-items: end; }
+.photo { width: 33mm; height: 44mm; background: var(--malva); border-radius: 17mm 17mm 0 0; overflow: hidden; align-self: end; position: relative; margin-top: 2mm; }
+.photo::before { content: ''; position: absolute; inset: 2.2mm 2.2mm 0; border: .35mm solid var(--mostaza); border-bottom: 0; border-radius: 15mm 15mm 0 0; }
+.photo img { position: absolute; left: 6%; bottom: 0; width: 88%; display: block; }
+.mono { font-family: 'JetBrains Mono', monospace; }
+.kicker { font-family:'JetBrains Mono',monospace; font-size: 7pt; letter-spacing: .22em; color: var(--teal); text-transform: uppercase; }
+h1 { font-family: 'Inter', sans-serif; font-weight: 800; font-size: 31pt; line-height: 1.05; letter-spacing: -.035em; margin: 2.5mm 0 2mm; color: var(--text); }
+h1 .n1 { color: var(--teal); }
+h1 em { font-style: normal; }
+.role { font-family: 'JetBrains Mono', monospace; color: var(--teal); font-size: 10.5pt; font-weight: 700; }
+.contact { display: grid; grid-template-columns: 1fr 1fr; gap: 1mm 8mm; margin: 3mm 0 2mm; padding-bottom: 3mm; border-bottom: 1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size: 7.6pt; }
+.contact b { color: var(--teal); font-weight: 500; display:inline-block; width: 7mm; }
+.row { display: grid; grid-template-columns: 30mm 1fr; gap: 0 5mm; padding: 2.8mm 0; }
+.row + .row { border-top: 0; }
+.label { font-family:'JetBrains Mono',monospace; font-size: 7.2pt; letter-spacing: .16em; color: var(--dim); }
+.label b { color: var(--teal); font-weight: 500; margin-left: 2mm; }
+.item { margin-bottom: 3.4mm; }
+.item:last-child { margin-bottom: 0; }
+.head { display: flex; justify-content: space-between; align-items: baseline; gap: 4mm; }
+.head h3 { font-size: 10.2pt; font-weight: 700; }
+.head .meta { font-family:'JetBrains Mono',monospace; font-size: 7pt; color: var(--dim); white-space: nowrap; }
+.sub { color: var(--teal); font-size: 8.8pt; margin: .6mm 0 1.4mm; }
+p { color: var(--muted); }
+ul { list-style: none; margin-top: 1.2mm; }
+li { color: var(--muted); padding-left: 3.4mm; position: relative; margin-bottom: 1mm; }
+li::before { content: '–'; color: var(--teal); position: absolute; left: 0; font-weight: 700; }
+.main-badge { display:inline-block; font-family:'JetBrains Mono',monospace; font-size: 6.4pt; letter-spacing: .08em; background: var(--teal); color:#fff; padding: .4mm 2mm; border-radius: 3mm; margin-left: 2mm; vertical-align: middle; text-transform: uppercase; }
+.note { font-size: 7.9pt; color: var(--dim); font-style: italic; margin-top: 1mm; }
+.skills { display: grid; grid-template-columns: 33mm 1fr; row-gap: 1.7mm; }
+.skills .k { font-family:'JetBrains Mono',monospace; font-size: 6.9pt; letter-spacing:.1em; color: var(--text); text-transform: uppercase; padding-top: .4mm; }
+.skills .v { color: var(--muted); }
+.skills .v b { color: var(--teal); font-weight: 500; }
+.two { display: grid; grid-template-columns: 1fr 47mm; gap: 6mm; }
+a { color: inherit; text-decoration: none; }
+.foot { background: var(--bg); position: absolute; left: 15mm; right: 15mm; bottom: 7mm; border-top: 1px solid var(--line); padding-top: 2mm; display:flex; justify-content: space-between; font-family:'JetBrains Mono',monospace; font-size: 6.4pt; letter-spacing:.14em; color: var(--dim); text-transform: uppercase; }
+.page { width: 210mm; height: 297mm; padding: 11mm 15mm 10mm; position: relative; overflow: hidden; break-after: page; }
+.page:last-child { break-after: auto; }
+.page2-top { height: 2mm; }
+</style>
+</head>
+<body>
+<div class="page">
+
+<div class="top">
+<div>
+<div class="kicker">Currículum Vitae</div>
+<h1><span class="n1">Sofía</span> <em>Garnier</em></h1>
+<div class="role">&gt; Desarrolladora Junior</div>
+
+<div class="contact" style="margin-bottom:0;border-bottom:0;padding-bottom:0">
+  <div><b>@</b><a href="mailto:sofigarnier1@gmail.com">sofigarnier1@gmail.com</a></div>
+  <div><b>in</b><a href="https://www.linkedin.com/in/sofia-garnier">linkedin.com/in/sofia-garnier</a></div>
+  <div><b>tel</b><a href="https://wa.me/5493442563953">+54 9 3442 56 39 53</a></div>
+  <div><b>gh</b><a href="https://github.com/sofigarnier1">github.com/sofigarnier1</a></div>
+  <div><b>web</b><a href="https://sofia-garnier.vercel.app">sofia-garnier.vercel.app</a></div>
+</div>
+</div>
+<div class="photo"><img src="foto-sofi-recorte.png" alt=""></div>
+</div>
+<div style="border-bottom:1px solid var(--line);margin:0 0 2mm"></div>
+
+<div class="row">
+  <div class="label">01<b>PERFIL</b></div>
+  <p>Técnica Universitaria en Programación (UTN, egresada en julio de 2026). Me gusta ayudar a que el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo. Armé un sistema de gestión completo para un comercio, el cual usan todos los días, y soy cofundadora de FS Labs, donde hago el diseño y el frontend de sitios para clientes. Vengo de ventas remotas, atención al cliente y community management. Busco mi primer trabajo en IT.</p>
+</div>
+
+<div class="row">
+  <div class="label">02<b>PROYECTOS</b></div>
+  <div>
+    <div class="item">
+      <div class="head"><h3>FRESKA Gestión<span class="main-badge">En uso real</span></h3><span class="meta">Electron · JavaScript · SQLite</span></div>
+      <div class="sub">Proyecto propio · app de escritorio para un comercio</div>
+      <p>Instalada y en uso todos los días en un comercio (Windows 10). Reemplazó el cuaderno y el Excel con los que llevaba todo el negocio: pedidos, facturación, cobros y cuenta corriente, notas de crédito, cheques, gastos, caja, proveedores, stock y estadísticas. La desarrollé iterando con el dueño, el usuario real.</p>
+      <ul>
+        <li>Diseño de la interfaz y de las pantallas, ajustado con el uso diario del dueño.</li>
+        <li>Base de datos local (SQLite) separada del programa; flujo Pedido → Factura → Cobro con cuenta corriente y cierre de caja.</li>
+        <li>Autenticación propia (scrypt, bloqueo por intentos, roles y permisos) y seguridad de la interfaz (CSP, aislamiento de contexto, escape de datos).</li>
+        <li>Tests automáticos para dinero y stock; instalador, actualizaciones automáticas y copias de seguridad con restauración validada.</li>
+      </ul>
+      <div class="note">Instalador para Windows. Código: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
+    </div>
+
+    <div class="item">
+      <div class="head"><h3>FS Labs · Alinea Desarrollos<span class="main-badge">Cliente real</span></h3><span class="meta">Next.js · TypeScript · Tailwind</span></div>
+      <div class="sub">Cofundadora · agencia de automatización, IA y software a medida · <a href="https://fslabs.com.ar">fslabs.com.ar</a></div>
+      <ul>
+        <li>Diseño, frontend y textos del sitio de FS Labs (Next.js, TypeScript, Tailwind, Framer Motion), en español e inglés.</li>
+        <li>Frontend de la web institucional y del portal del inversor de Alinea Desarrollos (constructora), entregados y en producción: <a href="https://alineadesarrollos.com.ar">alineadesarrollos.com.ar</a>. El CRM y los flujos de automatización los desarrolló mi socio.</li>
+      </ul>
+      <div class="note">Trabajo en equipo de dos personas; repositorio en Azure DevOps.</div>
+    </div>
+
+    <div class="item">
+      <div class="head"><h3>Proyectos académicos</h3><span class="meta">React · Java · SQL</span></div>
+      <p><b style="color:var(--text);font-weight:600">Sabina Accesorios</b> (e-commerce grupal, React/Node/MongoDB): mi parte fue el frontend y las decisiones visuales. <span class="note"><a href="https://github.com/lucasperinotto/ecommerce-university-project">github.com/lucasperinotto/ecommerce-university-project</a></span> <b style="color:var(--text);font-weight:600">WMS</b> (Java, base relacional): movimientos y trazabilidad. <b style="color:var(--text);font-weight:600">Northwind</b>: consultas SQL.</p>
+    </div>
+  </div>
+</div>
+
+<div class="foot"><span>Sofía Garnier · Desarrolladora Junior</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
+</div>
+<div class="page">
+<div class="row" style="padding-top:0">
+  <div class="label">03<b>EXPERIENCIA</b></div>
+  <div>
+    <div class="item">
+      <div class="head"><h3>Cofundadora y desarrolladora frontend · FS Labs</h3><span class="meta">2026 — Actualidad</span></div>
+      <div class="sub">Agencia de automatización, IA y software a medida · <a href="https://fslabs.com.ar">fslabs.com.ar</a></div>
+      <p>Diseño, frontend y textos del sitio (Next.js, TypeScript, Tailwind CSS, Framer Motion), en español e inglés. Frontend de la web institucional y del portal del inversor de Alinea Desarrollos, en producción. El CRM y los flujos de automatización los desarrolla mi socio.</p>
+    </div>
+    <div class="item">
+      <div class="head"><h3>Community Manager y Creadora de Contenido</h3><span class="meta">2022 — Actualidad</span></div>
+      <div class="sub">Freelance · híbrido</div>
+      <p>Para locales de indumentaria, un consultorio y un negocio de piletas: estrategia y calendario, foto y video, edición (Canva, CapCut), publicación en Meta Business Suite y campañas en Meta Ads, respuesta a mensajes y análisis de métricas. IA para ideas y textos (Claude) y para imágenes y video (Gemini, ChatGPT).</p>
+    </div>
+    <div class="item">
+      <div class="head"><h3>Atención al Cliente</h3><span class="meta">2023 — 2026</span></div>
+      <div class="sub">Local de ropa masculina · atención y asesoramiento, cobros, caja, reposición, cambios y devoluciones</div>
+    </div>
+    <div class="item">
+      <div class="head"><h3>Ventas B2B y Customer Success · remoto</h3><span class="meta">2023 — 2024</span></div>
+      <ul style="margin-top:.6mm">
+        <li><b style="color:var(--text);font-weight:600">Especialista en ventas (appointment setter)</b> — InnovaTech Solutions, agencias de turismo (may 2023 – dic 2024).</li>
+        <li><b style="color:var(--text);font-weight:600">Appointment setter</b> — ENBI Consulting, empresas de software, media jornada (feb – ago 2024): agenda de reuniones para el equipo comercial; hasta 25 reuniones agendadas en una semana.</li>
+        <li><b style="color:var(--text);font-weight:600">Customer Success Manager</b> — contrato temporal, servicio online (abr – jul 2024): consultas por WhatsApp, problemas de acceso y derivación de casos.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <div class="head"><h3>Toco Madera</h3><span class="meta">2021 — 2023</span></div>
+      <div class="sub">Cofundadora · emprendimiento propio de venta online de productos de home office y fundas de madera personalizadas</div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="label">04<b>HABILIDADES</b></div>
+  <div class="skills">
+    <div class="k">Lenguajes</div><div class="v">JavaScript · TypeScript · Java (POO) · SQL · HTML · CSS</div>
+    <div class="k">Frontend</div><div class="v">Next.js · React · Tailwind CSS · Framer Motion · Electron</div>
+    <div class="k">Diseño</div><div class="v">Diseño de interfaces · Canva · CapCut · identidad visual</div>
+    <div class="k">Datos</div><div class="v">SQLite · MySQL · diseño relacional</div>
+    <div class="k">Herramientas</div><div class="v">Git · GitHub · Azure DevOps · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven</div>
+    <div class="k">Calidad</div><div class="v">Pruebas automáticas · instaladores y actualizaciones · npm</div>
+    <div class="k">Ventas y marketing</div><div class="v">Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · IA generativa</div>
+    <div class="k">Aprendiendo</div><div class="v">Python · Spring Boot · inglés</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="label">05<b>FORMACIÓN</b></div>
+  <div class="two">
+    <div>
+      <div class="head"><h3>Tecnicatura Universitaria en Programación</h3></div>
+      <div class="sub">UTN · Facultad Regional Concepción del Uruguay</div>
+      <p class="mono" style="font-size:7pt;color:var(--dim)">2024 — Jul 2026 · Egresada el 28/07/2026</p>
+    </div>
+    <div>
+      <div class="head"><h3>Idiomas</h3></div>
+      <p><b style="color:var(--text);font-weight:600">Inglés</b> — básico (aprendiendo)</p>
+    </div>
+  </div>
+  <div style="grid-column:2">
+    <ul style="margin-top:1.4mm">
+      <li><b style="color:var(--text);font-weight:600">Inglés para Programadores</b> — UTN, 16 h (feb – mar 2025)</li>
+      <li><b style="color:var(--text);font-weight:600">Marketing digital: Digital Ad Certificate</b> — Digital Ad Expert by Aleph (nov 2023)</li>
+      <li><b style="color:var(--text);font-weight:600">Comunicación efectiva con inteligencia emocional</b> — Academia Comunica (sept 2026)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="foot"><span>Sofía Garnier · Desarrolladora Junior</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
+</div>
+</body>
+</html>

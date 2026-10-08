@@ -1,0 +1,23 @@
+# Lista blanca: se ignora todo salvo lo que va a la web pública.
+# Si algo nuevo tiene que publicarse, agregarlo acá a propósito.
+*
+!.gitignore
+!index.html
+!README.md
+!CV.md
+!CV-Sofia-Garnier.pdf
+!capturas/
+!capturas/*.jpg
+!ilustracion/
+!ilustracion/entrada.mp4
+!ilustracion/sofi.png
+!demo/
+!demo/freska-demo.mp4
+!demo/freska-demo-poster.jpg
+!logos/
+!logos/capcut.png
+!ilustracion/idle.mp4
+!ilustracion/notebook-poster.png
+!foto-sofi-recorte.png
+!og-image.png
+!cv-es.html
