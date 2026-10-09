@@ -11,23 +11,23 @@ Técnica Universitaria en Programación (UTN)
 
 ## Sobre mí
 
-Técnica Universitaria en Programación (UTN, egresada en julio de 2026). Me gusta ayudar a que el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo. Armé un sistema de gestión completo para un comercio, el cual usan todos los días, y soy cofundadora de FS Labs, donde hago el diseño y el frontend de sitios para clientes. Vengo de ventas remotas, atención al cliente y community management. Busco mi primer trabajo en IT.
+Técnica Universitaria en Programación (UTN, egresada en julio de 2026). Me gusta ayudar a que el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo. Armé un sistema de gestión completo que un comercio usa todos los días y que, según el dueño, le ahorra un 25 % del tiempo, y soy cofundadora de FS Labs, donde hago el diseño y el frontend de sitios para clientes. Vengo de ventas remotas, atención al cliente y community management. Busco mi primer trabajo en IT.
 
 ---
 
 ## Proyectos
 
 ### FRESKA Gestión
-**Electron · JavaScript · SQLite** · _Proyecto propio, en uso real_
+**Electron · Node.js · JavaScript · SQLite** · _Proyecto propio, en uso real_
 
-Aplicación de escritorio que diseñé y desarrollé para un comercio. Reemplaza el cuaderno, la calculadora y el Excel con los que llevaba todo el negocio. Instalada y en uso todos los días (Windows 10). Incluye pedidos, facturación, cobros y cuenta corriente, notas de crédito, cheques, gastos, caja y cierre de caja, proveedores y compras, productos y stock, comisiones y estadísticas.
+Aplicación de escritorio que diseñé y desarrollé para un comercio. Reemplaza el cuaderno, la calculadora y el Excel con los que llevaba todo el negocio. Instalada y en uso todos los días (Windows 10). Incluye pedidos, facturación, cobros y cuenta corriente, notas de crédito, cheques, gastos, caja y cierre de caja, proveedores y compras, productos y stock, comisiones y estadísticas. Según el dueño, ahorra un 25 % del tiempo en pedidos, facturación y cierre de caja.
 
-- Diseño de la interfaz y de las pantallas, ajustado con el uso diario del dueño, que es el usuario real
-- Migré el negocio de papel y Excel a una base de datos local (SQLite); los datos viven separados del programa, así que actualizar no los toca
+- Diseño de la interfaz y de más de 15 pantallas, ajustado con el uso diario del dueño, que es el usuario real
+- Migré el negocio de papel y Excel a una base de datos relacional de 47 tablas (SQLite); los datos viven separados del programa, así que actualizar no los toca
 - Diseñé el flujo Pedido → Factura → Cobro, con cuenta corriente, notas de crédito y cierre de caja
 - Autenticación propia: contraseñas con scrypt, bloqueo por intentos y por inactividad, roles (administrador y empleado) y permisos controlados en un solo punto
 - Seguridad de la interfaz: aislamiento de contexto, CSP sin scripts en línea, escape de datos y lista blanca de enlaces externos
-- Tests automáticos para dinero y stock, con pruebas de operaciones al azar
+- 172 pruebas automáticas para dinero y stock, incluidas pruebas con operaciones al azar, que corren sobre una base temporal sin tocar datos reales
 - Instalador y actualizaciones automáticas para Windows, y copias de seguridad con restauración validada
 
 _Instalador para Windows. Código: [github.com/sofigarnier1/freska-gestion](https://github.com/sofigarnier1/freska-gestion)_
@@ -42,10 +42,10 @@ FS Labs es una agencia de automatización, IA y software a medida para empresas.
 - Trabajo en equipo de dos personas; repositorio en Azure DevOps.
 
 ### Sabina Accesorios
-**React · Node.js · MongoDB** · _Proyecto grupal · UTN Programación IV_  
+**React · Node.js · Express · MongoDB** · _Proyecto grupal · UTN Programación IV_  
 [github.com/lucasperinotto/ecommerce-university-project](https://github.com/lucasperinotto/ecommerce-university-project)
 
-E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz en React y las decisiones visuales (paleta de colores, diseño de pantallas).
+E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz en React y las decisiones visuales (paleta de colores, diseño de pantallas). Además hice una ruta de la API REST con Express.
 
 ### Proyectos académicos
 - **Sistema de Gestión de Almacenes (WMS)** — Java · SQL: movimientos y trazabilidad por usuario sobre base de datos relacional.
@@ -94,12 +94,13 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 ## Habilidades
 
 - **Lenguajes:** JavaScript · TypeScript · Python · Java (POO) · SQL · HTML · CSS
-- **Frontend y frameworks:** Next.js · React · Tailwind CSS · Framer Motion · Electron
-- **Diseño:** diseño de interfaces · Canva · CapCut · identidad visual
-- **Datos:** SQLite · MySQL · diseño relacional
+- **Frontend:** Next.js · React · Tailwind CSS · Framer Motion · diseño responsive
+- **Backend:** Node.js · Express · API REST · Electron
+- **Diseño:** Figma · diseño de interfaces · Canva · CapCut · identidad visual
+- **Datos:** SQLite · MySQL · MongoDB · diseño relacional
 - **Herramientas:** Git · GitHub · Azure DevOps · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven · npm
 - **Calidad y entrega:** pruebas automáticas · instaladores y actualizaciones
 - **Ventas y marketing:** Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · IA generativa
 - **Aprendiendo:** Spring Boot · inglés
 
-**Idiomas:** Inglés básico (aprendiendo)
+**Idiomas:** Español nativo · Inglés básico (aprendiendo)
