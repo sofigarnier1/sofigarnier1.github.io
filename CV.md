@@ -83,7 +83,7 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 
 ## Educación y cursos
 
-**Tecnicatura Universitaria en Programación** — UTN, Facultad Regional Concepción del Uruguay (2024 – jul 2026)
+**Tecnicatura Universitaria en Programación** — UTN, Facultad Regional Concepción del Uruguay (2024 – jul 2026) · Promedio 8,67
 
 - Inglés para Programadores — UTN, 16 h (feb – mar 2025)
 - Marketing digital: Digital Ad Certificate — Digital Ad Expert by Aleph (nov 2023)
