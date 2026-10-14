@@ -565,22 +565,32 @@ footer p a { display: inline-block; padding: 12px 4px; }
   .flow-step { position: relative; }
   .flow-step:not(.last)::after { content: '→'; position: absolute; right: -21px; top: 50%; transform: translateY(-50%); color: var(--accent); font-weight: 900; }
 }
-  </style>
+  
+/* ---- Selector de idioma ---- */
+.nav-status { margin-right: auto; }
+.lang-toggle { display: inline-flex; align-items: center; gap: 6px; margin-left: 24px; min-height: 36px; padding: 0 12px; background: none; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font: inherit; font-size: .8rem; font-weight: 600; letter-spacing: .04em; cursor: pointer; transition: border-color var(--t), color var(--t); }
+.lang-toggle:hover { border-color: var(--primary); color: var(--text); }
+.lang-toggle i { font-style: normal; opacity: .4; }
+.lang-toggle span { opacity: .55; }
+html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l="en"] { opacity: 1; color: var(--primary); }
+@media (max-width: 820px) { .lang-toggle { margin-left: 0; margin-right: 6px; } }
+</style>
 <link rel="preload" as="image" href="ilustracion/notebook-poster.png">
 </head>
 <body>
-<a href="#main" class="sr-only skip">Saltar al contenido</a>
+<a href="#main" class="sr-only skip" data-en="Skip to content">Saltar al contenido</a>
 
 <!-- ===== NAV ===== -->
 <nav id="nav">
   <div class="nav-inner container">
-    <a href="#" class="nav-status" aria-label="Volver al inicio">Disponible · full-time</a>
+    <a href="#" class="nav-status" aria-label="Volver al inicio" data-en="Available · full-time">Disponible · full-time</a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="#sobre-mi">Sobre mí</a></li>
-      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#sobre-mi" data-en="About me">Sobre mí</a></li>
+      <li><a href="#proyectos" data-en="Projects">Proyectos</a></li>
       <li><a href="#stack">Stack</a></li>
-      <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+      <li><a href="#contacto" class="btn-nav" data-en="Contact">Contacto</a></li>
     </ul>
+    <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Cambiar idioma / Change language"><span data-l="es">ES</span><i>|</i><span data-l="en">EN</span></button>
     <button class="hamburger" id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">☰</button>
   </div>
 </nav>
@@ -596,21 +606,21 @@ footer p a { display: inline-block; padding: 12px 4px; }
           <span class="gradient-text">Sofía</span><br>Garnier
         </h1>
         <div class="hero-role">
-          <span>&gt;&nbsp;Desarrolladora Junior</span>
+          <span data-en="&amp;gt;&amp;nbsp;Junior Developer">&gt;&nbsp;Desarrolladora Junior</span>
           
         </div>
-        <p class="hero-desc">
+        <p class="hero-desc" data-en="Programming Technician (UTN). I built a complete management system for a store, which they use every day. I am looking for my first job in IT.">
           Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio,
           el cual usan todos los días. Busco mi primer trabajo en IT.
         </p>
         <div class="hero-actions">
-          <button type="button" class="btn-primary js-demo" aria-haspopup="dialog">▶ Ver demo</button>
-          <button type="button" class="btn-secondary js-cv" aria-haspopup="dialog">Ver CV</button>
+          <button type="button" class="btn-primary js-demo" aria-haspopup="dialog" data-en="▶ Watch demo">▶ Ver demo</button>
+          <button type="button" class="btn-secondary js-cv" aria-haspopup="dialog" data-en="View CV">Ver CV</button>
         </div>
         <div class="hero-stats">
-          <div class="hero-stat"><strong>Sistema de gestión</strong> en uso real</div>
-          <div class="hero-stat"><strong>Community manager</strong> freelance desde 2022</div>
-          <div class="hero-stat"><strong>Egresada</strong> jul 2026</div>
+          <div class="hero-stat" data-en="&lt;strong&gt;Management system&lt;/strong&gt; in real use"><strong>Sistema de gestión</strong> en uso real</div>
+          <div class="hero-stat" data-en="&lt;strong&gt;Freelance community manager&lt;/strong&gt; since 2022"><strong>Community manager</strong> freelance desde 2022</div>
+          <div class="hero-stat" data-en="&lt;strong&gt;Graduated&lt;/strong&gt; Jul 2026"><strong>Egresada</strong> jul 2026</div>
         </div>
       </div>
       <div class="hero-right">
@@ -633,7 +643,7 @@ footer p a { display: inline-block; padding: 12px 4px; }
 <span class="k">const</span> nombre = <span class="s">"Sofía"</span>;
 
 <span class="k">function</span> <span class="f">saludar</span>() {
-  console.<span class="f">log</span>(<span class="s">`¡Hola! Soy ${nombre}`</span>);
+  console.<span class="f">log</span>(<span class="s" data-en="`Hi! I am ${nombre}`">`¡Hola! Soy ${nombre}`</span>);
 }
 
 <span class="f">saludar</span>();<span class="caret"></span></pre>
@@ -641,7 +651,7 @@ footer p a { display: inline-block; padding: 12px 4px; }
             <button class="replay" id="replay" type="button" aria-label="Repetir la animación" title="Repetir">
               <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.6-5.9"/><path d="M20 4v5h-5"/></svg>
             </button>
-            <div class="hint" id="hint" aria-hidden="true">Minimizá, hay alguien esperando 👀</div>
+            <div class="hint" id="hint" aria-hidden="true" data-en="Minimize it, someone is waiting 👀">Minimizá, hay alguien esperando 👀</div>
           </div>
         </div>
       </div>
@@ -655,18 +665,18 @@ footer p a { display: inline-block; padding: 12px 4px; }
     <div class="about-grid">
       <div class="about-foto"><img src="foto-sofi-recorte.png" alt="Sofía Garnier" width="720" height="1003" loading="lazy" decoding="async"></div>
       <div class="about-text">
-        <h2 class="section-title">Sobre mí</h2>
-        <p>
+        <h2 class="section-title" data-en="About me">Sobre mí</h2>
+        <p data-en="In July 2026 I graduated as a Programming Technician at UTN. I like making people&#x27;s daily work more practical, and programming is how I do it.">
           En julio de 2026 me recibí de Técnica en Programación en la UTN. Me gusta ayudar a que
           el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo.
         </p>
-        <p>
+        <p data-en="I do not have formal experience at a company yet, but I built a complete management system: I moved a business from a notebook and an Excel spreadsheet to an application that is used every day. With that project I learned how a business works, and how to test, install and improve a system that is really used.">
           Todavía no tengo experiencia formal en una empresa, pero armé un sistema de gestión completo:
           pasé un negocio de cuaderno y planilla de Excel a una aplicación que se usa todos los días.
           Con ese proyecto aprendí a entender cómo funciona un negocio, y a probar, instalar y mejorar
           un sistema que se usa de verdad.
         </p>
-        <p>
+        <p data-en="Since 2022 I have worked as a freelance community manager. I also had sales and customer service jobs, which taught me how to deal with people and how to work on my own.">
           Desde 2022 trabajo como community manager freelance. También tuve trabajos de ventas y atención
           al cliente, que me enseñaron a tratar con gente y a trabajar sola.
         </p>
@@ -678,69 +688,69 @@ footer p a { display: inline-block; padding: 12px 4px; }
 <!-- ===== PROYECTOS ===== -->
 <section id="proyectos" class="section surface">
   <div class="container">
-    <h2 class="section-title">Proyectos</h2>
+    <h2 class="section-title" data-en="Projects">Proyectos</h2>
 
     <div class="proj-tabs" role="tablist" aria-label="Proyectos">
       <button class="proj-tab active" type="button" role="tab" id="t-fresca" aria-selected="true" aria-controls="tab-fresca" data-tab="tab-fresca">FRESKA</button>
       <button class="proj-tab" type="button" role="tab" id="t-fslabs" aria-selected="false" aria-controls="tab-fslabs" tabindex="-1" data-tab="tab-fslabs">FS Labs · Alinea</button>
-      <button class="proj-tab" type="button" role="tab" id="t-academicos" aria-selected="false" aria-controls="tab-academicos" tabindex="-1" data-tab="tab-academicos">Académicos</button>
+      <button class="proj-tab" type="button" role="tab" id="t-academicos" aria-selected="false" aria-controls="tab-academicos" tabindex="-1" data-tab="tab-academicos" data-en="Academic">Académicos</button>
     </div>
 
     <!-- FRESKA Gestión -->
     <div class="tab-panel active" id="tab-fresca" role="tabpanel" aria-labelledby="t-fresca">
     <div class="project-card project-featured">
-      <span class="project-badge badge-sql">Electron · Node.js · SQLite</span><span class="project-badge badge-main">En uso real</span>
-      <h3>FRESKA Gestión — sistema para un comercio</h3>
-      <p>
+      <span class="project-badge badge-sql">Electron · Node.js · SQLite</span><span class="project-badge badge-main" data-en="In real use">En uso real</span>
+      <h3 data-en="FRESKA Gestión — system for a store">FRESKA Gestión — sistema para un comercio</h3>
+      <p data-en="Desktop application that I designed and built for a store. It replaces the notebook, the calculator and the Excel file they used to run the whole business, and I kept improving it with what the owner asked me for.">
         Aplicación de escritorio que diseñé y desarrollé para un comercio.
         Reemplaza el cuaderno, la calculadora y el Excel con los que llevaba todo el negocio,
         y la fui mejorando con lo que el dueño me iba pidiendo.
       </p>
 
       <div style="display:flex; flex-wrap:wrap; align-items:center; gap:10px 12px; margin:0 0 20px;">
-        <button type="button" class="btn-primary js-demo" aria-haspopup="dialog">▶ Ver demo (45 s)</button>
-        <a href="https://github.com/sofigarnier1/freska-gestion" target="_blank" rel="noopener" class="btn-gh" style="margin:0;">⬡ Ver código</a>
+        <button type="button" class="btn-primary js-demo" aria-haspopup="dialog" data-en="▶ Watch demo (45 s)">▶ Ver demo (45 s)</button>
+        <a href="https://github.com/sofigarnier1/freska-gestion" target="_blank" rel="noopener" class="btn-gh" style="margin:0;" data-en="⬡ View code">⬡ Ver código</a>
       </div>
 
       <div class="proj-shots">
         <div class="shot-frame"><img id="shot-main" src="capturas/freska-pedidos.jpg" srcset="capturas/freska-pedidos-800.jpg 800w, capturas/freska-pedidos.jpg 1600w" sizes="(max-width: 480px) calc(100vw - 70px), (max-width: 1100px) calc(100vw - 110px), 1040px" width="1600" height="965" loading="lazy" decoding="async" alt="Pantalla de pedidos de FRESKA"></div>
         <div class="shot-tabs">
-          <button class="shot-btn active" type="button" aria-pressed="true" data-src="capturas/freska-pedidos.jpg" data-alt="Pantalla de pedidos de FRESKA">Pedidos</button>
-          <button class="shot-btn" type="button" aria-pressed="false" data-src="capturas/freska-cierre.jpg" data-alt="Cierre de caja del día en FRESKA">Cierre de caja</button>
-          <button class="shot-btn" type="button" aria-pressed="false" data-src="capturas/freska-estadisticas.jpg" data-alt="Estadísticas del negocio en FRESKA">Estadísticas</button>
+          <button class="shot-btn active" type="button" aria-pressed="true" data-src="capturas/freska-pedidos.jpg" data-alt="Pantalla de pedidos de FRESKA" data-en="Orders">Pedidos</button>
+          <button class="shot-btn" type="button" aria-pressed="false" data-src="capturas/freska-cierre.jpg" data-alt="Cierre de caja del día en FRESKA" data-en="Cash closing">Cierre de caja</button>
+          <button class="shot-btn" type="button" aria-pressed="false" data-src="capturas/freska-estadisticas.jpg" data-alt="Estadísticas del negocio en FRESKA" data-en="Statistics">Estadísticas</button>
         </div>
-        <p class="shot-note">Capturas con datos de ejemplo, no del negocio real.</p>
+        <p class="shot-note" data-en="Screenshots with sample data, not from the real business.">Capturas con datos de ejemplo, no del negocio real.</p>
       </div>
 
       <div class="proj-stats">
-        <div class="proj-stat"><strong>25 %</strong><span>menos tiempo, según el dueño</span></div>
-        <div class="proj-stat"><strong>47</strong><span>tablas en la base de datos</span></div>
-        <div class="proj-stat"><strong>172</strong><span>pruebas automáticas</span></div>
-        <div class="proj-stat"><strong>A diario</strong><span>en uso real (Windows 10)</span></div>
+        <div class="proj-stat"><strong>25 %</strong><span data-en="less time, according to the owner">menos tiempo, según el dueño</span></div>
+        <div class="proj-stat"><strong>47</strong><span data-en="tables in the database">tablas en la base de datos</span></div>
+        <div class="proj-stat"><strong>172</strong><span data-en="automated tests">pruebas automáticas</span></div>
+        <div class="proj-stat"><strong data-en="Daily">A diario</strong><span data-en="in real use (Windows 10)">en uso real (Windows 10)</span></div>
       </div>
 
-      <div class="proj-flow-title">Cómo fluye una venta</div>
+      <div class="proj-flow-title" data-en="How a sale flows">Cómo fluye una venta</div>
       <div class="proj-flow">
-        <span class="flow-step">Pedido</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Factura</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Cobro</span><span class="flow-arrow">→</span>
-        <span class="flow-step">Cuenta corriente</span><span class="flow-arrow">→</span>
-        <span class="flow-step last">Cierre de caja</span>
+        <span class="flow-step" data-en="Order">Pedido</span><span class="flow-arrow">→</span>
+        <span class="flow-step" data-en="Invoice">Factura</span><span class="flow-arrow">→</span>
+        <span class="flow-step" data-en="Payment">Cobro</span><span class="flow-arrow">→</span>
+        <span class="flow-step" data-en="Customer account">Cuenta corriente</span><span class="flow-arrow">→</span>
+        <span class="flow-step last" data-en="Cash closing">Cierre de caja</span>
       </div>
 
       <div class="proj-tiles">
-        <div class="proj-tile"><span class="ico">🗄️</span><h4>Datos propios</h4><p>Pasé el negocio de papel y Excel a una base SQLite de 47 tablas. Los datos viven separados del programa: actualizar no los toca.</p></div>
-        <div class="proj-tile"><span class="ico">🔐</span><h4>Login y roles</h4><p>Contraseñas con scrypt, bloqueo por intentos y por inactividad, y permisos controlados en un solo punto.</p></div>
-        <div class="proj-tile"><span class="ico">🛡️</span><h4>Interfaz segura</h4><p>Aislamiento de contexto, política de contenido (CSP) sin scripts en línea, escape de datos y lista blanca de enlaces.</p></div>
-        <div class="proj-tile"><span class="ico">🧪</span><h4>Tests</h4><p>172 pruebas automáticas para dinero y stock, incluidas operaciones al azar, sobre una base temporal.</p></div>
-        <div class="proj-tile"><span class="ico">📦</span><h4>Instalador y updates</h4><p>Instalador para Windows y actualizaciones automáticas por GitHub Releases.</p></div>
-        <div class="proj-tile"><span class="ico">💾</span><h4>Backups</h4><p>Automáticos, externos y manuales, con restauración validada.</p></div>
+        <div class="proj-tile"><span class="ico">🗄️</span><h4 data-en="Own data">Datos propios</h4><p data-en="I moved the business from paper and Excel to a 47-table SQLite database. The data lives apart from the program: updating does not touch it.">Pasé el negocio de papel y Excel a una base SQLite de 47 tablas. Los datos viven separados del programa: actualizar no los toca.</p></div>
+        <div class="proj-tile"><span class="ico">🔐</span><h4 data-en="Login and roles">Login y roles</h4><p data-en="Passwords with scrypt, lockout after failed attempts and inactivity, and permissions controlled in a single place.">Contraseñas con scrypt, bloqueo por intentos y por inactividad, y permisos controlados en un solo punto.</p></div>
+        <div class="proj-tile"><span class="ico">🛡️</span><h4 data-en="Secure interface">Interfaz segura</h4><p data-en="Context isolation, a content security policy (CSP) with no inline scripts, data escaping and an allowlist for links.">Aislamiento de contexto, política de contenido (CSP) sin scripts en línea, escape de datos y lista blanca de enlaces.</p></div>
+        <div class="proj-tile"><span class="ico">🧪</span><h4>Tests</h4><p data-en="172 automated tests for money and stock, including random operations, on a temporary database.">172 pruebas automáticas para dinero y stock, incluidas operaciones al azar, sobre una base temporal.</p></div>
+        <div class="proj-tile"><span class="ico">📦</span><h4 data-en="Installer and updates">Instalador y updates</h4><p data-en="Windows installer and automatic updates through GitHub Releases.">Instalador para Windows y actualizaciones automáticas por GitHub Releases.</p></div>
+        <div class="proj-tile"><span class="ico">💾</span><h4>Backups</h4><p data-en="Automatic, external and manual, with validated restore.">Automáticos, externos y manuales, con restauración validada.</p></div>
       </div>
 
       <div class="proj-chips">
         <span class="proj-chip">Electron</span><span class="proj-chip">JavaScript</span><span class="proj-chip">SQLite</span>
         <span class="proj-chip">better-sqlite3</span><span class="proj-chip">electron-updater</span><span class="proj-chip">electron-builder</span>
-        <span class="proj-chip">Instalador para Windows</span>
+        <span class="proj-chip" data-en="Windows installer">Instalador para Windows</span>
       </div>
     </div>
     </div>
@@ -748,14 +758,14 @@ footer p a { display: inline-block; padding: 12px 4px; }
     <!-- FS Labs / Alinea -->
     <div class="tab-panel" id="tab-fslabs" role="tabpanel" aria-labelledby="t-fslabs">
     <div class="project-card project-featured">
-      <span class="project-badge badge-js">Frontend · Diseño web</span><span class="project-badge badge-main">Cliente real</span>
-      <h3>FS Labs — landing y web para Alinea Desarrollos</h3>
-      <p>
+      <span class="project-badge badge-js" data-en="Frontend · Web design">Frontend · Diseño web</span><span class="project-badge badge-main" data-en="Real client">Cliente real</span>
+      <h3 data-en="FS Labs — landing page and website for Alinea Desarrollos">FS Labs — landing y web para Alinea Desarrollos</h3>
+      <p data-en="FS Labs is a project I build together with my partner Facundo, of which I am co-founder. I made the landing page, the frontend, the design and the copy. Facundo takes care of the CRM and the automation flows (n8n).">
         FS Labs es un proyecto que armo junto a mi socio Facundo, del que soy cofundadora.
         Yo hice la landing, el frontend, el diseño y los textos. Facundo se ocupa del CRM
         y de los flujos de automatización (n8n).
       </p>
-      <p>
+      <p data-en="Our first client is &lt;strong&gt;Alinea Desarrollos&lt;/strong&gt;: I built the frontend of their corporate website and investor portal.">
         Nuestro primer cliente es <strong>Alinea Desarrollos</strong>: hice el frontend de su
         web institucional y del portal del inversor.
       </p>
@@ -763,7 +773,7 @@ footer p a { display: inline-block; padding: 12px 4px; }
         <a href="https://fslabs.com.ar" target="_blank" rel="noopener" class="btn-gh">↗ fslabs.com.ar</a>
         <a href="https://alineadesarrollos.com.ar" target="_blank" rel="noopener" class="btn-gh">↗ alineadesarrollos.com.ar</a>
       </p>
-      <p style="font-size:.78rem; color:var(--dim); font-style:italic; margin-bottom:0;">
+      <p style="font-size:.78rem; color:var(--dim); font-style:italic; margin-bottom:0;" data-en="The code is private (company repository).">
         El código es privado (repositorio de la empresa).
       </p>
     </div>
@@ -775,58 +785,58 @@ footer p a { display: inline-block; padding: 12px 4px; }
 
       <!-- WMS -->
       <div class="project-card">
-        <span class="project-badge badge-java">Java · SQL · POO</span>
-        <h3>Sistema WMS — Gestión de Almacenes</h3>
-        <p>
+        <span class="project-badge badge-java" data-en="Java · SQL · OOP">Java · SQL · POO</span>
+        <h3 data-en="WMS System — Warehouse Management">Sistema WMS — Gestión de Almacenes</h3>
+        <p data-en="Warehouse management system built in Java. It has the complete cycle: stock in, stock out, internal movement, capacity control and a record of every operation with date and user.">
           Sistema de gestión de almacenes hecho en Java. Tiene el ciclo completo:
           ingreso, egreso, movimiento interno, control de capacidad y registro
           de cada operación con fecha y usuario.
         </p>
         <ul class="project-features">
-          <li>Esquema de datos: productos, ubicaciones, naves, zonas y racks</li>
-          <li>Flujos estructurados de ingreso, egreso y movimiento interno</li>
-          <li>Control de capacidad por ubicación (máx. 1250 kg)</li>
-          <li>Trazabilidad completa: cada movimiento registrado con fecha y usuario</li>
-          <li>Validación de disponibilidad antes de ejecutar cualquier operación</li>
+          <li data-en="Data schema: products, locations, warehouses, zones and racks">Esquema de datos: productos, ubicaciones, naves, zonas y racks</li>
+          <li data-en="Structured flows for stock in, stock out and internal movement">Flujos estructurados de ingreso, egreso y movimiento interno</li>
+          <li data-en="Capacity control per location (max. 1250 kg)">Control de capacidad por ubicación (máx. 1250 kg)</li>
+          <li data-en="Full traceability: every movement recorded with date and user">Trazabilidad completa: cada movimiento registrado con fecha y usuario</li>
+          <li data-en="Availability check before running any operation">Validación de disponibilidad antes de ejecutar cualquier operación</li>
         </ul>
-        <span style="font-size:.78rem; color:var(--dim); font-style:italic;">Trabajo académico</span>
+        <span style="font-size:.78rem; color:var(--dim); font-style:italic;" data-en="Academic work">Trabajo académico</span>
       </div>
 
       <!-- Sabina Accesorios -->
       <div class="project-card">
         <span class="project-badge badge-js">React · Node.js · Express · MongoDB</span>
         <h3>Sabina Accesorios</h3>
-        <p>
+        <p data-en="Full-stack e-commerce built as a group (UTN, Programming IV). Frontend in React, backend in Node.js with Express and persistence in MongoDB. &lt;strong&gt;My part was the frontend&lt;/strong&gt;: the interface and visual decisions, such as the color palette and the screen design, and one REST API route with Express.">
           E-commerce full-stack hecho en grupo (UTN, Programación IV). Frontend en React,
           backend en Node.js con Express y persistencia en MongoDB.
           <strong>Mi parte fue el frontend</strong>: la interfaz y las decisiones visuales,
           como la paleta de colores y el diseño de las pantallas, y una ruta de la API REST con Express.
         </p>
         <ul class="project-features">
-          <li>Catálogo, carrito de compras y generación de órdenes</li>
-          <li>Autenticación con JWT y roles: cliente y administrador</li>
-          <li>Panel de administración: productos, usuarios y órdenes</li>
-          <li>Trabajo en equipo con Git y GitHub</li>
+          <li data-en="Catalog, shopping cart and order creation">Catálogo, carrito de compras y generación de órdenes</li>
+          <li data-en="Authentication with JWT and roles: customer and administrator">Autenticación con JWT y roles: cliente y administrador</li>
+          <li data-en="Admin panel: products, users and orders">Panel de administración: productos, usuarios y órdenes</li>
+          <li data-en="Teamwork with Git and GitHub">Trabajo en equipo con Git y GitHub</li>
         </ul>
-        <a href="https://github.com/lucasperinotto/ecommerce-university-project" target="_blank" rel="noopener" class="btn-gh">⬡ Ver código</a>
+        <a href="https://github.com/lucasperinotto/ecommerce-university-project" target="_blank" rel="noopener" class="btn-gh" data-en="⬡ View code">⬡ Ver código</a>
       </div>
 
       <!-- Northwind -->
       <div class="project-card">
         <span class="project-badge badge-sql">SQL · MySQL</span>
-        <h3>Gestión de BD — Northwind</h3>
-        <p>
+        <h3 data-en="Database management — Northwind">Gestión de BD — Northwind</h3>
+        <p data-en="Work with the Northwind database: I designed the tables, normalized them and wrote SQL queries to analyze sales and logistics. JOINs, subqueries, aggregations.">
           Trabajo con la BD Northwind: diseñé las tablas, las normalicé
           y escribí consultas SQL para analizar ventas y logística.
           JOINs, subconsultas, agregaciones.
         </p>
         <ul class="project-features">
-          <li>Diseño y normalización de tablas relacionales</li>
-          <li>Consultas complejas: JOINs múltiples, subconsultas, agregaciones</li>
-          <li>Análisis de datos de ventas, clientes y logística</li>
-          <li>Aplicación de buenas prácticas de modelado relacional</li>
+          <li data-en="Design and normalization of relational tables">Diseño y normalización de tablas relacionales</li>
+          <li data-en="Complex queries: multiple JOINs, subqueries, aggregations">Consultas complejas: JOINs múltiples, subconsultas, agregaciones</li>
+          <li data-en="Analysis of sales, customer and logistics data">Análisis de datos de ventas, clientes y logística</li>
+          <li data-en="Good practices of relational modeling">Aplicación de buenas prácticas de modelado relacional</li>
         </ul>
-        <span style="font-size:.78rem; color:var(--dim); font-style:italic;">Trabajo académico</span>
+        <span style="font-size:.78rem; color:var(--dim); font-style:italic;" data-en="Academic work">Trabajo académico</span>
       </div>
 
     </div>
@@ -837,20 +847,20 @@ footer p a { display: inline-block; padding: 12px 4px; }
 <!-- ===== STACK ===== -->
 <section id="stack" class="section">
   <div class="container">
-    <h2 class="section-title">Stack técnico</h2>
+    <h2 class="section-title" data-en="Technical stack">Stack técnico</h2>
 
     <div class="stack-cards">
-      <div class="stack-card"><h3>Frontend y diseño de interfaces</h3><p>Las pantallas y su diseño</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" loading="lazy">HTML y CSS</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" loading="lazy">JavaScript</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" loading="lazy">React</span><span class="stack-mini" style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</span><span class="stack-mini" style="--i:4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" loading="lazy">Next.js</span><span class="stack-mini" style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" loading="lazy">Tailwind CSS</span><span class="stack-mini" style="--i:6"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" loading="lazy">Figma</span></div></div>
-      <div class="stack-card"><h3>Aplicaciones de escritorio</h3><p>Lo que usé en el sistema de gestión</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg" alt="" loading="lazy">Electron</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</span></div></div>
-      <div class="stack-card"><h3>Datos y backend</h3><p>Guardar, consultar y procesar la información</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="" loading="lazy">SQLite</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" loading="lazy">MySQL</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" loading="lazy">MongoDB</span><span class="stack-mini" style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="" loading="lazy">Express</span><span class="stack-mini" style="--i:4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" loading="lazy">Java</span><span class="stack-mini" style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy">Python</span><span class="stack-mini" style="--i:6"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3" fill="none" stroke="#2b6cb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" fill="none" stroke="#2b6cb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>SQL</span></div></div>
-      <div class="stack-card"><h3>Calidad y entrega</h3><p>Que lo que hago funcione y llegue al usuario</p><div class="stack-row"><span class="stack-mini" style="--i:0"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#2e9e5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12.4l3 3 5.4-6" fill="none" stroke="#2e9e5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pruebas automáticas</span><span class="stack-mini" style="--i:1"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3l8 4v10l-8 4-8-4V7z" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7l8 4 8-4M12 11v10" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Instaladores y actualizaciones</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="" loading="lazy">npm</span></div></div>
-      <div class="stack-card"><h3>Herramientas de trabajo</h3><p>Versiones, tareas y asistencia con IA</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" loading="lazy">Git y GitHub</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuredevops/azuredevops-original.svg" alt="" loading="lazy">Azure DevOps</span><span class="stack-mini" style="--i:2"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g stroke="#d97757" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="12" x2="22.0" y2="12.0"/><line x1="12" y1="12" x2="20.7" y2="17.0"/><line x1="12" y1="12" x2="17.0" y2="20.7"/><line x1="12" y1="12" x2="12.0" y2="22.0"/><line x1="12" y1="12" x2="7.0" y2="20.7"/><line x1="12" y1="12" x2="3.3" y2="17.0"/><line x1="12" y1="12" x2="2.0" y2="12.0"/><line x1="12" y1="12" x2="3.3" y2="7.0"/><line x1="12" y1="12" x2="7.0" y2="3.3"/><line x1="12" y1="12" x2="12.0" y2="2.0"/><line x1="12" y1="12" x2="17.0" y2="3.3"/><line x1="12" y1="12" x2="20.7" y2="7.0"/></g></svg>Claude Code</span><span class="stack-mini" style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" loading="lazy">VS Code</span><span class="stack-mini" style="--i:4"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="17" rx="4" fill="none" stroke="#1b1b1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 9.5l3 2.5-3 2.5M13 15h3.5" fill="none" stroke="#1b1b1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Codex</span><span class="stack-mini" style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="" loading="lazy">Vercel</span></div></div>
-      <div class="stack-card"><h3>Ventas y atención</h3><p>Mis trabajos con clientes</p><div class="stack-row"><span class="stack-mini" style="--i:0"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#0a66c2"/><path d="M7 10v7M7 7v.1M11 17v-7M11 13c0-2 1.2-3 2.8-3S17 11 17 13v4" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/></svg>Sales Navigator</span><span class="stack-mini" style="--i:1"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="9" cy="8" r="3.2" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5M16 5.2a3.2 3.2 0 0 1 0 6M17.5 14.8c2 .6 3.5 2.4 3.5 5.2" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>CRM</span><span class="stack-mini" style="--i:2"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.3z" fill="none" stroke="#25a244" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="#25a244"/></svg>WhatsApp</span><span class="stack-mini" style="--i:3"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#1d7a46"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>Excel</span></div></div>
-      <div class="stack-card"><h3>Marketing y contenido</h3><p>Mi trabajo como community manager</p><div class="stack-row"><span class="stack-mini" style="--i:0"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5.5 16c-2 0-3-2-3-4s1.4-5 3.4-5c3.2 0 5.1 10 8.3 10 2 0 3.3-2 3.3-5s-1-5-3-5c-3 0-5.2 9-8 9z" fill="none" stroke="#0a66c2" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" transform="translate(1 0)"/></svg>Meta Ads</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="" loading="lazy">Business Suite</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="" loading="lazy">Canva</span><span class="stack-mini" style="--i:3"><img src="logos/capcut.png" alt="" loading="lazy" style="mix-blend-mode:multiply">CapCut</span><span class="stack-mini" style="--i:4"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z" fill="#7a2e6e"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" fill="#d9a21b"/></svg>IA generativa</span></div></div>
+      <div class="stack-card"><h3 data-en="Frontend and interface design">Frontend y diseño de interfaces</h3><p data-en="The screens and their design">Las pantallas y su diseño</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" loading="lazy">HTML y CSS</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" loading="lazy">JavaScript</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" loading="lazy">React</span><span class="stack-mini" style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" loading="lazy">TypeScript</span><span class="stack-mini" style="--i:4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="" loading="lazy">Next.js</span><span class="stack-mini" style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" loading="lazy">Tailwind CSS</span><span class="stack-mini" style="--i:6"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="" loading="lazy">Figma</span></div></div>
+      <div class="stack-card"><h3 data-en="Desktop applications">Aplicaciones de escritorio</h3><p data-en="What I used in the management system">Lo que usé en el sistema de gestión</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/electron/electron-original.svg" alt="" loading="lazy">Electron</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" loading="lazy">Node.js</span></div></div>
+      <div class="stack-card"><h3 data-en="Data and backend">Datos y backend</h3><p data-en="Storing, querying and processing information">Guardar, consultar y procesar la información</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="" loading="lazy">SQLite</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="" loading="lazy">MySQL</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" loading="lazy">MongoDB</span><span class="stack-mini" style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="" loading="lazy">Express</span><span class="stack-mini" style="--i:4"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="" loading="lazy">Java</span><span class="stack-mini" style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy">Python</span><span class="stack-mini" style="--i:6"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3" fill="none" stroke="#2b6cb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 6v12c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3" fill="none" stroke="#2b6cb0" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>SQL</span></div></div>
+      <div class="stack-card"><h3 data-en="Quality and delivery">Calidad y entrega</h3><p data-en="Making sure what I build works and reaches the user">Que lo que hago funcione y llegue al usuario</p><div class="stack-row"><span class="stack-mini" style="--i:0"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="none" stroke="#2e9e5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M7.8 12.4l3 3 5.4-6" fill="none" stroke="#2e9e5b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>Pruebas automáticas</span><span class="stack-mini" style="--i:1"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 3l8 4v10l-8 4-8-4V7z" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 7l8 4 8-4M12 11v10" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Instaladores y actualizaciones</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="" loading="lazy">npm</span></div></div>
+      <div class="stack-card"><h3 data-en="Work tools">Herramientas de trabajo</h3><p data-en="Versions, tasks and AI assistance">Versiones, tareas y asistencia con IA</p><div class="stack-row"><span class="stack-mini" style="--i:0"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="" loading="lazy">Git y GitHub</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azuredevops/azuredevops-original.svg" alt="" loading="lazy">Azure DevOps</span><span class="stack-mini" style="--i:2"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><g stroke="#d97757" stroke-width="2.6" stroke-linecap="round"><line x1="12" y1="12" x2="22.0" y2="12.0"/><line x1="12" y1="12" x2="20.7" y2="17.0"/><line x1="12" y1="12" x2="17.0" y2="20.7"/><line x1="12" y1="12" x2="12.0" y2="22.0"/><line x1="12" y1="12" x2="7.0" y2="20.7"/><line x1="12" y1="12" x2="3.3" y2="17.0"/><line x1="12" y1="12" x2="2.0" y2="12.0"/><line x1="12" y1="12" x2="3.3" y2="7.0"/><line x1="12" y1="12" x2="7.0" y2="3.3"/><line x1="12" y1="12" x2="12.0" y2="2.0"/><line x1="12" y1="12" x2="17.0" y2="3.3"/><line x1="12" y1="12" x2="20.7" y2="7.0"/></g></svg>Claude Code</span><span class="stack-mini" style="--i:3"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="" loading="lazy">VS Code</span><span class="stack-mini" style="--i:4"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="17" rx="4" fill="none" stroke="#1b1b1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 9.5l3 2.5-3 2.5M13 15h3.5" fill="none" stroke="#1b1b1f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>Codex</span><span class="stack-mini" style="--i:5"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="" loading="lazy">Vercel</span></div></div>
+      <div class="stack-card"><h3 data-en="Sales and customer service">Ventas y atención</h3><p data-en="My jobs with customers">Mis trabajos con clientes</p><div class="stack-row"><span class="stack-mini" style="--i:0"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#0a66c2"/><path d="M7 10v7M7 7v.1M11 17v-7M11 13c0-2 1.2-3 2.8-3S17 11 17 13v4" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/></svg>Sales Navigator</span><span class="stack-mini" style="--i:1"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="9" cy="8" r="3.2" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5M16 5.2a3.2 3.2 0 0 1 0 6M17.5 14.8c2 .6 3.5 2.4 3.5 5.2" fill="none" stroke="#7a2e6e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>CRM</span><span class="stack-mini" style="--i:2"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.3z" fill="none" stroke="#25a244" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.6-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2z" fill="#25a244"/></svg>WhatsApp</span><span class="stack-mini" style="--i:3"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="4" fill="#1d7a46"/><path d="M7.5 7.5l9 9M16.5 7.5l-9 9" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg>Excel</span></div></div>
+      <div class="stack-card"><h3 data-en="Marketing and content">Marketing y contenido</h3><p data-en="My work as a community manager">Mi trabajo como community manager</p><div class="stack-row"><span class="stack-mini" style="--i:0"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M5.5 16c-2 0-3-2-3-4s1.4-5 3.4-5c3.2 0 5.1 10 8.3 10 2 0 3.3-2 3.3-5s-1-5-3-5c-3 0-5.2 9-8 9z" fill="none" stroke="#0a66c2" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round" transform="translate(1 0)"/></svg>Meta Ads</span><span class="stack-mini" style="--i:1"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="" loading="lazy">Business Suite</span><span class="stack-mini" style="--i:2"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="" loading="lazy">Canva</span><span class="stack-mini" style="--i:3"><img src="logos/capcut.png" alt="" loading="lazy" style="mix-blend-mode:multiply">CapCut</span><span class="stack-mini" style="--i:4"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 2l1.9 6.1L20 10l-6.1 1.9L12 18l-1.9-6.1L4 10l6.1-1.9z" fill="#7a2e6e"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z" fill="#d9a21b"/></svg>IA generativa</span></div></div>
     </div>
     <div class="stack-extra">
-      <div class="stack-card"><h3>Idiomas</h3><ul class="cursos"><li>Español: nativo</li><li>Inglés: básico, estudiando</li></ul></div>
-      <div class="stack-card"><h3>Cursos</h3><ul class="cursos"><li>Inglés para Programadores (UTN, 16 h)</li><li>Marketing digital: Digital Ad Certificate (Aleph)</li><li>Comunicación efectiva con inteligencia emocional (Academia Comunica)</li></ul></div>
+      <div class="stack-card"><h3 data-en="Languages">Idiomas</h3><ul class="cursos"><li data-en="Spanish: native">Español: nativo</li><li data-en="English: basic, studying">Inglés: básico, estudiando</li></ul></div>
+      <div class="stack-card"><h3 data-en="Courses">Cursos</h3><ul class="cursos"><li data-en="English for Programmers (UTN, 16 h)">Inglés para Programadores (UTN, 16 h)</li><li data-en="Digital marketing: Digital Ad Certificate (Aleph)">Marketing digital: Digital Ad Certificate (Aleph)</li><li data-en="Effective communication with emotional intelligence (Academia Comunica)">Comunicación efectiva con inteligencia emocional (Academia Comunica)</li></ul></div>
     </div>
   </div>
 </section>
@@ -858,8 +868,8 @@ footer p a { display: inline-block; padding: 12px 4px; }
 <!-- ===== CONTACTO ===== -->
 <section id="contacto" class="section" style="padding-top: 56px;">
   <div class="container contacto-centro">
-    <h2 class="section-title">Contacto</h2>
-    <h3>Hablemos</h3>
+    <h2 class="section-title" data-en="Contact">Contacto</h2>
+    <h3 data-en="Let&#x27;s talk">Hablemos</h3>
     <div class="contact-links">
           <a href="mailto:sofigarnier1@gmail.com" class="contact-link">
             <div class="c-icon" style="background:rgba(234,67,53,.12); color:#ea4335;">
@@ -875,7 +885,7 @@ footer p a { display: inline-block; padding: 12px 4px; }
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             </div>
             <div class="c-text">
-              <strong>Teléfono</strong>
+              <strong data-en="Phone">Teléfono</strong>
               <span>+54 9 3442 56 39 53</span>
             </div>
           </a>
@@ -898,8 +908,8 @@ footer p a { display: inline-block; padding: 12px 4px; }
             </div>
           </a>
         </div>
-    <p class="contact-disp"><strong>Full-time</strong> · Remoto, híbrido o presencial en Concepción del Uruguay</p>
-    <p style="margin-top:18px;"><a href="CV-Sofia-Garnier.pdf" download="CV-Sofia-Garnier-Desarrolladora-Junior.pdf" class="btn-gh" style="margin:0;">↓ Descargar CV (PDF)</a></p>
+    <p class="contact-disp" data-en="&lt;strong&gt;Full-time&lt;/strong&gt; · Remote, hybrid or on-site in Concepción del Uruguay"><strong>Full-time</strong> · Remoto, híbrido o presencial en Concepción del Uruguay</p>
+    <p style="margin-top:18px;"><a href="CV-Sofia-Garnier.pdf" download="CV-Sofia-Garnier-Desarrolladora-Junior.pdf" class="btn-gh" style="margin:0;" data-en="↓ Download CV (PDF)">↓ Descargar CV (PDF)</a></p>
   </div>
 </section>
 
@@ -908,12 +918,12 @@ footer p a { display: inline-block; padding: 12px 4px; }
 <!-- ===== FOOTER ===== -->
 <section id="vistazo" class="section surface">
   <div class="container">
-    <h2 class="section-title">De un vistazo</h2>
+    <h2 class="section-title" data-en="At a glance">De un vistazo</h2>
     <div class="about-cards">
-        <div class="about-card"><div><span>Formación</span><strong>Técnica en Programación</strong><span>UTN · egresada julio 2026</span></div></div>
-        <div class="about-card"><div><span>Dónde</span><strong>Concepción del Uruguay</strong><span>Entre Ríos, Argentina</span></div></div>
-        <div class="about-card"><div><span>Lo que hice</span><strong>Un sistema en uso real</strong><span>Aplicación de escritorio para un comercio</span></div></div>
-        <div class="about-card"><div><span>Trabajo actual</span><strong>Community manager</strong><span>Freelance · desde 2022</span></div></div>
+        <div class="about-card"><div><span data-en="Education">Formación</span><strong data-en="Programming Technician">Técnica en Programación</strong><span data-en="UTN · graduated July 2026">UTN · egresada julio 2026</span></div></div>
+        <div class="about-card"><div><span data-en="Where">Dónde</span><strong>Concepción del Uruguay</strong><span>Entre Ríos, Argentina</span></div></div>
+        <div class="about-card"><div><span data-en="What I did">Lo que hice</span><strong data-en="A system in real use">Un sistema en uso real</strong><span data-en="Desktop application for a store">Aplicación de escritorio para un comercio</span></div></div>
+        <div class="about-card"><div><span data-en="Current work">Trabajo actual</span><strong>Community manager</strong><span data-en="Freelance · since 2022">Freelance · desde 2022</span></div></div>
     </div>
   </div>
 </section>
@@ -928,10 +938,10 @@ footer p a { display: inline-block; padding: 12px 4px; }
 <dialog class="demo-dialog cv-dialog" id="cv-dialog" aria-label="Currículum de Sofía Garnier">
   <div class="demo-box">
     <div class="demo-barra cv-barra" id="cv-barra" title="Arrastrá para mover">
-      <span class="demo-titulo"><svg class="demo-mover" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="currentColor"><circle cx="9" cy="6" r="1.8"/><circle cx="15" cy="6" r="1.8"/><circle cx="9" cy="12" r="1.8"/><circle cx="15" cy="12" r="1.8"/><circle cx="9" cy="18" r="1.8"/><circle cx="15" cy="18" r="1.8"/></g></svg><span>Currículum</span></span>
+      <span class="demo-titulo"><svg class="demo-mover" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="currentColor"><circle cx="9" cy="6" r="1.8"/><circle cx="15" cy="6" r="1.8"/><circle cx="9" cy="12" r="1.8"/><circle cx="15" cy="12" r="1.8"/><circle cx="9" cy="18" r="1.8"/><circle cx="15" cy="18" r="1.8"/></g></svg><span data-en="Curriculum">Currículum</span></span>
       <span class="cv-acciones">
-        <a class="cv-btn" href="CV-Sofia-Garnier.pdf" download="CV-Sofia-Garnier-Desarrolladora-Junior.pdf">↓ Descargar PDF</a>
-        <button type="button" class="cv-btn" id="cv-imprimir">Imprimir</button>
+        <a class="cv-btn" href="CV-Sofia-Garnier.pdf" download="CV-Sofia-Garnier-Desarrolladora-Junior.pdf" data-en="↓ Download PDF">↓ Descargar PDF</a>
+        <button type="button" class="cv-btn" id="cv-imprimir" data-en="Print">Imprimir</button>
         <button type="button" class="demo-cerrar" id="cv-cerrar" aria-label="Cerrar currículum">×</button>
       </span>
     </div>
@@ -990,7 +1000,7 @@ footer p a { display: inline-block; padding: 12px 4px; }
     };
     fr.addEventListener('load', ajustar); addEventListener('resize', () => { if (cd.open) ajustar(); });
     abrible(cd, document.querySelectorAll('.js-cv'), document.getElementById('cv-cerrar'), () => {
-      if (!fr.getAttribute('src')) fr.src = 'cv-es.html'; else ajustar();
+      if (!fr.getAttribute('src')) fr.src = window.idioma === 'en' ? 'cv-en.html' : 'cv-es.html'; else ajustar();
       vis.scrollTop = 0; requestAnimationFrame(ajustar);
     });
     document.getElementById('cv-imprimir').addEventListener('click', () => {
@@ -1009,7 +1019,7 @@ window.addEventListener('scroll', () => navEl.classList.toggle('scrolled', scrol
 function setMenu(open) {
   navLinks.classList.toggle('open', open);
   hamburger.setAttribute('aria-expanded', open);
-  hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  hamburger.setAttribute('aria-label', window.idioma === 'en' ? (open ? 'Close menu' : 'Open menu') : (open ? 'Cerrar menú' : 'Abrir menú'));
   hamburger.textContent = open ? '✕' : '☰';
 }
 hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
@@ -1252,6 +1262,58 @@ document.querySelectorAll('.shot-btn').forEach(b => b.addEventListener('click', 
     scene.classList.add('genie-on');
     genie('abrir', function () { scene.classList.remove('genie-on'); });
   });
+})();
+</script>
+<script>
+/* ---- IDIOMA: ES | EN ---- */
+(function () {
+  var DOC = document.documentElement, EN_ALT = {
+    'capturas/freska-pedidos.jpg': 'FRESKA orders screen',
+    'capturas/freska-cierre.jpg': 'Daily cash closing in FRESKA',
+    'capturas/freska-estadisticas.jpg': 'Business statistics in FRESKA'
+  };
+  var CHIPS = { 'HTML y CSS': 'HTML and CSS', 'Pruebas automáticas': 'Automated tests', 'Instaladores y actualizaciones': 'Installers and updates', 'Git y GitHub': 'Git and GitHub', 'IA generativa': 'Generative AI' };
+  var META = {
+    es: { title: 'Sofía Garnier | Portfolio', locale: 'es_AR' },
+    en: { title: 'Sofía Garnier | Portfolio', locale: 'en_US' }
+  };
+  function guardado() { try { return localStorage.getItem('idioma'); } catch (e) { return null; } }
+  function guardar(l) { try { localStorage.setItem('idioma', l); } catch (e) {} }
+  function setLang(l, grabar) {
+    var en = l === 'en';
+    window.idioma = l; DOC.lang = l;
+    document.querySelectorAll('[data-en]').forEach(function (el) {
+      if (el.dataset.es === undefined) el.dataset.es = el.innerHTML;
+      el.innerHTML = en ? el.dataset.en : el.dataset.es;
+    });
+    document.querySelectorAll('.stack-mini').forEach(function (c) {
+      c.childNodes.forEach(function (n) {
+        if (n.nodeType !== 3) return;
+        var t = n.nodeValue.trim();
+        if (n.__es === undefined) { if (CHIPS[t]) n.__es = t; else return; }
+        n.nodeValue = en ? CHIPS[n.__es] : n.__es;
+      });
+    });
+    document.querySelectorAll('.shot-btn').forEach(function (b) {
+      if (b.dataset.altEs === undefined) b.dataset.altEs = b.dataset.alt;
+      b.dataset.alt = en ? EN_ALT[b.dataset.src] : b.dataset.altEs;
+      if (b.classList.contains('active')) document.getElementById('shot-main').alt = b.dataset.alt;
+    });
+    var pdf = en ? 'CV-Sofia-Garnier-EN.pdf' : 'CV-Sofia-Garnier.pdf', nom = en ? 'CV-Sofia-Garnier-Junior-Developer.pdf' : 'CV-Sofia-Garnier-Desarrolladora-Junior.pdf';
+    document.querySelectorAll('a[download]').forEach(function (a) { a.setAttribute('href', pdf); a.setAttribute('download', nom); });
+    var fr = document.getElementById('cv-frame');
+    if (fr && fr.getAttribute('src')) fr.src = en ? 'cv-en.html' : 'cv-es.html';
+    var hb = document.getElementById('hamburger');
+    if (hb) hb.setAttribute('aria-label', document.getElementById('nav-links').classList.contains('open') ? (en ? 'Close menu' : 'Cerrar menú') : (en ? 'Open menu' : 'Abrir menú'));
+    var sofi = document.querySelector('img.sofi'); if (sofi) sofi.alt = en ? 'Illustration of Sofía Garnier waving' : 'Ilustración de Sofía Garnier saludando';
+    var og = document.querySelector('meta[property="og:locale"]'); if (og) og.content = META[l].locale;
+    if (grabar) guardar(l);
+  }
+  window.setLang = setLang;
+  var ini = guardado() || ((navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
+  window.idioma = ini;
+  document.getElementById('lang-toggle').addEventListener('click', function () { setLang(window.idioma === 'en' ? 'es' : 'en', true); });
+  if (ini === 'en') setLang('en', false);
 })();
 </script>
 </body>
