@@ -75,23 +75,23 @@ a { color: inherit; text-decoration: none; }
 
 <div class="row">
   <div class="label">01<b>PERFIL</b></div>
-  <p>Técnica Universitaria en Programación (UTN, egresada en julio de 2026). Me gusta ayudar a que el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo. Armé un sistema de gestión completo que un comercio usa todos los días y que, según el dueño, le ahorra un 25 % del tiempo, y soy cofundadora de FS Labs, donde hago el diseño y el frontend de sitios para clientes. Vengo de ventas remotas, atención al cliente y community management. Busco mi primer trabajo en IT.</p>
+  <p>Técnica Universitaria en Programación (UTN, egresada en julio de 2026). Me gusta ayudar a que el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo. Armé un sistema de gestión completo, con app de escritorio y acceso desde el celular, que un comercio usa todos los días, y soy cofundadora de FS Labs, donde hago el diseño y el frontend de sitios para clientes. Vengo de ventas remotas, atención al cliente y community management. Busco mi primer trabajo en IT.</p>
 </div>
 
 <div class="row">
   <div class="label">02<b>PROYECTOS</b></div>
   <div>
     <div class="item">
-      <div class="head"><h3>FRESKA Gestión<span class="main-badge">En uso real</span></h3><span class="meta">Electron · Node.js · SQLite</span></div>
-      <div class="sub">Proyecto propio · app de escritorio para un comercio</div>
-      <p>Instalada y en uso todos los días en un comercio (Windows 10). Reemplazó el cuaderno y el Excel con los que llevaba todo el negocio: pedidos, facturación, cobros y cuenta corriente, notas de crédito, cheques, gastos, caja, proveedores, stock y estadísticas. Según el dueño, ahorra un 25 % del tiempo en pedidos, facturación y cierre de caja. La desarrollé iterando con el dueño, el usuario real.</p>
+      <div class="head"><h3>FRESKA Gestión<span class="main-badge">En uso real</span></h3><span class="meta">Electron · Node.js · SQLite · PWA</span></div>
+      <div class="sub">Proyecto propio · sistema de gestión con app de escritorio y acceso desde el celular (PWA)</div>
+      <p>Lo diseñé y desarrollé de punta a punta para un comercio. Reemplazó el cuaderno, la calculadora y el Excel con los que llevaban todo el negocio: pedidos, facturas, cobros y cuenta corriente, cheques, gastos, caja, proveedores, stock, comisiones, estadísticas y reportes. Lo usa el administrador todos los días, desde la computadora y desde el celular, con la misma base de datos. Lo desarrollé con el usuario real.</p>
       <ul>
-        <li>Diseño de la interfaz y de más de 15 pantallas, ajustado con el uso diario del dueño.</li>
-        <li>Base de datos relacional de 47 tablas (SQLite) separada del programa; flujo Pedido → Factura → Cobro con cuenta corriente y cierre de caja.</li>
-        <li>Autenticación propia (scrypt, bloqueo por intentos, roles y permisos) y seguridad de la interfaz (CSP, aislamiento de contexto, escape de datos).</li>
-        <li>172 pruebas automáticas para dinero y stock, incluidas pruebas con operaciones al azar; instalador, actualizaciones automáticas y copias de seguridad con restauración validada.</li>
+        <li>Migré los datos de un Excel a una base relacional (SQLite) con reglas de negocio; usuarios con login, roles y permisos, y anulaciones con motivo obligatorio que avisan al administrador.</li>
+        <li>Servidor propio en Node (API por HTTP, sesiones por cookie, permisos por rol, control de concurrencia) que comparte la lógica con la app de escritorio, y PWA para el celular.</li>
+        <li>Tests automáticos para dinero y stock (más de 30 archivos): 250 operaciones al azar por 8 semillas y 20 cobros simultáneos sin pasarse del saldo.</li>
+        <li>Migraciones probadas sobre copias de la base antes de aplicarlas; instalador para Windows, versiones publicadas, copias de seguridad y manual de uso dentro de la app.</li>
       </ul>
-      <div class="note">Instalador para Windows. Código: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
+      <div class="note">Código: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
     </div>
 
     <div class="item">
@@ -99,9 +99,9 @@ a { color: inherit; text-decoration: none; }
       <div class="sub">Cofundadora · agencia de automatización, IA y software a medida · <a href="https://fslabs.com.ar">fslabs.com.ar</a></div>
       <ul>
         <li>Diseño, frontend y textos del sitio de FS Labs (Next.js, TypeScript, Tailwind, Framer Motion), en español e inglés.</li>
-        <li>Frontend de la web institucional y del portal del inversor de Alinea Desarrollos (constructora), entregados y en producción: <a href="https://alineadesarrollos.com.ar">alineadesarrollos.com.ar</a>. El CRM y los flujos de automatización los desarrolló mi socio.</li>
+        <li>Frontend de la web institucional, del portal del inversor y del panel de administración de Alinea Desarrollos (constructora), con tests end-to-end (Playwright), entregados y en producción: <a href="https://alineadesarrollos.com.ar">alineadesarrollos.com.ar</a>. El CRM y los flujos de automatización los desarrolló mi socio.</li>
       </ul>
-      <div class="note">Trabajo en equipo de dos personas; repositorio en Azure DevOps.</div>
+      <div class="note">Trabajo en equipo de dos personas; repositorio en Azure DevOps y despliegue en Vercel y Azure App Service.</div>
     </div>
 
     <div class="item">
@@ -120,7 +120,7 @@ a { color: inherit; text-decoration: none; }
     <div class="item">
       <div class="head"><h3>Cofundadora y desarrolladora frontend · FS Labs</h3><span class="meta">2026 — Actualidad</span></div>
       <div class="sub">Agencia de automatización, IA y software a medida · <a href="https://fslabs.com.ar">fslabs.com.ar</a></div>
-      <p>Diseño, frontend y textos del sitio (Next.js, TypeScript, Tailwind CSS, Framer Motion), en español e inglés. Frontend de la web institucional y del portal del inversor de Alinea Desarrollos, en producción. El CRM y los flujos de automatización los desarrolla mi socio.</p>
+      <p>Diseño, frontend y textos del sitio (Next.js, TypeScript, Tailwind CSS, Framer Motion), en español e inglés. Frontend de la web institucional, del portal del inversor y del panel de administración de Alinea Desarrollos, con tests end-to-end, en producción. El CRM y los flujos de automatización los desarrolla mi socio.</p>
     </div>
     <div class="item">
       <div class="head"><h3>Community Manager y Creadora de Contenido</h3><span class="meta">2022 — Actualidad</span></div>
@@ -154,7 +154,7 @@ a { color: inherit; text-decoration: none; }
     <div class="k">Backend</div><div class="v">Node.js · Express · API REST · Electron</div>
     <div class="k">Diseño</div><div class="v">Figma · diseño de interfaces · Canva · CapCut · identidad visual</div>
     <div class="k">Datos</div><div class="v">SQLite · MySQL · MongoDB · diseño relacional</div>
-    <div class="k">Herramientas</div><div class="v">Git · GitHub · Azure DevOps · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven</div>
+    <div class="k">Herramientas</div><div class="v">Git · GitHub · Azure DevOps · Azure App Service · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven</div>
     <div class="k">Calidad</div><div class="v">Pruebas automáticas · instaladores y actualizaciones · npm</div>
     <div class="k">Ventas y marketing</div><div class="v">Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · IA generativa</div>
     <div class="k">Aprendiendo</div><div class="v">Spring Boot · inglés</div>

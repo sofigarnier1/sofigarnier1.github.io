@@ -75,23 +75,23 @@ a { color: inherit; text-decoration: none; }
 
 <div class="row">
   <div class="label">01<b>PROFILE</b></div>
-  <p>University Technician in Programming (UTN, graduated July 2026). I like making people's daily work more practical, and programming is how I do it. I built a complete management system that a store uses every day and that, according to the owner, saves him 25% of his time. I am also co-founder of FS Labs, where I design and build websites for clients. I come from remote sales, customer service and community management. I am looking for my first IT job.</p>
+  <p>University Technician in Programming (UTN, graduated July 2026). I like making people's daily work more practical, and programming is how I do it. I built a complete management system, with a desktop app and mobile access, that a store uses every day. I am also co-founder of FS Labs, where I design and build websites for clients. I come from remote sales, customer service and community management. I am looking for my first IT job.</p>
 </div>
 
 <div class="row">
   <div class="label">02<b>PROJECTS</b></div>
   <div>
     <div class="item">
-      <div class="head"><h3>FRESKA Gestión<span class="main-badge">In real use</span></h3><span class="meta">Electron · Node.js · SQLite</span></div>
-      <div class="sub">Personal project · desktop app for a store</div>
-      <p>Installed and used every day in a store (Windows 10). It replaced the notebook and the Excel file used to run the whole business: orders, invoicing, payments and customer accounts, credit notes, checks, expenses, cash register, suppliers, stock and statistics. According to the owner, it saves 25% of the time on orders, invoicing and cash closing. I built it iterating with the owner, the real user.</p>
+      <div class="head"><h3>FRESKA Gestión<span class="main-badge">In real use</span></h3><span class="meta">Electron · Node.js · SQLite · PWA</span></div>
+      <div class="sub">Personal project · management system with a desktop app and mobile access (PWA)</div>
+      <p>I designed and built it end to end for a store. It replaced the notebook, the calculator and the Excel file used to run the whole business: orders, invoices, payments and customer accounts, checks, expenses, cash register, suppliers, stock, commissions, statistics and reports. The administrator uses it every day, from the computer and from the phone, on the same database. I built it with the real user.</p>
       <ul>
-        <li>Designed the interface and more than 15 screens, adjusted to the owner's daily use.</li>
-        <li>Relational database of 47 tables (SQLite) kept separate from the program; Order → Invoice → Payment flow with customer accounts and cash closing.</li>
-        <li>Own authentication (scrypt, lockout, roles and permissions) and interface security (CSP, context isolation, data escaping).</li>
-        <li>172 automated tests for money and stock, including randomized tests; installer, automatic updates and backups with validated restore.</li>
+        <li>Migrated the data from an Excel file to a relational database (SQLite) with business rules; user login, roles and permissions, and voids with a mandatory reason that notify the administrator.</li>
+        <li>Custom Node server (HTTP API, cookie sessions, role-based permissions, concurrency control) sharing its logic with the desktop app, and a PWA for the phone.</li>
+        <li>Automated tests for money and stock (30+ files): 250 random operations across 8 seeds and 20 simultaneous payments never exceeding the balance.</li>
+        <li>Migrations tested on copies of the database before being applied; Windows installer, published versions, backups and a built-in user manual.</li>
       </ul>
-      <div class="note">Windows installer. Code: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
+      <div class="note">Code: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
     </div>
 
     <div class="item">
@@ -99,7 +99,7 @@ a { color: inherit; text-decoration: none; }
       <div class="sub">Co-founder · automation, AI and custom software agency · <a href="https://fslabs.com.ar">fslabs.com.ar</a></div>
       <ul>
         <li>Design, frontend and copy of the FS Labs website (Next.js, TypeScript, Tailwind, Framer Motion), in Spanish and English.</li>
-        <li>Frontend of the corporate website and investor portal of Alinea Desarrollos (a construction company), delivered and in production: <a href="https://alineadesarrollos.com.ar">alineadesarrollos.com.ar</a>. The CRM and the automation flows were built by my partner.</li>
+        <li>Frontend of the corporate website, investor portal and admin panel of Alinea Desarrollos (a construction company), with end-to-end tests (Playwright), delivered and in production: <a href="https://alineadesarrollos.com.ar">alineadesarrollos.com.ar</a>. The CRM and the automation flows were built by my partner.</li>
       </ul>
       <div class="note">Team of two; repository in Azure DevOps.</div>
     </div>
@@ -120,7 +120,7 @@ a { color: inherit; text-decoration: none; }
     <div class="item">
       <div class="head"><h3>Co-founder and frontend developer · FS Labs</h3><span class="meta">2026 — Present</span></div>
       <div class="sub">Automation, AI and custom software agency · <a href="https://fslabs.com.ar">fslabs.com.ar</a></div>
-      <p>Design, frontend and copy of the website (Next.js, TypeScript, Tailwind CSS, Framer Motion), in Spanish and English. Frontend of the corporate website and investor portal of Alinea Desarrollos, in production. The CRM and the automation flows are developed by my partner.</p>
+      <p>Design, frontend and copy of the website (Next.js, TypeScript, Tailwind CSS, Framer Motion), in Spanish and English. Frontend of the corporate website, investor portal and admin panel of Alinea Desarrollos, with end-to-end tests, in production. The CRM and the automation flows are developed by my partner.</p>
     </div>
     <div class="item">
       <div class="head"><h3>Community Manager and Content Creator</h3><span class="meta">2022 — Present</span></div>
