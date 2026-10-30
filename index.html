@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sofía Garnier | Portfolio</title>
-  <meta name="description" content="Sofía Garnier, Desarrolladora Junior. Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio, el cual usan todos los días. Busco mi primer trabajo en IT.">
+  <meta name="description" content="Sofía Garnier, Desarrolladora Junior. Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio, el cual usan todos los días. Busco sumarme a un equipo de desarrollo.">
   <link rel="canonical" href="https://sofia-garnier.vercel.app/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_AR">
   <meta property="og:site_name" content="Sofía Garnier">
   <meta property="og:url" content="https://sofia-garnier.vercel.app/">
   <meta property="og:title" content="Sofía Garnier | Desarrolladora Junior">
-  <meta property="og:description" content="Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio, el cual usan todos los días. Busco mi primer trabajo en IT.">
+  <meta property="og:description" content="Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio, el cual usan todos los días. Busco sumarme a un equipo de desarrollo.">
   <meta property="og:image" content="https://sofia-garnier.vercel.app/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Sofía Garnier, Desarrolladora Junior">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sofía Garnier | Desarrolladora Junior">
-  <meta name="twitter:description" content="Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio. Busco mi primer trabajo en IT.">
+  <meta name="twitter:description" content="Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio. Busco sumarme a un equipo de desarrollo.">
   <meta name="twitter:image" content="https://sofia-garnier.vercel.app/og-image.png">
   <meta name="theme-color" content="#7a2e6e">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23faf8f5'/><text x='16' y='23' text-anchor='middle' font-family='Inter,sans-serif' font-weight='900' font-size='18' fill='%237a2e6e'>SG</text></svg>">
@@ -176,6 +176,7 @@ nav.scrolled {
 }
 .btn-primary { border: 0; cursor: pointer; font-family: inherit; }
 .demo-dialog { border: 0; padding: 0; margin: auto; background: transparent; width: min(960px, 94vw); max-height: 94vh; overflow: visible; }
+@supports (height: 1dvh) { .demo-dialog { max-height: 94dvh; } }  /* en el celu, vh no descuenta la barra del navegador */
 .demo-dialog::backdrop { background: rgba(31,16,32,.62); }
 .demo-box { background: #1b1512; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 70px rgba(0,0,0,.5); }
 .demo-barra { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 6px 0 16px; min-height: 44px; background: #2b1b2e; color: #f3e8f0; font-size: .82rem; font-weight: 600; cursor: grab; touch-action: none; user-select: none; }
@@ -204,6 +205,7 @@ nav.scrolled {
 .btn-secondary { background: transparent; cursor: pointer; font-family: inherit; }
 .cv-dialog { width: min(880px, 96vw); }
 .cv-visor { overflow: auto; max-height: calc(94vh - 44px); background: #faf8f5; }
+@supports (height: 1dvh) { .cv-visor { max-height: calc(94dvh - 50px); } }
 .cv-escala { margin: 0 auto; overflow: hidden; }
 .cv-escala iframe { border: 0; display: block; transform-origin: 0 0; background: #faf8f5; }
 .cv-dialog .demo-box { background: #faf8f5; border: 1px solid rgba(122,46,110,.12); }
@@ -377,7 +379,8 @@ footer p a { display: inline-block; padding: 12px 4px; }
 .scene .poster { position: absolute; left: 5.83%; top: 40%; width: 88.06%; height: auto; z-index: 0; pointer-events: none; transition: opacity .35s ease .35s; }
 .scene.ready .poster { opacity: 0; }
 .scene .sofi { display: none; position: absolute; inset: 0; width: 100%; height: 100%; }
-.scene.nogl .sofi { display: block; }
+.scene.nogl.min .sofi { display: block; }        /* sin video: la ilustración fija aparece recién al minimizar */
+.scene.nogl.min .poster { opacity: 0; }
 .win {
   position: absolute; left: 11.2%; width: 77.4%; top: 40.8%; height: 30.2%; z-index: 2;
   background: #1f1020; border-radius: .6cqw; box-shadow: 0 1.5cqw 4cqw rgba(0,0,0,.4); overflow: hidden; transform-origin: 50% 105%;
@@ -634,9 +637,9 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
           <span data-en="&amp;gt;&amp;nbsp;Junior Developer">&gt;&nbsp;Desarrolladora Junior</span>
           
         </div>
-        <p class="hero-desc" data-en="Programming Technician (UTN). I built a complete management system for a store, which they use every day. I am looking for my first job in IT.">
+        <p class="hero-desc" data-en="Programming Technician (UTN). I built a complete management system for a store, which they use every day. I am looking to join a development team.">
           Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio,
-          el cual usan todos los días. Busco mi primer trabajo en IT.
+          el cual usan todos los días. Busco sumarme a un equipo de desarrollo.
         </p>
         <div class="hero-actions">
           <button type="button" class="btn-primary js-demo" aria-haspopup="dialog" data-en="▶ Watch demo">▶ Ver demo</button>
@@ -1305,6 +1308,7 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
     return Promise.all([seek(va, 0.01), seek(vb, FINAL)]).then(function () {
       drawA(); drawB();
       if (reduce) { scene.classList.add('ready', 'min', 'fin', 'solo-b'); return; }
+      scene.classList.remove('nogl');            // si cargó tarde (después del plan B de 6 s), vuelve la animación
       scene.classList.add('ready');
       if (quiere) arrancar();
     });
@@ -1433,6 +1437,14 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
   };
   function guardado() { try { return localStorage.getItem('idioma'); } catch (e) { return null; } }
   function guardar(l) { try { localStorage.setItem('idioma', l); } catch (e) {} }
+  function enlacesPdf(en) {
+    var pdf = en ? 'CV-Sofia-Garnier-EN.pdf' : 'CV-Sofia-Garnier.pdf', nom = en ? 'CV-Sofia-Garnier-Junior-Developer.pdf' : 'CV-Sofia-Garnier-Desarrolladora-Junior.pdf';
+    var tactil = matchMedia('(pointer: coarse)').matches;   // Chrome en el iPhone ignora "download" y el botón no hacía nada: ahí se abre el PDF
+    document.querySelectorAll('a[href$=".pdf"]').forEach(function (a) {
+      a.setAttribute('href', pdf);
+      if (tactil) { a.removeAttribute('download'); a.target = '_blank'; a.rel = 'noopener'; } else a.setAttribute('download', nom);
+    });
+  }
   function setLang(l, grabar) {
     var en = l === 'en';
     window.idioma = l; DOC.lang = l;
@@ -1449,8 +1461,7 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
       });
     });
     if (window.__shotsTextos) window.__shotsTextos();
-    var pdf = en ? 'CV-Sofia-Garnier-EN.pdf' : 'CV-Sofia-Garnier.pdf', nom = en ? 'CV-Sofia-Garnier-Junior-Developer.pdf' : 'CV-Sofia-Garnier-Desarrolladora-Junior.pdf';
-    document.querySelectorAll('a[download]').forEach(function (a) { a.setAttribute('href', pdf); a.setAttribute('download', nom); });
+    enlacesPdf(en);
     var fr = document.getElementById('cv-frame');
     if (fr && fr.getAttribute('src')) fr.src = en ? 'cv-en.html' : 'cv-es.html';
     var hb = document.getElementById('hamburger');
@@ -1464,7 +1475,7 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
   var ini = pedido || guardado() || ((navigator.language || '').toLowerCase().indexOf('en') === 0 ? 'en' : 'es');
   window.idioma = ini;
   document.getElementById('lang-toggle').addEventListener('click', function () { setLang(window.idioma === 'en' ? 'es' : 'en', true); });
-  if (ini === 'en') setLang('en', false);
+  if (ini === 'en') setLang('en', false); else enlacesPdf(false);
 })();
 </script>
 </body>
