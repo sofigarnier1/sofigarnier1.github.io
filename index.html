@@ -997,7 +997,6 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
       <span class="demo-titulo"><svg class="demo-mover" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="currentColor"><circle cx="9" cy="6" r="1.8"/><circle cx="15" cy="6" r="1.8"/><circle cx="9" cy="12" r="1.8"/><circle cx="15" cy="12" r="1.8"/><circle cx="9" cy="18" r="1.8"/><circle cx="15" cy="18" r="1.8"/></g></svg><span data-en="Curriculum">Currículum</span></span>
       <span class="cv-acciones">
         <a class="cv-btn" href="CV-Sofia-Garnier.pdf" download="CV-Sofia-Garnier-Desarrolladora-Junior.pdf" data-en="↓ Download PDF">↓ Descargar PDF</a>
-        <button type="button" class="cv-btn" id="cv-imprimir" data-en="Print">Imprimir</button>
         <button type="button" class="demo-cerrar" id="cv-cerrar" aria-label="Cerrar currículum">×</button>
       </span>
     </div>
@@ -1071,11 +1070,6 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
     abrible(cd, document.querySelectorAll('.js-cv'), document.getElementById('cv-cerrar'), () => {
       if (!fr.getAttribute('src')) fr.src = window.idioma === 'en' ? 'cv-en.html' : 'cv-es.html'; else ajustar();
       vis.scrollTop = 0; requestAnimationFrame(ajustar);
-    });
-    document.getElementById('cv-imprimir').addEventListener('click', () => {
-      const tactil = matchMedia('(pointer: coarse)').matches;
-      if (tactil) { window.open('CV-Sofia-Garnier.pdf', '_blank'); return; }   // en el celular se abre el PDF, que se imprime desde el visor
-      try { fr.contentWindow.focus(); fr.contentWindow.print(); } catch (e) { window.open('CV-Sofia-Garnier.pdf', '_blank'); }
     });
   }
 })();
