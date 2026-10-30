@@ -213,7 +213,7 @@ nav.scrolled {
 .cv-barra .demo-cerrar { color: #2b1b2e; }
 .cv-barra .demo-cerrar:hover { background: rgba(122,46,110,.12); }
 .cv-acciones { display: flex; align-items: center; gap: 6px; }
-.cv-btn { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: #7a2e6e; color: #fff; font: 600 .8rem/1 inherit; font-family: inherit; text-decoration: none; cursor: pointer; white-space: nowrap; }
+.cv-btn { display: inline-flex; align-items: center; min-height: 36px; padding: 0 14px; border: 0; border-radius: 8px; background: #7a2e6e; color: #fff; font-family: inherit; font-size: .8rem; font-weight: 600; line-height: 1; text-decoration: none; cursor: pointer; white-space: nowrap; }
 .cv-btn:hover { background: #5e2155; }
 @media (max-width: 560px) { .cv-barra .demo-titulo span { display: none; } .cv-btn { padding: 0 10px; } }
 .btn-secondary:hover { border-color: var(--primary); color: var(--primary); background: rgba(122,46,110,.05); }
@@ -378,9 +378,9 @@ footer p a { display: inline-block; padding: 12px 4px; }
   background: radial-gradient(ellipse at 50% 40%, rgba(122,46,110,.22) 0, rgba(176,80,150,.12) 45%, rgba(176,80,150,0) 75%); }
 .scene .poster { position: absolute; left: 5.83%; top: 40%; width: 88.06%; height: auto; z-index: 0; pointer-events: none; transition: opacity .35s ease .35s; }
 .scene.ready .poster { opacity: 0; }
-.scene .sofi { display: none; position: absolute; inset: 0; width: 100%; height: 100%; }
-.scene.nogl.min .sofi { display: block; }        /* sin video: la ilustración fija aparece recién al minimizar */
-.scene.nogl.min .poster { opacity: 0; }
+.scene .sofi { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; pointer-events: none; transition: opacity .6s ease; }
+.scene.fijo .sofi { opacity: 1; }                 /* sin video: al minimizar aparece el último cuadro de la animación */
+.scene.fijo .poster { opacity: 0; }
 .win {
   position: absolute; left: 11.2%; width: 77.4%; top: 40.8%; height: 30.2%; z-index: 2;
   background: #1f1020; border-radius: .6cqw; box-shadow: 0 1.5cqw 4cqw rgba(0,0,0,.4); overflow: hidden; transform-origin: 50% 105%;
@@ -657,7 +657,7 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
             <div class="halo" aria-hidden="true"></div>
             <div class="sombra" aria-hidden="true"></div>
             <img class="poster" src="ilustracion/notebook-poster.png" alt="" aria-hidden="true" width="634" height="433" fetchpriority="high">
-            <img class="sofi" src="ilustracion/sofi.png" alt="Ilustración de Sofía Garnier saludando" loading="lazy" decoding="async">
+            <img class="sofi" src="ilustracion/final.webp" alt="Ilustración de Sofía Garnier saludando" width="720" height="1280" decoding="async">
             <canvas class="vid vid-a" id="vidA" width="720" height="1280" role="img" aria-label="Ilustración de Sofía Garnier que sale de la pantalla de una notebook y saluda"></canvas>
             <canvas class="vid vid-b" id="vidB" width="720" height="1280" aria-hidden="true"></canvas>
             <canvas class="vid vid-c" id="vidC" width="720" height="1280" aria-hidden="true"></canvas>
@@ -992,7 +992,7 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
 </footer>
 
 <dialog class="demo-dialog cv-dialog" id="cv-dialog" aria-label="Currículum de Sofía Garnier">
-  <div class="demo-box">
+  <div class="demo-box" tabindex="-1" autofocus>
     <div class="demo-barra cv-barra" id="cv-barra" title="Arrastrá para mover">
       <span class="demo-titulo"><svg class="demo-mover" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><g fill="currentColor"><circle cx="9" cy="6" r="1.8"/><circle cx="15" cy="6" r="1.8"/><circle cx="9" cy="12" r="1.8"/><circle cx="15" cy="12" r="1.8"/><circle cx="9" cy="18" r="1.8"/><circle cx="15" cy="18" r="1.8"/></g></svg><span data-en="Curriculum">Currículum</span></span>
       <span class="cv-acciones">
@@ -1309,6 +1309,7 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
       drawA(); drawB();
       if (reduce) { scene.classList.add('ready', 'min', 'fin', 'solo-b'); return; }
       scene.classList.remove('nogl');            // si cargó tarde (después del plan B de 6 s), vuelve la animación
+      if (scene.classList.contains('fijo')) { quiere = false; return; }   // ya se muestra el cuadro final: no se repite la entrada
       scene.classList.add('ready');
       if (quiere) arrancar();
     });
@@ -1411,14 +1412,19 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
     conTeclado = document.activeElement === winMin && winMin.matches(':focus-visible');
     scene.classList.add('genie-on', 'min');
     genie('cerrar', function () { scene.classList.remove('genie-on'); });
-    if (!drawA) { quiere = true; return; }          // el video todavía carga: arranca apenas esté listo
+    if (!drawA) {                                    // el video todavía carga: arranca apenas esté listo
+      quiere = true;
+      [va, vb, vc].forEach(function (v) { var p = v.play(); if (p && p.then) p.then(function () { if (!playing) v.pause(); }).catch(function () {}); });   // con el toque, el iPhone en bajo consumo deja cargar el video
+      setTimeout(function () { if (!scene.classList.contains('ready')) scene.classList.add('fijo'); }, 1500);
+      return;
+    }
     ronda++; var mi = ronda; setTimeout(function () { arrancar(mi); }, 420);
   });
   replay.addEventListener('click', function () {
     if (animando) return;                             // espera a que termine de abrir o cerrar la ventana
     ronda++;
     var foco = document.activeElement === replay;
-    scene.classList.remove('fin', 'min', 'idle', 'solo-b'); playing = false; idling = false; quiere = false; va.pause(); vc.pause();
+    scene.classList.remove('fin', 'min', 'idle', 'solo-b', 'fijo'); if (drawA) scene.classList.add('ready'); playing = false; idling = false; quiere = false; va.pause(); vc.pause();
     if (foco) winMin.focus();
     seek(va, 0.01).then(drawA);
     scene.classList.add('genie-on');
