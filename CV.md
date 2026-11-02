@@ -11,7 +11,7 @@ Técnica Universitaria en Programación (UTN)
 
 ## Sobre mí
 
-Técnica Universitaria en Programación (UTN, egresada en julio de 2026). Me gusta ayudar a que el día a día de la gente sea más práctico, y la programación es mi forma de hacerlo. Armé un sistema de gestión completo, con app de escritorio y acceso desde el celular, que un comercio usa todos los días, y soy cofundadora de FS Labs, donde hago el diseño y el frontend de sitios para clientes. Vengo de ventas remotas, atención al cliente y community management. Busco mi primer trabajo en IT.
+Desarrollé FRESKA, el sistema de gestión que hoy usa un comercio para llevar todo el negocio: pedidos, facturas, cobros, stock y caja. También hice el frontend del portal de inversores de Alinea Desarrollos. Busco sumarme a un equipo de desarrollo donde aportar lo que ya sé hacer y seguir creciendo.
 
 ---
 
@@ -31,14 +31,11 @@ Sistema de gestión con aplicación de escritorio y acceso desde el celular medi
 
 _Código: [github.com/sofigarnier1/freska-gestion](https://github.com/sofigarnier1/freska-gestion)_
 
-### FS Labs · Alinea Desarrollos
-**Next.js · TypeScript · Tailwind CSS** · _Cofundadora · proyecto con cliente real_ · [fslabs.com.ar](https://fslabs.com.ar)
+### Alinea Desarrollos
+**Next.js · React · TypeScript · Tailwind CSS** · _Freelance · cliente real_ · [alineadesarrollos.com.ar](https://www.alineadesarrollos.com.ar)
 
-FS Labs es una agencia de automatización, IA y software a medida para empresas.
-
-- Diseño, frontend y textos del sitio de FS Labs (Next.js, TypeScript, Tailwind, Framer Motion), en español e inglés.
-- Frontend de la web institucional, del portal del inversor y del panel de administración de Alinea Desarrollos (constructora), con tests end-to-end (Playwright), entregados y en producción ([alineadesarrollos.com.ar](https://www.alineadesarrollos.com.ar)). El CRM y los flujos de automatización los desarrolló mi socio.
-- Trabajo en equipo de dos personas; repositorio en Azure DevOps y despliegue en Vercel y Azure App Service.
+- Frontend de la web institucional, del portal del inversor y del panel de administración de una constructora, con tests end-to-end (Playwright), entregados y en producción.
+- Trabajo en equipo con otro desarrollador, que hizo el CRM y los flujos de automatización; repositorio en Azure DevOps y despliegue en Vercel y Azure App Service.
 
 ### Sabina Accesorios
 **React · Node.js · Express · MongoDB** · _Proyecto grupal · UTN Programación IV_  
@@ -54,10 +51,10 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 
 ## Experiencia
 
-**Cofundadora y desarrolladora frontend · FS Labs (feb 2026 – Actualidad)**
+**Desarrolladora de software freelance · Sistemas a medida para clientes (feb 2026 – Actualidad)**
 
-- Diseño, frontend y textos del sitio (Next.js, TypeScript, Tailwind CSS, Framer Motion), en español e inglés
-- Frontend de la web institucional, del portal del inversor y del panel de administración de Alinea Desarrollos, con tests end-to-end, en producción; el CRM y los flujos de automatización los desarrolla mi socio
+- FRESKA: diseño, desarrollo y mantenimiento del sistema de gestión que hoy usa un comercio
+- Alinea Desarrollos: frontend de la web institucional, del portal del inversor y del panel de administración, con tests end-to-end, en producción, en equipo con otro desarrollador
 
 **Community Manager y Creadora de Contenido · Freelance, híbrido (2022 – Actualidad)**
 
