@@ -1,0 +1,141 @@
+[
+  {
+    "pregunta": "¿Qué es FRESKA?",
+    "tipo": "responde",
+    "fuente": "FRESKA Gestión",
+    "palabras": [
+      "comercio"
+    ]
+  },
+  {
+    "pregunta": "¿Con qué tecnologías hizo FRESKA?",
+    "tipo": "responde",
+    "fuente": "FRESKA Gestión",
+    "palabras": [
+      "Electron",
+      "SQLite"
+    ]
+  },
+  {
+    "pregunta": "¿Cómo probó el dinero y el stock en FRESKA?",
+    "tipo": "responde",
+    "fuente": "FRESKA Gestión",
+    "palabras": [
+      "250"
+    ]
+  },
+  {
+    "pregunta": "¿Qué hizo en Alinea Desarrollos?",
+    "tipo": "responde",
+    "fuente": "Alinea Desarrollos",
+    "palabras": [
+      "frontend"
+    ]
+  },
+  {
+    "pregunta": "¿Quién hizo el CRM de Alinea?",
+    "tipo": "responde",
+    "fuente": "Alinea Desarrollos",
+    "palabras": [
+      "otro desarrollador"
+    ]
+  },
+  {
+    "pregunta": "¿Qué parte hizo en Pancho Piletas?",
+    "tipo": "responde",
+    "fuente": "Pancho Piletas",
+    "palabras": [
+      "landing"
+    ]
+  },
+  {
+    "pregunta": "¿Qué parte hizo en el proyecto Sabina Accesorios?",
+    "tipo": "responde",
+    "fuente": "Sabina",
+    "palabras": [
+      "frontend"
+    ]
+  },
+  {
+    "pregunta": "¿Dónde estudió y con qué promedio?",
+    "tipo": "responde",
+    "fuente": "Educación",
+    "palabras": [
+      "UTN",
+      "8,67"
+    ]
+  },
+  {
+    "pregunta": "¿Habla inglés?",
+    "tipo": "responde",
+    "fuente": "Educación",
+    "palabras": [
+      "básico"
+    ]
+  },
+  {
+    "pregunta": "¿Trabaja remoto?",
+    "tipo": "responde",
+    "fuente": "Disponibilidad",
+    "palabras": [
+      "remoto"
+    ]
+  },
+  {
+    "pregunta": "What is her experience as a community manager?",
+    "tipo": "responde",
+    "fuente": "Experiencia",
+    "palabras": [
+      "Meta"
+    ]
+  },
+  {
+    "pregunta": "¿Qué experiencia tiene con ventas?",
+    "tipo": "responde",
+    "fuente": "Experiencia",
+    "palabras": [
+      "appointment"
+    ]
+  },
+  {
+    "pregunta": "¿Cuánto cobra por mes?",
+    "tipo": "trampa",
+    "fuente": null,
+    "palabras": []
+  },
+  {
+    "pregunta": "¿Tiene experiencia con Kubernetes?",
+    "tipo": "trampa",
+    "fuente": null,
+    "palabras": []
+  },
+  {
+    "pregunta": "¿Entrenó modelos de machine learning en producción?",
+    "tipo": "limite",
+    "fuente": "Lo que Sofía todavía no tiene",
+    "palabras": [
+      "no"
+    ]
+  },
+  {
+    "pregunta": "¿Trabajó en Google?",
+    "tipo": "trampa",
+    "fuente": null,
+    "palabras": [],
+    "solo_modelo": true
+  },
+  {
+    "pregunta": "¿Tiene experiencia con Docker y AWS?",
+    "tipo": "trampa",
+    "fuente": null,
+    "palabras": []
+  },
+  {
+    "pregunta": "¿Cuántos años de experiencia profesional en IT tiene?",
+    "tipo": "limite",
+    "fuente": "Lo que Sofía todavía no tiene",
+    "palabras": [
+      "no tiene un empleo formal"
+    ]
+  }
+]

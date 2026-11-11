@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+<base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sofía Garnier | Portfolio</title>
   <meta name="description" content="Sofía Garnier, Desarrolladora Junior. Técnica en Programación (UTN). Armé un sistema de gestión completo para un comercio, el cual usan todos los días. Busco sumarme a un equipo de desarrollo.">
@@ -724,6 +725,7 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
 
     <div class="proj-tabs" role="tablist" aria-label="Proyectos">
       <button class="proj-tab active" type="button" role="tab" id="t-fresca" aria-selected="true" aria-controls="tab-fresca" data-tab="tab-fresca">FRESKA</button>
+      <button class="proj-tab" type="button" role="tab" id="t-cloro" aria-selected="false" aria-controls="tab-cloro" tabindex="-1" data-tab="tab-cloro">Pancho Piletas</button>
       <button class="proj-tab" type="button" role="tab" id="t-fslabs" aria-selected="false" aria-controls="tab-fslabs" tabindex="-1" data-tab="tab-fslabs">Alinea Desarrollos</button>
       <button class="proj-tab" type="button" role="tab" id="t-academicos" aria-selected="false" aria-controls="tab-academicos" tabindex="-1" data-tab="tab-academicos" data-en="Academic">Académicos</button>
     </div>
@@ -792,6 +794,48 @@ html[lang="es"] .lang-toggle [data-l="es"], html[lang="en"] .lang-toggle [data-l
     </div>
 
     <!-- Alinea -->
+    <!-- Pancho Piletas -->
+    <div class="tab-panel" id="tab-cloro" role="tabpanel" aria-labelledby="t-cloro">
+    <div class="project-card project-featured">
+      <span class="project-badge badge-js" data-en="Frontend · Web design">Frontend · Diseño web</span><span class="project-badge badge-main" data-en="Real client · In development">Cliente real · En desarrollo</span>
+      <h3 data-en="Pancho Piletas — landing and back office">Pancho Piletas — landing y backoffice</h3>
+      <p style="margin-bottom:14px;" data-en="Pancho sells pool chlorine and runs a pool maintenance service for about 100 customers in Buenos Aires' north zone. Together with Facundo, another developer, we're building one platform for both: a public landing page with a catalog and an order through WhatsApp, a back office for the owner (schedule, customers, sales, stock) and portals for employees and customers. The creative side was mine: the ideas, design and look and feel of the landing and the back office came from me, and I built the whole landing.">
+        Pancho vende cloro y hace el service de piletas de unos 100 clientes en Zona Norte. Junto a Facundo,
+        otro desarrollador, armamos una sola plataforma para las dos cosas: una landing pública con catálogo y pedido por WhatsApp,
+        un backoffice para el dueño (itinerario, clientes, ventas y stock) y portales para empleados y clientes.
+        La parte creativa fue mía: las ideas, el diseño y la estética de la landing y del backoffice salieron de mí, y la landing la armé entera.
+      </p>
+
+      <div class="proj-shots">
+        <div class="shots" id="cloro" role="group" aria-roledescription="carrusel" aria-label="Capturas: Pancho Piletas">
+          <div class="shots-prog" id="cloro-prog"></div>
+          <div class="shots-stage" id="cloro-stage" tabindex="0"><div class="shots-sizer"></div>
+            <button type="button" class="shots-flecha izq" id="cloro-prev" aria-label="Anterior">‹</button>
+            <button type="button" class="shots-flecha der" id="cloro-next" aria-label="Siguiente">›</button>
+          </div>
+          <span class="shots-leyenda" id="cloro-leyenda" aria-live="polite"></span>
+        </div>
+        <p class="shot-note" data-en="Landing: local build of the current version, with example products. Back office: example data, no real customers.">Landing: versión actual en mi compu, con productos de ejemplo. Backoffice: datos de ejemplo, sin clientes reales.</p>
+      </div>
+
+      <div class="proj-stats">
+        <div class="proj-stat"><strong data-en="Landing">Landing</strong><span data-en="design and code, mine">diseño y código, míos</span></div>
+        <div class="proj-stat"><strong>Backoffice</strong><span data-en="visual design and components">diseño visual y componentes</span></div>
+        <div class="proj-stat"><strong>5</strong><span data-en="user roles (owner, staff, customers…)">roles de usuario (dueño, empleados, clientes…)</span></div>
+        <div class="proj-stat"><strong data-en="In progress">En marcha</strong><span data-en="not published yet">todavía sin publicar</span></div>
+      </div>
+
+      <div class="proj-chips">
+        <span class="proj-chip">Next.js</span><span class="proj-chip">React</span><span class="proj-chip">TypeScript</span><span class="proj-chip">Tailwind CSS</span>
+        <span class="proj-chip">shadcn/ui</span><span class="proj-chip">Supabase</span>
+      </div>
+      <p style="font-size:.78rem; color:var(--dim); font-style:italic; margin:14px 0 0;" data-en="The code is private (company repository).">
+        El código es privado (repositorio de la empresa).
+      </p>
+    </div>
+
+    </div>
+
     <div class="tab-panel" id="tab-fslabs" role="tabpanel" aria-labelledby="t-fslabs">
     <div class="project-card project-featured">
       <span class="project-badge badge-js" data-en="Frontend · Web design">Frontend · Diseño web</span><span class="project-badge badge-main" data-en="Real client">Cliente real</span>
@@ -1156,8 +1200,8 @@ function carrusel(P) {
   }
   function cargar(c) {
     if (c._im.getAttribute('src')) return;
-    const d = c._d; c._im.src = d.src + '.jpg?v=3';   // ?v=3: evita que el navegador muestre capturas viejas guardadas
-    if (d.w800) c._im.srcset = d.src + '-800.jpg?v=3 800w, ' + d.src + '.jpg?v=3 1600w';
+    const d = c._d; c._im.src = d.src + '.jpg?v=6';   // ?v=6: evita que el navegador muestre capturas viejas guardadas
+    if (d.w800) c._im.srcset = d.src + '-800.jpg?v=6 800w, ' + d.src + '.jpg?v=6 1600w';
     c._im.sizes = '(max-width: 1100px) calc(100vw - 110px), 1040px';
   }
   function pintar() {
@@ -1224,6 +1268,9 @@ const textosCarruseles = [
   carrusel({ id: 'shots', nombre: 'FRESKA',
     compu: [D('freska-inicio', 'Inicio', 'Home', 1), D('freska-pedidos', 'Pedidos de hoy', 'Today\'s orders', 1), D('freska-facturas', 'Facturas', 'Invoices', 1), D('freska-cobros', 'Cobros pendientes', 'Pending payments', 1), D('freska-cierre', 'Cierre de caja', 'Cash closing', 1), D('freska-clientes', 'Clientes', 'Customers', 1), D('freska-estadisticas', 'Estadísticas', 'Statistics', 1)],
     celu: [D('freska-celu-inicio', 'Inicio', 'Home'), D('freska-celu-pedidos', 'Pedidos de hoy', 'Today\'s orders'), D('freska-celu-facturas', 'Facturas', 'Invoices'), D('freska-celu-negocio', 'Cobros pendientes', 'Pending payments'), D('freska-celu-cierre', 'Cierre de caja', 'Cash closing'), D('freska-celu-clientes', 'Clientes', 'Customers')] }),
+  carrusel({ id: 'cloro', nombre: 'Cloro',
+    compu: [D('cloro-inicio', 'Landing: inicio', 'Landing: home', 1), D('cloro-cloro', 'Catálogo y pedido', 'Catalog and order', 1), D('cloro-service', 'Service', 'Service', 1), D('cloro-consejos', 'Consejos de Pancho', 'Pancho\'s tips', 1), D('cloro-admin-tablero', 'Backoffice: tablero', 'Back office: dashboard', 1), D('cloro-admin-itinerario', 'Backoffice: itinerario', 'Back office: schedule', 1), D('cloro-admin-clientes', 'Backoffice: clientes', 'Back office: customers', 1), D('cloro-admin-ventas', 'Backoffice: ventas', 'Back office: sales', 1), D('cloro-admin-stock', 'Backoffice: stock', 'Back office: stock', 1)],
+    celu: [D('cloro-celu-inicio', 'Inicio', 'Home'), D('cloro-celu-cloro', 'Catálogo y pedido', 'Catalog and order'), D('cloro-celu-service', 'Service', 'Service'), D('cloro-celu-consejos', 'Consejos de Pancho', 'Pancho\'s tips')] }),
   carrusel({ id: 'alinea', nombre: 'Alinea',
     compu: [D('alinea-inicio', 'Inicio', 'Home', 1), D('alinea-beneficios', 'Beneficios', 'Benefits', 1), D('alinea-como', 'Cómo invertir', 'How to invest', 1), D('alinea-proyectos', 'Proyectos', 'Projects', 1), D('alinea-control', 'Portal del inversor', 'Investor portal', 1), D('alinea-equipo', 'Equipo', 'Team', 1)],
     celu: [D('alinea-celu-inicio', 'Inicio', 'Home'), D('alinea-celu-beneficios', 'Beneficios', 'Benefits'), D('alinea-celu-como', 'Cómo invertir', 'How to invest'), D('alinea-celu-proyectos', 'Proyectos', 'Projects'), D('alinea-celu-control', 'Portal del inversor', 'Investor portal'), D('alinea-celu-equipo', 'Equipo', 'Team')] })
@@ -1477,6 +1524,20 @@ window.__shotsTextos = () => textosCarruseles.forEach(f => f());     // lo llama
   document.getElementById('lang-toggle').addEventListener('click', function () { setLang(window.idioma === 'en' ? 'es' : 'en', true); });
   if (ini === 'en') setLang('en', false); else enlacesPdf(false);
 })();
+</script>
+<link rel="stylesheet" href="asistente/widget.css?v=2">
+<script src="asistente/widget.js?v=2" defer></script>
+<script>
+/* Estadísticas de visitas (Vercel Web Analytics, sin cookies). Solo corre en el sitio publicado, no en localhost. */
+(function () {
+  if (/^(localhost|127\.|\[::1\])/.test(location.hostname)) return;
+  window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+  var s = document.createElement('script'); s.defer = true; s.src = '/_vercel/insights/script.js'; document.head.appendChild(s);
+})();
+</script>
+<script>
+/* Links por postulación: /p/empresa carga este mismo portfolio y Analytics cuenta las visitas por ruta. */
+if (/^\/p\//.test(location.pathname)) document.querySelectorAll('a[href^="#"]').forEach(function (a) { a.setAttribute('href', location.pathname + a.getAttribute('href')); });
 </script>
 </body>
 </html>

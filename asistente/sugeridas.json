@@ -1,0 +1,23 @@
+[
+  {
+    "pregunta": "¿Qué proyecto armó de punta a punta?",
+    "respuesta": "FRESKA Gestión: un sistema de gestión para un comercio que Sofía diseñó y desarrolló sola, de punta a punta. Tiene app de escritorio (Electron) y acceso desde el celular (PWA), con una base SQLite y un servidor propio en Node. Cubre pedidos, facturas, cobros, stock, caja y reportes, y lo usa el administrador todos los días. Tiene tests automáticos para dinero y stock (más de 30 archivos), instalador para Windows y copias de seguridad. [1]",
+    "fuentes": [
+      "FRESKA Gestión"
+    ]
+  },
+  {
+    "pregunta": "¿Qué experiencia tiene con IA?",
+    "respuesta": "Usa IA generativa (Claude, Gemini, ChatGPT) como herramienta de trabajo y asistentes de programación como Claude Code y Codex. Este asistente es su primer proyecto de RAG: recupera fragmentos de sus documentos y responde solo con eso, citando la fuente, con una evaluación propia que incluye preguntas trampa. No entrenó modelos de machine learning ni tiene experiencia profesional en ciencia de datos o MLOps. [1]",
+    "fuentes": [
+      "Lo que Sofía todavía no tiene (y su relación con la IA)"
+    ]
+  },
+  {
+    "pregunta": "¿Qué disponibilidad tiene?",
+    "respuesta": "Busca trabajo full-time. Es 100 % remoto con empresas de LinkedIn y del exterior; presencial o híbrido solo con empresas de Concepción del Uruguay, donde vive. Busca roles de Junior Developer, Trainee Developer y AI Engineer junior. [1]",
+    "fuentes": [
+      "Disponibilidad y búsqueda laboral"
+    ]
+  }
+]

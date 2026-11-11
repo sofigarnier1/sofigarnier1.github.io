@@ -31,6 +31,12 @@ Sistema de gestión con aplicación de escritorio y acceso desde el celular medi
 
 _Código: [github.com/sofigarnier1/freska-gestion](https://github.com/sofigarnier1/freska-gestion)_
 
+### Pancho Piletas
+**Next.js · React · TypeScript · Tailwind CSS · Supabase** · _Freelance · cliente real · en desarrollo_
+
+- Ideas, diseño y desarrollo de toda la landing (catálogo, pedido por WhatsApp, calculadora) y de la estética del backoffice de un negocio de cloro y service de piletas.
+- Trabajo en equipo con otro desarrollador.
+
 ### Alinea Desarrollos
 **Next.js · React · TypeScript · Tailwind CSS** · _Freelance · cliente real_ · [alineadesarrollos.com.ar](https://www.alineadesarrollos.com.ar)
 
@@ -54,6 +60,7 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 **Desarrolladora de software freelance · Sistemas a medida para clientes (feb 2026 – Actualidad)**
 
 - FRESKA: diseño, desarrollo y mantenimiento del sistema de gestión que hoy usa un comercio
+- Pancho Piletas: ideas, diseño y desarrollo de toda la landing y de la estética del backoffice de un negocio de cloro y service de piletas, en equipo con otro desarrollador (en desarrollo)
 - Alinea Desarrollos: frontend de la web institucional, del portal del inversor y del panel de administración, con tests end-to-end, en producción, en equipo con otro desarrollador
 
 **Community Manager y Creadora de Contenido · Freelance, híbrido (2022 – Actualidad)**

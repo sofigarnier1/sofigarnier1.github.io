@@ -30,3 +30,21 @@
 !cv-es.html
 !cv-en.html
 !CV-Sofia-Garnier-EN.pdf
+
+# Asistente "Preguntale a Sofía" y su API
+!vercel.json
+!api/
+!api/preguntar.js
+!asistente/
+!asistente/README.md
+!asistente/nucleo.js
+!asistente/widget.js
+!asistente/widget.css
+!asistente/avatar.png
+!asistente/sugeridas.json
+!asistente/servidor-local.js
+!asistente/conocimiento/
+!asistente/conocimiento/*.md
+!asistente/evaluacion/
+!asistente/evaluacion/correr.js
+!asistente/evaluacion/preguntas.json
