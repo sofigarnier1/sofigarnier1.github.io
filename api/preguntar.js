@@ -11,7 +11,7 @@ const RAG = require('../asistente/rag.js');
 
 const MODELO = process.env.ASISTENTE_MODELO || 'claude-haiku-5-5';
 const MAX_PREGUNTA = 300;
-const MAX_TOKENS = 350;
+const MAX_TOKENS = 600;
 const TOPE_VISITANTE_DIA = Number(process.env.ASISTENTE_TOPE_VISITANTE || 8);
 const TOPE_GLOBAL_DIA = Number(process.env.ASISTENTE_TOPE_GLOBAL || 200);
 

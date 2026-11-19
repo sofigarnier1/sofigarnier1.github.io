@@ -30,14 +30,14 @@
   },
   {
     "pregunta": "¿Qué experiencia tiene con IA?",
-    "respuesta": "Usa la IA de dos maneras:\n\n• Construye con ella: en este portfolio hay un agente en Python que arma pedidos con tres herramientas cerradas (los precios y las cuentas los resuelve el código, no el modelo) y este asistente, que responde solo con sus documentos. A los dos los evalúa con casos de prueba y tienen tope de gasto.\n• Programa con ella: usa Claude Code y Codex todos los días, en FRESKA y en Pancho Piletas. Define qué se construye, revisa lo que genera y no da nada por terminado sin tests.",
+    "respuesta": "Usa la IA de dos maneras:\n\n• Construye con ella: armó un agente en Python (código público en GitHub) que arma pedidos con tres herramientas cerradas (los precios y las cuentas los resuelve el código, no el modelo) y este asistente, que responde solo con sus documentos. A los dos los evalúa con casos de prueba y tienen tope de gasto.\n• Programa con ella: usa Claude Code y Codex todos los días, en FRESKA y en Pancho Piletas. Define qué se construye, revisa lo que genera y no da nada por terminado sin tests.",
     "fuentes": [
       "Experiencia de Sofía con IA (inteligencia artificial)"
     ]
   },
   {
     "pregunta": "¿Cómo funciona el agente de pedidos?",
-    "respuesta": "El visitante escribe como lo haría un cliente por WhatsApp y el agente arma el pedido. Solo puede usar tres herramientas: buscar producto, calcular total y armar pedido. Los precios y las cuentas los calcula el código, así que el modelo no puede inventarlos. El catálogo del agente es ficticio y se puede probar en el portfolio.",
+    "respuesta": "Un cliente escribe como lo haría por WhatsApp y el agente arma el pedido. Solo puede usar tres herramientas: buscar producto, calcular total y armar pedido. Los precios y las cuentas los calcula el código, así que el modelo no puede inventarlos. El catálogo del agente es ficticio y se puede probar en el portfolio.",
     "fuentes": [
       "Experiencia de Sofía con IA (inteligencia artificial)"
     ]
@@ -152,7 +152,7 @@
   },
   {
     "pregunta": "How does the order agent work?",
-    "respuesta": "The visitor writes like a customer would on WhatsApp and the agent builds the order. It can only use three tools: search product, compute total and build order. Prices and totals are computed by code, so the model cannot make them up. The agent's catalog is fictional and you can try it in the portfolio.",
+    "respuesta": "A customer writes like they would on WhatsApp and the agent builds the order. It can only use three tools: search product, compute total and build order. Prices and totals are computed by code, so the model cannot make them up. The agent's catalog is fictional and the code is public on GitHub.",
     "fuentes": [
       "Experiencia de Sofía con IA (inteligencia artificial)"
     ]

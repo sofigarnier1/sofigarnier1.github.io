@@ -1,2 +1,0 @@
-# Para la función api/pedir.py en Vercel (agente "Pedí como cliente")
-anthropic

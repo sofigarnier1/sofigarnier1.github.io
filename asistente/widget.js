@@ -3,20 +3,20 @@
   var API = '/api/preguntar';
   var T = {
     es: { abrir: 'Preguntale a Sofía', titulo: 'Preguntale a Sofía', sub: 'Una IA que responde solo con mis documentos', cerrar: 'Cerrar', ph: 'Escribí tu pregunta…', enviar: 'Enviar',
-      hola: 'Hola, soy un asistente con IA. Respondo solo con lo que figura en el CV y los proyectos de Sofía, y te muestro de dónde sale cada dato. Si algo no está, te lo digo.',
+      hola: 'Hola, soy un asistente con IA. Respondo solo con lo que figura en el CV y los proyectos de Sofía. Si algo no está, te lo digo.',
       fuentes: 'Fuentes: ', pensando: 'Buscando en los documentos…', error: 'No pude responder ahora. Probá más tarde o escribile a sofigarnier1@gmail.com.',
-      nota: 'Es una IA: puede equivocarse. No guarda tus mensajes, salvo que elijas dejarle una pregunta a Sofía.',
-      globo: '¿Poco tiempo para leer? Preguntale a mi asistente', agente: ['', ''], dejar: 'Dejarle esta pregunta a Sofía', nom: 'Tu nombre (opcional)', mail: 'Tu mail (opcional)', mandar: 'Enviar', enviada: 'Listo, le llegó a Sofía.', noLlego: 'No pude avisarle ahora. Escribile a sofigarnier1@gmail.com.', agrandar: 'Agrandar el chat', achicar: 'Achicar el chat',
+      nota: 'Es una IA: puede equivocarse. No guarda tus mensajes, salvo que elijas ',
+      globo: '¿Poco tiempo para leer? Preguntale a mi asistente', agente: ['', ''], dejar: 'Dejarle esta pregunta a Sofía', quiero: 'Escribile a Sofía', intro: 'Tu mensaje le llega directo a ella. Si dejás un mail o un número, te responde por ahí.', tel: 'Tu teléfono o WhatsApp (opcional)', volver: '← Volver', notaLink: 'dejarle un mensaje a Sofía', msgPh: 'Tu mensaje', nom: 'Tu nombre (opcional)', mail: 'Tu mail (opcional)', mandar: 'Enviar', enviada: 'Listo, le llegó a Sofía.', noLlego: 'No pude avisarle ahora. Escribile a sofigarnier1@gmail.com.', agrandar: 'Agrandar el chat', achicar: 'Achicar el chat',
       otros: 'Otros temas', masPreg: 'Otras preguntas', temas: [
         { t: 'Proyectos', q: ['¿Qué proyecto armó de punta a punta?', '¿Qué es FRESKA y qué resuelve?', '¿Con qué tecnologías trabajó?', '¿Qué proyectos hizo en equipo?'] },
         { t: 'IA', q: ['¿Qué experiencia tiene con IA?', '¿Cómo funciona el agente de pedidos?', '¿Cómo probó que el agente anda bien?', '¿Entrenó modelos de machine learning?'] },
         { t: 'Disponibilidad', q: ['¿Qué disponibilidad tiene?', '¿Trabaja remoto?', '¿Qué roles busca?', '¿Cómo la contacto?'] },
         { t: 'Pancho Piletas', q: ['¿Qué hizo en Pancho Piletas?', '¿Qué tecnologías usó en Pancho Piletas?', '¿Qué es Alinea?', '¿Cómo fue trabajar con otro desarrollador?'] }] },
     en: { abrir: 'Ask Sofía', titulo: 'Ask Sofía', sub: 'An AI that answers only from my documents', cerrar: 'Close', ph: 'Type your question…', enviar: 'Send',
-      hola: "Hi, I'm an AI assistant. I only answer with what's in Sofía's CV and projects, and I show where each fact comes from. If something isn't there, I'll say so.",
+      hola: "Hi, I'm an AI assistant. I only answer with what's in Sofía's CV and projects. If something isn't there, I'll say so.",
       fuentes: 'Sources: ', pensando: 'Searching the documents…', error: "I couldn't answer right now. Try later or email sofigarnier1@gmail.com.",
-      nota: 'This is an AI and can be wrong. It does not store your messages, unless you choose to leave Sofía a question.',
-      globo: 'Short on time? Ask my assistant', agente: ['', ''], dejar: 'Leave this question for Sofía', nom: 'Your name (optional)', mail: 'Your email (optional)', mandar: 'Send', enviada: 'Done, it reached Sofía.', noLlego: 'I couldn\'t notify her now. Write to sofigarnier1@gmail.com.', agrandar: 'Enlarge chat', achicar: 'Shrink chat',
+      nota: 'This is an AI and can be wrong. It does not store your messages, unless you choose to ',
+      globo: 'Short on time? Ask my assistant', agente: ['', ''], dejar: 'Leave this question for Sofía', quiero: 'Write to Sofía', intro: 'Your message goes straight to her. If you leave an email or a number, she will reply there.', tel: 'Your phone or WhatsApp (optional)', volver: '← Back', notaLink: 'leave Sofía a message', msgPh: 'Your message', nom: 'Your name (optional)', mail: 'Your email (optional)', mandar: 'Send', enviada: 'Done, it reached Sofía.', noLlego: 'I couldn\'t notify her now. Write to sofigarnier1@gmail.com.', agrandar: 'Enlarge chat', achicar: 'Shrink chat',
       otros: 'Other topics', masPreg: 'More questions', temas: [
         { t: 'Projects', q: ['What project did she build end to end?', 'What is FRESKA and what does it solve?', 'What technologies has she worked with?', 'What projects did she do in a team?'] },
         { t: 'AI', q: ['What experience does she have with AI?', 'How does the order agent work?', 'How did she test that the agent works well?', 'Did she train machine learning models?'] },
@@ -28,27 +28,25 @@
 
   var btn = el('button', 'asis-btn'); btn.type = 'button'; btn.setAttribute('aria-haspopup', 'dialog');
   var foto = el('img'); foto.src = 'asistente/avatar.png'; foto.alt = ''; foto.width = 64; foto.height = 64; foto.decoding = 'async';
-  var globo = el('span', 'asis-globo'); globo.setAttribute('aria-hidden', 'true'); btn.append(foto, globo);
+  var globo = el('span', 'asis-globo'); globo.setAttribute('aria-hidden', 'true'); var badge = el('span', 'asis-badge', '1'); badge.setAttribute('aria-hidden', 'true'); btn.append(foto, globo, badge);
   var panel = el('section', 'asis-panel'); panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Chat');
   var cab = el('div', 'asis-cab'), tit = el('div'), strong = el('strong'), sub = el('small'); tit.append(strong, sub);
   var tam = el('button', 'asis-tam', '⤢'); tam.type = 'button';
   var x = el('button', 'asis-x', '×'); x.type = 'button'; cab.append(tit, tam, x);
   var msgs = el('div', 'asis-msgs'); msgs.setAttribute('aria-live', 'polite');
   var sug = el('div', 'asis-sug');
-  var modo = el('div', 'asis-modo'), modoTxt = el('span'), modoBtn = el('button'); modo.hidden = true; modo.append(modoTxt, modoBtn); // fila sin uso por ahora
   var form = el('form', 'asis-form'), input = el('input'), enviar = el('button'); input.type = 'text'; input.maxLength = 300; input.autocomplete = 'off'; enviar.type = 'submit';
   form.append(input, enviar);
   var nota = el('p', 'asis-nota');
-  panel.append(cab, msgs, modo, form, nota);
+  panel.append(cab, msgs, form, nota);
   document.body.append(btn, panel);
 
   function textos() {
-    var t = L(); globo.textContent = t.globo; btn.setAttribute('aria-label', t.abrir); strong.textContent = t.titulo; sub.textContent = t.sub; x.setAttribute('aria-label', t.cerrar);
+    var t = L(); globo.textContent = ''; globo.append(el('b', null, 'Sofía'), el('span', null, t.globo)); btn.setAttribute('aria-label', t.abrir); strong.textContent = t.titulo; sub.textContent = t.sub; x.setAttribute('aria-label', t.cerrar);
     var tt = grande ? t.achicar : t.agrandar; tam.setAttribute('aria-label', tt); tam.title = tt; tam.innerHTML = grande
       ? '<svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 2v4h4M6 14v-4H2M10 6l5-5M6 10l-5 5"/></svg>'
       : '<svg viewBox="0 0 16 16" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 1h5v5M6 15H1v-5M15 1l-5 5M1 15l5-5"/></svg>';
-    input.placeholder = t.ph; input.setAttribute('aria-label', t.ph); enviar.textContent = t.enviar; nota.textContent = t.nota;
-    modoTxt.textContent = t.agente[0]; modoBtn.textContent = t.agente[1];
+    input.placeholder = t.ph; input.setAttribute('aria-label', t.ph); enviar.textContent = t.enviar; nota.textContent = t.nota; var ln = el('button', 'asis-nota-link', t.notaLink); ln.type = 'button'; ln.addEventListener('click', dejarMensaje); nota.append(ln, '.');
     pintarSug();
   }
   function saludo() {
@@ -58,7 +56,7 @@
   }
   // Pone el texto y convierte mails, links, LinkedIn y GitHub en enlaces.
   function poner(e, texto) {
-    e.textContent = '';
+    e.textContent = ''; texto = String(texto).replace(/\*\*/g, '').replace(/ ?\[\d\]/g, '');
     var re = /(https?:\/\/[^\s)]+|[\w.+-]+@[\w-]+\.[\w.]+|linkedin\.com\/in\/[\w-]+|github\.com\/[\w-]+)/g, i = 0, m;
     while ((m = re.exec(texto))) {
       if (m.index > i) e.append(document.createTextNode(texto.slice(i, m.index)));
@@ -85,28 +83,43 @@
     } else {
       tema = null; sug.className = 'asis-sug';
       t.temas.forEach(function (tm, i) { var b = el('button', ''); b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + ICO[i] + '</svg><span></span>'; b.lastChild.textContent = tm.t; b.addEventListener('click', function () { tema = i; listaAbierta = true; pintarSug(); msgs.scrollTop = msgs.scrollHeight; }); sug.append(b); });
+      var mb = el('button', 'asis-sug-msg'); mb.type = 'button'; mb.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span></span>'; mb.lastChild.textContent = t.notaLink.charAt(0).toUpperCase() + t.notaLink.slice(1); mb.addEventListener('click', dejarMensaje); sug.append(mb);
     }
     sug.style.display = verSug ? '' : 'none';
   }
-  // Cuando el asistente no sabe, ofrece dejarle la pregunta a Sofía (le llega por Telegram; no se contesta por acá).
-  function dejarPregunta(burbuja, q) {
-    var abrir_ = el('button', 'asis-dejar', L().dejar); abrir_.type = 'button';
-    abrir_.addEventListener('click', function () {
-      var f = el('form', 'asis-dejarf'), n = el('input'), m = el('input'), ok = el('button', null, L().mandar), r = el('div', 'asis-aviso');
-      n.type = 'text'; n.maxLength = 60; n.placeholder = L().nom; n.setAttribute('aria-label', L().nom);
-      m.type = 'email'; m.maxLength = 120; m.placeholder = L().mail; m.setAttribute('aria-label', L().mail); ok.type = 'submit';
-      f.append(n, m, ok); abrir_.replaceWith(f); f.append(r);
-      f.addEventListener('submit', function (e) {
-        e.preventDefault(); ok.disabled = true;
-        fetch('/api/contacto', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ nombre: n.value, mail: m.value, mensaje: q, solo_aviso: true }) })
-          .then(function (x) { return x.json().then(function (j) { return { ok: x.ok, j: j }; }); })
-          .then(function (x) { if (x.ok && !x.j.error && x.j.avisado) { f.replaceWith(el('div', 'asis-aviso', L().enviada)); } else { r.textContent = (x.j && x.j.error) || L().noLlego; ok.disabled = false; } })
-          .catch(function () { r.textContent = L().noLlego; ok.disabled = false; });
-      });
-      n.focus();
+  // Pantalla aparte dentro del chat para dejarle un mensaje a Sofía (le llega por Telegram; no se contesta por acá).
+  var pant = el('div', 'asis-pant');
+  panel.insertBefore(pant, form);
+  function cerrarPantalla() { panel.classList.remove('pant'); pant.textContent = ''; }
+  function abrirPantalla(q) {
+    pant.textContent = '';
+    var volver = el('button', 'asis-pant-volver', L().volver); volver.type = 'button'; volver.addEventListener('click', cerrarPantalla);
+    var f = el('form', 'asis-dejarf'), mm = el('textarea'), n = el('input'), m = el('input'), ok = el('button', null, L().mandar), r = el('div', 'asis-aviso'), t = el('input');
+    t.type = 'tel'; t.maxLength = 30; t.placeholder = L().tel; t.setAttribute('aria-label', L().tel);
+    mm.maxLength = 600; mm.rows = 5; mm.required = true; mm.placeholder = L().msgPh; mm.setAttribute('aria-label', L().msgPh); mm.value = q || '';
+    n.type = 'text'; n.maxLength = 60; n.placeholder = L().nom; n.setAttribute('aria-label', L().nom);
+    m.type = 'email'; m.maxLength = 120; m.placeholder = L().mail; m.setAttribute('aria-label', L().mail); ok.type = 'submit';
+    f.append(n, mm, m, t, ok, r);
+    f.addEventListener('submit', function (e) {
+      e.preventDefault(); ok.disabled = true; r.textContent = '';
+      fetch('/api/contacto', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ nombre: n.value, mail: m.value, telefono: t.value, mensaje: mm.value, solo_aviso: true }) })
+        .then(function (x) { return x.json().then(function (j) { return { ok: x.ok, j: j }; }); })
+        .then(function (x) { if (x.ok && !x.j.error && x.j.avisado) { f.replaceWith(el('div', 'asis-aviso asis-pant-ok', L().enviada)); } else { r.textContent = (x.j && x.j.error) || L().noLlego; ok.disabled = false; } })
+        .catch(function () { r.textContent = L().noLlego; ok.disabled = false; });
     });
-    burbuja.append(abrir_);
+    pant.append(volver, el('h3', null, L().quiero), el('p', 'asis-pant-intro', L().intro), f);
+    panel.classList.add('pant'); (q ? mm : n).focus();
   }
+  // Cuando el asistente no sabe, ofrece dejarle la pregunta a Sofía.
+  function dejarPregunta(burbuja, q) {
+    var b = el('button', 'asis-dejar', L().dejar); b.type = 'button'; b.addEventListener('click', function () { abrirPantalla(q); });
+    burbuja.append(b);
+  }
+  function dejarMensaje() { abrirPantalla(''); }
+  window.abrirMensajeSofia = function () {
+    if (!abierto()) { btn.style.left = btn.style.top = btn.style.right = btn.style.bottom = ''; btn.classList.remove('izq'); try { localStorage.removeItem('asis-pos'); } catch (_) {} }   // vuelve a su lugar: abajo a la derecha
+    abrir(true); dejarMensaje();
+  };   // lo usa el botón de la sección Contacto
   function preguntar(q, i) {
     q = (q || '').trim(); if (!q || ocupado) return;
     ocupado = true; enviar.disabled = true; var pregunta = msg('yo', q); input.value = ''; verSug = false; if (i !== undefined) hechas[i] = true; pintarSug();
@@ -118,12 +131,11 @@
       .then(function (j) {
         espera.classList.remove('escribiendo'); espera.removeAttribute('aria-label');
         poner(espera, j.respuesta);
-        if (j.fuentes && j.fuentes.length) espera.append(el('div', 'asis-fuentes', L().fuentes + j.fuentes.join(' · ')));
         if (j.aviso) espera.append(el('div', 'asis-aviso', j.aviso));
-        if (j.modo === 'sin-datos') dejarPregunta(espera, q);
+        if (j.modo === 'sin-datos' || (j.modo === 'modelo' && /\b(no lo s[eé]|no figura|no (tengo|hay|incluyen?|puedo responder)|las fuentes no|no (est[aá]|aparece) (en|entre))/i.test(j.respuesta))) dejarPregunta(espera, q);
       })
       .catch(function (e) { espera.classList.remove('escribiendo'); espera.textContent = (e && e.message && e.message !== 'error' && e.message.indexOf('Failed') < 0 && e.message.indexOf('JSON') < 0 && e.message.indexOf('Unexpected') < 0) ? e.message : L().error; })
-      .then(function () { if (i !== undefined) { verSug = true; listaAbierta = false; msgs.append(sug); pintarSug(); } ocupado = false; enviar.disabled = false; msgs.scrollTop = Math.max(0, pregunta.offsetTop - 8); });
+      .then(function () { verSug = true; listaAbierta = false; msgs.append(sug); pintarSug(); ocupado = false; enviar.disabled = false; msgs.scrollTop = Math.max(0, pregunta.offsetTop - 8); });
   }
   // Cerrado: el botón (la foto) se arrastra y se pega al borde más cercano.
   // Abierto: foto y chat son una sola pieza; la foto queda a la altura de donde se escribe
@@ -136,7 +148,7 @@
     panel.classList.toggle('abierto', v); btn.setAttribute('aria-expanded', String(v));
     btn.classList.toggle('activo', v);
     btn.style.visibility = v && CEL() ? 'hidden' : ''; // en el celu el chat ocupa toda la pantalla
-    if (v) { minim = false; panel.classList.remove('min'); armarPieza(); if (!msgs.querySelector('.asis-m')) saludo(); }
+    if (v) { badge.remove(); minim = false; panel.classList.remove('min'); armarPieza(); if (!msgs.querySelector('.asis-m')) saludo(); }
     else { panel.style.cssText = ''; pegarAlBorde(posBtn()); guardar(); btn.focus(); }
   }
   btn.addEventListener('click', function (e) {
@@ -166,8 +178,8 @@
     else if (b === 'arr') p.y = techo(); else p.y = innerHeight - w - MARGEN;
     return ubicar(p.x, p.y);
   }
-  function guardar() { var p = posBtn(); ancla = { x: p.x / innerWidth, y: p.y / innerHeight }; try { localStorage.setItem('asis-pos', JSON.stringify(ancla)); } catch (_) {} }
-  try { var g = JSON.parse(localStorage.getItem('asis-pos') || 'null'); if (g) { ancla = g; pegarAlBorde({ x: g.x * innerWidth, y: g.y * innerHeight }); } } catch (_) {}
+  function guardar() { var p = posBtn(); if (!innerWidth || !innerHeight) return; ancla = { x: p.x / innerWidth, y: p.y / innerHeight }; try { localStorage.setItem('asis-pos', JSON.stringify(ancla)); } catch (_) {} }
+  try { var g = JSON.parse(localStorage.getItem('asis-pos') || 'null'); if (g && isFinite(g.x) && isFinite(g.y) && g.x !== null && g.y !== null) { ancla = g; pegarAlBorde({ x: g.x * innerWidth, y: g.y * innerHeight }); } } catch (_) {}
 
   // ---- La pieza abierta: [foto][chat] o [chat][foto], la foto alineada con la barra de escribir
   var pieza = null; // { lado: 'izq'|'der', W, H, dy } medidas del chat respecto de la foto
@@ -261,13 +273,12 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && panel.classList.contains('abierto')) abrir(false); });
   form.addEventListener('submit', function (e) { e.preventDefault(); preguntar(input.value); input.blur(); });
   textos();
-  // El globo con la frase aparece al entrar y después de vez en cuando (cada ~35 s, unas 8 veces por visita), solo con el chat cerrado.
+  // Notificación: aparece una vez, a los pocos segundos de entrar, con el chat cerrado. El "1" en la foto queda hasta que se abre el chat.
   function saludar() {
     if (abierto() || ini || document.hidden) return;
-    btn.classList.add('saluda'); setTimeout(function () { btn.classList.remove('saluda'); }, 5500);
+    btn.classList.add('saluda'); setTimeout(function () { btn.classList.remove('saluda'); }, 8000);
   }
-  var veces = 0;
-  setTimeout(function () { saludar(); var t = setInterval(function () { saludar(); if (++veces >= 8) clearInterval(t); }, 35000); }, 600);
+  setTimeout(saludar, 2500);
   // Si cambia el idioma de la página, se actualizan los textos del chat.
   new MutationObserver(textos).observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 })();

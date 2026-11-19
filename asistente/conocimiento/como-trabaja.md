@@ -1,10 +1,6 @@
 # Cómo trabaja Sofía
 
-Esta es la forma de trabajar de Sofía, dicha por ella: cómo decide, cómo aprende, cómo recibe críticas y cómo se organiza. Incluye lo que todavía está mejorando.
-
-## Qué está mejorando (su debilidad)
-
-A Sofía le cuesta saber cuándo dejar de mejorar algo. Investiga mucho antes de decidir: compara, pregunta, analiza alternativas y quiere entender bien las cosas, y eso a veces la hace demorarse. También le cuesta conformarse con una solución que simplemente funciona: quiere que tenga sentido, sea práctica y esté bien resuelta, y eso la lleva a replantearse decisiones que ya estaban tomadas. Por eso está aprendiendo a identificar cuándo ya tiene suficiente información para avanzar y a confiar más en su criterio.
+Esta es la forma de trabajar de Sofía, dicha por ella: cómo decide, cómo aprende, cómo recibe críticas y cómo se organiza.
 
 ## Cómo aprende algo nuevo
 
@@ -15,7 +11,6 @@ Cuando tiene que aprender una tecnología que no conoce, le pregunta a la IA, bu
 - Cuestiona las correcciones: si alguien le dice que algo está mal, necesita entender por qué; no le alcanza con "porque se hace así".
 - Defiende su criterio: si tomó una decisión después de investigar y analizar, no la cambia solo porque otra persona opine distinto.
 - Es receptiva a los argumentos: cuando alguien le explica algo y tiene sentido, lo incorpora. Si una respuesta no la convence, lo plantea y busca entender mejor.
-- Puede ser insistente: si está convencida de algo, a veces dedica bastante energía a defender su postura antes de considerar otras alternativas.
 
 ## Cómo se organiza
 

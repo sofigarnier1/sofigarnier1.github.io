@@ -116,7 +116,7 @@
 @keyframes asis-entra-yo { from { opacity: 0; transform: translate(28px, 14px) scale(.9); } to { opacity: 1; transform: none; } }
 .asis-sug { animation: asis-entra-ia .6s cubic-bezier(.2, .9, .3, 1.25) .15s both; }
 /* El casillero no queda con el aro grueso al estar seleccionado */
-.asis-form input:focus, .asis-form input:focus-visible { outline: none; border-color: var(--primary); box-shadow: none; }
+.asis-form input:focus, .asis-form input:focus-visible { outline: none; border-color: var(--border); box-shadow: 0 4px 12px rgba(43,27,46,.16); }
 
 /* Dejarle una pregunta a Sofía (aparece cuando el asistente no sabe) */
 .asis-dejar { display: block; margin-top: 8px; border: 1px solid var(--primary); background: none; color: var(--primary-d); font: 600 .76rem 'Inter', sans-serif; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
@@ -125,3 +125,33 @@
 .asis-dejarf input { height: 34px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font: inherit; font-size: .8rem; }
 .asis-dejarf button { align-self: flex-start; height: 34px; padding: 0 16px; border: 0; border-radius: 17px; background: var(--primary); color: #fff; font: 600 .78rem 'Inter', sans-serif; cursor: pointer; }
 .asis-dejarf button:disabled { opacity: .55; cursor: default; }
+
+/* Notificación sobre la foto (aparece una vez) + "1" hasta abrir el chat */
+.asis-globo { white-space: normal; width: max-content; max-width: min(250px, calc(100vw - 110px)); background: var(--surface); color: var(--text); border: 1px solid var(--border);
+  border-radius: 14px; padding: 10px 14px; box-shadow: 0 8px 28px rgba(43,27,46,.2); font: 400 .8rem/1.35 'Inter', sans-serif; text-align: left; display: flex; flex-direction: column; gap: 2px; }
+.asis-globo b { font-size: .78rem; color: var(--primary-d); }
+.asis-globo::after { display: none; }
+.asis-btn.saluda .asis-globo, .asis-btn.saluda.izq .asis-globo { animation: none; }
+.asis-badge { position: absolute; top: -2px; right: -2px; min-width: 20px; height: 20px; padding: 0 5px; box-sizing: border-box; border-radius: 10px; background: #d92d20; color: #fff; font: 700 .72rem/20px 'Inter', sans-serif; text-align: center; border: 2px solid var(--bg); pointer-events: none; }
+.asis-dejarf textarea { box-sizing: border-box; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font: inherit; font-size: .84rem; resize: vertical; }
+
+.asis-sug .asis-sug-msg { grid-column: 1 / -1; }
+.asis-nota-link { border: 0; background: none; padding: 0; font: inherit; color: var(--primary-d); text-decoration: underline; cursor: pointer; }
+
+/* Pantalla aparte para dejarle un mensaje a Sofía */
+.asis-pant { display: none; }
+.asis-panel.pant .asis-pant { display: flex; flex-direction: column; flex: 1; min-height: 0; overflow-y: auto; padding: 14px 16px 16px; gap: 10px; }
+.asis-panel.pant .asis-msgs, .asis-panel.pant .asis-form, .asis-panel.pant .asis-nota { display: none; }
+.asis-pant h3 { margin: 0; font: 700 1.05rem 'Inter', sans-serif; color: var(--text); }
+.asis-pant-volver { align-self: flex-start; border: 0; background: none; padding: 0; color: var(--primary-d); font: 600 .8rem 'Inter', sans-serif; cursor: pointer; }
+.asis-pant .asis-dejarf { margin-top: 0; }
+.asis-pant .asis-dejarf textarea { font-size: .9rem; }
+.asis-pant-ok { font-size: .9rem; }
+.asis-panel.min .asis-pant { display: none; }
+.asis-pant-intro { margin: -4px 0 0; font-size: .82rem; line-height: 1.4; color: var(--dim); }
+.asis-pant .asis-dejarf textarea { min-height: 110px; }
+.asis-dejarf input[type=tel] { height: 34px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font: inherit; font-size: .84rem; }
+
+/* Sin aro ni sombra al escribir en el cuadro de mensaje: solo cambia el color del borde */
+.asis-dejarf input:focus, .asis-dejarf input:focus-visible, .asis-dejarf textarea:focus, .asis-dejarf textarea:focus-visible { outline: none; border-color: var(--border); box-shadow: 0 4px 12px rgba(43,27,46,.16); }
+.asis-sug .asis-sug-msg { justify-content: center; }

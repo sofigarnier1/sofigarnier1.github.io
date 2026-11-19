@@ -37,7 +37,7 @@ _Código: [github.com/sofigarnier1/freska-gestion](https://github.com/sofigarnie
 
 - Desarrollé la landing (catálogo de cloro, calculadora por pasos, pedido por WhatsApp) y pantallas del backoffice para que el dueño cargue los services que hace y venda cloro.
 - Lo diseñé a partir de cómo trabaja el dueño, buscando que sea lo más práctico posible para el día a día.
-- Escribí tablas, consultas y migraciones en PostgreSQL (Supabase), en equipo con otro desarrollador. Dominio adquirido; todavía sin publicar.
+- Escribí tablas, consultas y migraciones en PostgreSQL (Supabase) y levanté el entorno en contenedores con Docker, en equipo con otro desarrollador. Dominio adquirido; todavía sin publicar.
 
 _Código: [github.com/sofigarnier1/pancho-piletas](https://github.com/sofigarnier1/pancho-piletas)_
 
@@ -48,10 +48,10 @@ _Código: [github.com/sofigarnier1/pancho-piletas](https://github.com/sofigarnie
 - Trabajo en equipo con otro desarrollador, que hizo el CRM y los flujos de automatización; repositorio en Azure DevOps y despliegue en Vercel y Azure App Service.
 
 ### Asistente y agente con IA
-**Claude API · RAG · Supabase (pgvector) · Python** · _Proyectos propios, en este portfolio_ · [github.com/sofigarnier1/agente-pedidos-freska](https://github.com/sofigarnier1/agente-pedidos-freska)
+**Claude API · RAG · Supabase (pgvector) · Python** · _Asistente en mi portfolio; agente con código público en GitHub_ · [github.com/sofigarnier1/agente-pedidos-freska](https://github.com/sofigarnier1/agente-pedidos-freska)
 
 - **Agente en Python que toma pedidos** con tres herramientas cerradas: los precios y las cuentas los resuelve el código, no el modelo. 28 de 30 casos de prueba (93 %), trampas incluidas.
-- **Asistente con RAG**: embeddings (OpenAI), pgvector en Supabase y API de Claude; responde solo con mis documentos y cita la fuente. Con tope de gasto.
+- **Asistente con RAG**: embeddings (OpenAI), pgvector en Supabase y API de Claude; responde solo con mis documentos. Botón para dejarme un mensaje, con aviso por Telegram. Con tope de gasto.
 
 ### Proyectos académicos
 - **Sistema de Gestión de Almacenes (WMS)** — Java · SQL: movimientos y trazabilidad por usuario sobre base de datos relacional.
@@ -99,9 +99,9 @@ _Código: [github.com/sofigarnier1/pancho-piletas](https://github.com/sofigarnie
 - **Backend:** Node.js · Express · API REST · Electron
 - **Diseño:** Figma · diseño de interfaces · identidad visual
 - **Datos:** SQLite · PostgreSQL (Supabase) · MySQL · MongoDB · diseño relacional
-- **Herramientas:** Git · GitHub · Azure DevOps · Azure App Service · Vercel · VS Code · npm
+- **Herramientas:** Git · GitHub · Azure DevOps · Azure App Service · Vercel · Docker · n8n (avisos por Telegram) · VS Code · npm
 - **IA:** desarrollo con Claude Code y Codex, revisando y probando lo que generan
 - **Calidad y entrega:** pruebas automáticas · tests end-to-end (Playwright) · instaladores y actualizaciones
-- **Aprendiendo:** TypeScript en Node · Docker · inglés
+- **Aprendiendo:** TypeScript en Node · inglés
 
 **Idiomas:** Español nativo · Inglés básico (aprendiendo)

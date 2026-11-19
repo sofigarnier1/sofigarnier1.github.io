@@ -9,9 +9,6 @@
     "api/preguntar.js": {
       "includeFiles": "asistente/**"
     },
-    "api/pedir.py": {
-      "includeFiles": "agente/**"
-    },
     "api/contacto.js": {
       "includeFiles": "asistente/**"
     }

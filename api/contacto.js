@@ -72,7 +72,7 @@ async function guardar(m) {
   if (!(process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY)) return false;
   const r = await fetch(process.env.SUPABASE_URL.replace(/\/(rest\/v1\/?)?$/, '') + '/rest/v1/rpc/guardar_mensaje', {
     method: 'POST', headers: RAG.cabeceras(process.env.SUPABASE_ANON_KEY),
-    body: JSON.stringify({ p_nombre: m.nombre, p_mail: m.mail, p_mensaje: m.mensaje, p_categoria: m.categoria, p_resumen: m.resumen }),
+    body: JSON.stringify({ p_nombre: m.nombre, p_mail: m.mail, p_mensaje: m.telefono ? m.mensaje.slice(0, 560) + '\n[Tel: ' + m.telefono + ']' : m.mensaje, p_categoria: m.categoria, p_resumen: m.resumen }),
   });
   return r.ok;
 }
@@ -80,7 +80,7 @@ async function guardar(m) {
 const ROTULO = { oferta_laboral: 'Propuesta laboral', consulta_tecnica: 'Consulta técnica', colaboracion: 'Colaboración', otro: 'Otro' };
 async function avisar(m) {
   if (!(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID)) return false;
-  const texto = `Nuevo mensaje en el portfolio\n${ROTULO[m.categoria]}\n\nDe: ${m.nombre}${m.mail ? ' · ' + m.mail : ' (sin mail)'}\nResumen: ${m.resumen}\n\n${m.mensaje}`.slice(0, 3500);
+  const texto = `Nuevo mensaje en el portfolio\n${ROTULO[m.categoria]}\n\nDe: ${m.nombre}${m.mail ? ' · ' + m.mail : ' (sin mail)'}${m.telefono ? ' · Tel: ' + m.telefono : ''}\nResumen: ${m.resumen}\n\n${m.mensaje}`.slice(0, 3500);
   const r = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ chat_id: process.env.TELEGRAM_CHAT_ID, text: texto, disable_web_page_preview: true }),
@@ -95,14 +95,16 @@ async function procesar(datos, ip) {
   const nombre = String(datos.nombre || '').trim().slice(0, MAX_NOMBRE) || (soloAviso ? 'Anónimo' : '');
   const mensaje = String(datos.mensaje || '').trim();
   const mail = String(datos.mail || '').trim().slice(0, MAX_MAIL);
+  const telefono = String(datos.telefono || '').trim().slice(0, 30);
   if (!nombre) return { estado: 400, datos: { error: 'Decime tu nombre.' } };
   if (mensaje.length < 5) return { estado: 400, datos: { error: 'Escribí tu mensaje.' } };
   if (mensaje.length > MAX_MENSAJE) return { estado: 400, datos: { error: `El mensaje puede tener hasta ${MAX_MENSAJE} caracteres.` } };
   if (mail && !/^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(mail)) return { estado: 400, datos: { error: 'Ese mail no parece válido.' } };
+  if (telefono && !/^[\d\s+()\-]{6,30}$/.test(telefono)) return { estado: 400, datos: { error: 'Ese teléfono no parece válido.' } };
   if (tope(ip)) return { estado: 429, datos: { error: 'Ya mandaste varios mensajes hoy. Escribile directo a sofigarnier1@gmail.com.' } };
 
   if (soloAviso) {
-    const m = { nombre, mail, mensaje, categoria: 'otro', resumen: 'Pregunta que el asistente no supo contestar: ' + mensaje.replace(/\s+/g, ' ').slice(0, 110) };
+    const m = { nombre, mail, telefono, mensaje, categoria: 'otro', resumen: 'Pregunta que el asistente no supo contestar: ' + mensaje.replace(/\s+/g, ' ').slice(0, 110) };
     const [guardado, avisado] = await Promise.all([guardar(m).catch(() => false), avisar(m).catch(() => false)]);
     return { estado: 200, datos: { guardado, avisado } };
   }
