@@ -80,7 +80,8 @@ async function guardar(m) {
 const ROTULO = { oferta_laboral: 'Propuesta laboral', consulta_tecnica: 'Consulta técnica', colaboracion: 'Colaboración', otro: 'Otro' };
 async function avisar(m) {
   if (!(process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID)) return false;
-  const texto = `Nuevo mensaje en el portfolio\n${ROTULO[m.categoria]}\n\nDe: ${m.nombre}${m.mail ? ' · ' + m.mail : ' (sin mail)'}${m.telefono ? ' · Tel: ' + m.telefono : ''}\nResumen: ${m.resumen}\n\n${m.mensaje}`.slice(0, 3500);
+  const datosContacto = [`De: ${m.nombre}`, m.mail ? `Mail: ${m.mail}` : '', m.telefono ? `Teléfono: ${m.telefono}` : ''].filter(Boolean).join('\n');
+  const texto = `Nuevo mensaje en el portfolio\n\n${datosContacto}\n\n${m.mensaje}`.slice(0, 3500);
   const r = await fetch(`https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
     method: 'POST', headers: { 'content-type': 'application/json' },
     body: JSON.stringify({ chat_id: process.env.TELEGRAM_CHAT_ID, text: texto, disable_web_page_preview: true }),

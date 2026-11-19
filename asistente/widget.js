@@ -6,7 +6,7 @@
       hola: 'Hola, soy un asistente con IA. Respondo solo con lo que figura en el CV y los proyectos de Sofía. Si algo no está, te lo digo.',
       fuentes: 'Fuentes: ', pensando: 'Buscando en los documentos…', error: 'No pude responder ahora. Probá más tarde o escribile a sofigarnier1@gmail.com.',
       nota: 'Es una IA: puede equivocarse. No guarda tus mensajes, salvo que elijas ',
-      globo: '¿Poco tiempo para leer? Preguntale a mi asistente', agente: ['', ''], dejar: 'Dejarle esta pregunta a Sofía', quiero: 'Escribile a Sofía', intro: 'Tu mensaje le llega directo a ella. Si dejás un mail o un número, te responde por ahí.', tel: 'Tu teléfono o WhatsApp (opcional)', volver: '← Volver', notaLink: 'dejarle un mensaje a Sofía', msgPh: 'Tu mensaje', nom: 'Tu nombre (opcional)', mail: 'Tu mail (opcional)', mandar: 'Enviar', enviada: 'Listo, le llegó a Sofía.', noLlego: 'No pude avisarle ahora. Escribile a sofigarnier1@gmail.com.', agrandar: 'Agrandar el chat', achicar: 'Achicar el chat',
+      globo: '¿Poco tiempo para leer? Preguntale a mi asistente', agente: ['', ''], dejar: 'Dejarle esta pregunta a Sofía', quiero: 'Escribile a Sofía', intro: 'Tu mensaje le llega directo a ella. Si dejás un mail o un número, te responde por ahí.', tel: 'Tu teléfono o WhatsApp (opcional)', volver: '← Volver', notaLink: 'dejarle un mensaje a Sofía', msgPh: 'Tu mensaje', nom: 'Tu nombre (opcional)', mail: 'Tu mail (opcional)', mandar: 'Enviar', enviada: 'Listo, mensaje enviado a Sofía.', noLlego: 'No pude avisarle ahora. Escribile a sofigarnier1@gmail.com.', agrandar: 'Agrandar el chat', achicar: 'Achicar el chat',
       otros: 'Otros temas', masPreg: 'Otras preguntas', temas: [
         { t: 'Proyectos', q: ['¿Qué proyecto armó de punta a punta?', '¿Qué es FRESKA y qué resuelve?', '¿Con qué tecnologías trabajó?', '¿Qué proyectos hizo en equipo?'] },
         { t: 'IA', q: ['¿Qué experiencia tiene con IA?', '¿Cómo funciona el agente de pedidos?', '¿Cómo probó que el agente anda bien?', '¿Entrenó modelos de machine learning?'] },
@@ -16,7 +16,7 @@
       hola: "Hi, I'm an AI assistant. I only answer with what's in Sofía's CV and projects. If something isn't there, I'll say so.",
       fuentes: 'Sources: ', pensando: 'Searching the documents…', error: "I couldn't answer right now. Try later or email sofigarnier1@gmail.com.",
       nota: 'This is an AI and can be wrong. It does not store your messages, unless you choose to ',
-      globo: 'Short on time? Ask my assistant', agente: ['', ''], dejar: 'Leave this question for Sofía', quiero: 'Write to Sofía', intro: 'Your message goes straight to her. If you leave an email or a number, she will reply there.', tel: 'Your phone or WhatsApp (optional)', volver: '← Back', notaLink: 'leave Sofía a message', msgPh: 'Your message', nom: 'Your name (optional)', mail: 'Your email (optional)', mandar: 'Send', enviada: 'Done, it reached Sofía.', noLlego: 'I couldn\'t notify her now. Write to sofigarnier1@gmail.com.', agrandar: 'Enlarge chat', achicar: 'Shrink chat',
+      globo: 'Short on time? Ask my assistant', agente: ['', ''], dejar: 'Leave this question for Sofía', quiero: 'Write to Sofía', intro: 'Your message goes straight to her. If you leave an email or a number, she will reply there.', tel: 'Your phone or WhatsApp (optional)', volver: '← Back', notaLink: 'leave Sofía a message', msgPh: 'Your message', nom: 'Your name (optional)', mail: 'Your email (optional)', mandar: 'Send', enviada: 'Done, message sent to Sofía.', noLlego: 'I couldn\'t notify her now. Write to sofigarnier1@gmail.com.', agrandar: 'Enlarge chat', achicar: 'Shrink chat',
       otros: 'Other topics', masPreg: 'More questions', temas: [
         { t: 'Projects', q: ['What project did she build end to end?', 'What is FRESKA and what does it solve?', 'What technologies has she worked with?', 'What projects did she do in a team?'] },
         { t: 'AI', q: ['What experience does she have with AI?', 'How does the order agent work?', 'How did she test that the agent works well?', 'Did she train machine learning models?'] },
@@ -185,7 +185,7 @@
   var pieza = null; // { lado: 'izq'|'der', W, H, dy } medidas del chat respecto de la foto
   function armarPieza() {
     if (CEL()) { panel.style.cssText = ''; pieza = null; return; }
-    var W = Math.min(grande ? 560 : 380, innerWidth - lado() - SEP - 2 * MARGEN);
+    var W = Math.min(grande && !minim ? 560 : 380, innerWidth - lado() - SEP - 2 * MARGEN);
     var H = minim ? cab.offsetHeight : Math.min(grande ? 760 : 560, innerHeight - techo() - MARGEN);
     panel.style.width = W + 'px'; panel.style.height = H + 'px';
     var dy = minim ? (cab.offsetHeight - lado()) / 2                  // minimizado: la foto queda a la altura del encabezado
