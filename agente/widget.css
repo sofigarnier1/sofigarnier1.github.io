@@ -1,0 +1,104 @@
+/* Agente "Pedí como cliente": colores del portfolio (ciruela, malva, crema) */
+.pedi { margin: 6px 0 26px; padding: 22px; background: var(--surface2); border-radius: 16px; scroll-margin-top: 90px; }
+.pedi-cab { display: flex; gap: 14px; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+.pedi-cab h4 { font-size: 1.08rem; margin: 6px 0 4px; color: var(--text); }
+.pedi-cab p { font-size: .88rem; color: var(--muted); line-height: 1.6; margin: 0; max-width: 620px; }
+.pedi-etq { display: inline-block; font: 600 .7rem/1 'JetBrains Mono', monospace; letter-spacing: .06em; text-transform: uppercase; color: var(--primary); background: var(--surface); padding: 5px 9px; border-radius: 6px; }
+.pedi-ayuda-wrap { position: relative; flex: none; }
+.pedi-ayuda { width: 32px; height: 32px; border-radius: 50%; border: 1.5px solid var(--primary); background: var(--surface); color: var(--primary); font-family: inherit; font-weight: 700; font-size: .9rem; cursor: pointer; }
+.pedi-ayuda:hover, .pedi-ayuda[aria-expanded="true"] { background: var(--primary); color: #fff; }
+.pedi-ayuda-txt { position: absolute; right: 0; top: 40px; z-index: 5; width: min(320px, 78vw); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; font-size: .82rem; line-height: 1.6; color: var(--text); box-shadow: 0 12px 30px rgba(43,27,46,.14); }
+
+.pedi-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 14px; }
+.pedi-chat, .pedi-ticket { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; }
+.pedi-chat { display: flex; flex-direction: column; min-height: 380px; }
+.pedi-quien { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--border); font-size: .8rem; color: var(--muted); }
+.pedi-quien select { height: 32px; padding: 0 8px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); color: var(--text); font: inherit; font-size: .82rem; font-weight: 600; cursor: pointer; }
+
+.pedi-msgs { flex: 1; display: flex; flex-direction: column; gap: 8px; padding: 14px; overflow-y: auto; max-height: 360px; }
+.pedi-ejemplos { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; font-size: .78rem; color: var(--muted); }
+.pedi-ejemplos[hidden] { display: none; }
+.pedi-ejemplos button { border: 1px dashed var(--primary); background: none; color: var(--primary); border-radius: 14px; padding: 6px 12px; font: inherit; font-size: .82rem; text-align: left; cursor: pointer; transition: background var(--t); }
+.pedi-ejemplos button:hover { background: var(--surface2); }
+.pedi-msg { max-width: 85%; padding: 9px 13px; border-radius: 14px; font-size: .86rem; line-height: 1.5; white-space: pre-line; }
+.pedi-msg.cliente { align-self: flex-end; background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
+.pedi-msg.agente { align-self: flex-start; background: var(--surface2); color: var(--text); border-bottom-left-radius: 4px; }
+.pedi-msg.escribiendo { color: var(--muted); letter-spacing: .2em; }
+.pedi-aviso { align-self: flex-start; font-size: .72rem; color: var(--muted); margin: -2px 0 0 4px; }
+
+.pedi-form { display: flex; gap: 8px; padding: 10px; border-top: 1px solid var(--border); }
+.pedi-form input { flex: 1; min-width: 0; height: 40px; padding: 0 14px; border: 1px solid var(--border); border-radius: 20px; background: var(--bg); color: var(--text); font: inherit; font-size: .88rem; }
+.pedi-form input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+.pedi-form button { width: 40px; height: 40px; flex: none; border: 0; border-radius: 50%; background: var(--primary); color: #fff; font-size: 1.1rem; cursor: pointer; }
+.pedi-form button:disabled { opacity: .5; cursor: default; }
+
+.pedi-ticket { display: flex; flex-direction: column; padding: 14px 16px; }
+.pedi-ticket-tit { display: flex; align-items: center; justify-content: space-between; font: 600 .72rem/1 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.pedi-ticket-tit button { border: 0; background: none; color: var(--primary); font: 600 .78rem/1 'Inter', sans-serif; letter-spacing: 0; text-transform: none; cursor: pointer; padding: 4px 0; }
+#pedi-ticket-cuerpo { flex: 1; }
+.pedi-vacio { font-size: .84rem; color: var(--muted); line-height: 1.6; margin: 0; }
+.pedi-fecha { font-weight: 600; font-size: .9rem; margin: 0 0 2px; }
+.pedi-de { font-size: .78rem; color: var(--muted); margin: 0 0 10px; }
+.pedi-linea { display: flex; justify-content: space-between; gap: 10px; font-size: .84rem; padding: 6px 0; border-bottom: 1px dashed var(--border); }
+.pedi-total { display: flex; justify-content: space-between; font-weight: 700; padding: 10px 0 4px; }
+.pedi-wa-btn { margin-top: 10px; border: 1.5px solid var(--primary); background: none; color: var(--primary); border-radius: 20px; height: 36px; padding: 0 14px; font-family: inherit; font-weight: 600; font-size: .8rem; cursor: pointer; }
+.pedi-wa-btn:hover { background: var(--primary); color: #fff; }
+.pedi-wa { margin-top: 10px; background: var(--bg); border-radius: 10px; padding: 10px 12px; font: .76rem/1.6 'JetBrains Mono', monospace; white-space: pre-wrap; color: var(--text); }
+.pedi-wa button { display: block; margin-top: 8px; border: 0; background: none; color: var(--primary); font: 600 .78rem/1 'Inter', sans-serif; cursor: pointer; padding: 0; }
+
+.pedi-herr { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 12px; margin-top: 12px; border-top: 1px solid var(--border); }
+.pedi-herr-tit { width: 100%; font-size: .72rem; color: var(--muted); }
+.pedi-tool { font: .72rem/1 'JetBrains Mono', monospace; padding: 5px 8px; border-radius: 6px; background: var(--bg); color: var(--muted); opacity: .55; transition: all var(--t); }
+.pedi-tool.usada { opacity: 1; background: var(--surface2); color: var(--primary); }
+.pedi-tool.usada::before { content: '✓ '; }
+
+@media (max-width: 760px) {
+  .pedi { padding: 16px; }
+  .pedi-grid { grid-template-columns: 1fr; }
+  .pedi-chat { min-height: 320px; }
+  .pedi-quien select { flex: 1; min-width: 0; }
+  /* el botón flotante del chat taparía el de enviar */
+  body.pedi-a-la-vista .asis-btn { opacity: 0; pointer-events: none; }
+}
+.pedi-quien span { white-space: nowrap; }
+
+/* Acceso destacado (header y hero) */
+.nav-ia { position: relative; }
+.nav-ia b { margin-left: 6px; font: 700 .62rem/1 'JetBrains Mono', monospace; color: #fff; background: var(--primary); padding: 3px 5px; border-radius: 5px; }
+.hero-nuevo { display: inline-flex; align-items: center; gap: 8px; margin: 18px 0 0; padding: 7px 14px; border-radius: 999px; background: var(--surface2); color: var(--primary); font-size: .84rem; font-weight: 600; text-decoration: none; transition: transform var(--t), box-shadow var(--t); }
+.hero-nuevo span { background: var(--primary); color: #fff; font: 700 .66rem/1 'JetBrains Mono', monospace; padding: 4px 7px; border-radius: 999px; letter-spacing: .04em; }
+.hero-nuevo:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(122,46,110,.18); }
+
+/* ---- Rediseño: dos lados (cliente / FRESKA) ---- */
+.pedi-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: start; }
+.pedi-col { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.pedi-col-tit { font: 600 .7rem/1 'JetBrains Mono', monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
+.pedi-col .pedi-col-tit ~ .pedi-col-tit { margin-top: 10px; }
+.pedi-chat { border-radius: 22px; border: 2px solid var(--primary); overflow: hidden; min-height: 420px; }
+.pedi-tel-cab { display: flex; align-items: center; gap: 10px; padding: 10px 12px; background: var(--primary); color: #fff; }
+.pedi-tel-av { width: 34px; height: 34px; border-radius: 50%; background: var(--surface2); color: var(--primary); display: grid; place-items: center; font-weight: 700; flex: none; }
+.pedi-tel-quien { display: flex; flex-direction: column; min-width: 0; flex: 1; line-height: 1.25; }
+.pedi-tel-quien b { font-size: .9rem; }
+.pedi-tel-quien span { font-size: .7rem; opacity: .85; }
+.pedi-tel-cab .pedi-quien { padding: 0; border: 0; flex: none; }
+.pedi-tel-cab .pedi-quien select { height: 30px; max-width: 150px; border-color: transparent; }
+.pedi-msgs { max-height: 300px; min-height: 250px; }
+.pedi-pasos { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 12px 14px; min-height: 96px; }
+.pedi-pasos ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.pedi-paso { display: flex; flex-direction: column; gap: 2px; font-size: .82rem; line-height: 1.45; padding-left: 12px; border-left: 3px solid var(--primary); opacity: 0; transform: translateY(6px); transition: opacity .35s, transform .35s; }
+.pedi-paso.visto { opacity: 1; transform: none; }
+.pedi-paso.mal { border-left-color: var(--accent, #d9a21b); }
+.pedi-paso code { font: 600 .72rem/1.2 'JetBrains Mono', monospace; color: var(--primary); }
+.pedi-leyendo { font-size: .82rem; color: var(--muted); animation: pedi-parpadeo 1s ease-in-out infinite alternate; }
+@keyframes pedi-parpadeo { from { opacity: .45; } to { opacity: 1; } }
+.pedi-codigo { margin: 10px 0 0; font-size: .78rem; font-weight: 600; color: var(--primary); background: var(--surface2); border-radius: 8px; padding: 6px 10px; }
+.pedi-codigo[hidden] { display: none; }
+.pedi-wa-tit { display: block; margin-top: 12px; font-size: .72rem; color: var(--muted); }
+.pedi-wa { margin-top: 6px; }
+.pedi-romper { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 14px; font-size: .78rem; color: var(--muted); }
+.pedi-romper button { border: 1px dashed var(--primary); background: none; color: var(--primary); border-radius: 14px; padding: 6px 12px; font: inherit; font-size: .8rem; cursor: pointer; }
+.pedi-romper button:hover { background: var(--surface); }
+.pedi-prueba { display: inline-flex; align-items: center; gap: 8px; margin-top: 10px; font-size: .78rem; color: var(--muted); text-decoration: none; }
+.pedi-prueba b { font: 700 .74rem/1 'JetBrains Mono', monospace; color: #fff; background: var(--primary); padding: 5px 8px; border-radius: 6px; }
+.pedi-prueba:hover span { text-decoration: underline; }
+@media (max-width: 760px) { .pedi-grid { grid-template-columns: 1fr; } .pedi-chat { min-height: 360px; } }

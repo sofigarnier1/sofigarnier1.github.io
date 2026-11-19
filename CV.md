@@ -1,6 +1,6 @@
 # Sofía Garnier
 
-**Desarrolladora Junior (Junior Developer)**  
+**Desarrolladora Full Stack Junior (Junior Full Stack Developer)**  
 Técnica Universitaria en Programación (UTN)  
 📍 Concepción del Uruguay, Entre Ríos, Argentina  
 ✉ sofigarnier1@gmail.com  
@@ -11,7 +11,7 @@ Técnica Universitaria en Programación (UTN)
 
 ## Sobre mí
 
-Desarrollé FRESKA, el sistema de gestión que hoy usa un comercio para llevar todo el negocio: pedidos, facturas, cobros, stock y caja. También hice el frontend del portal de inversores de Alinea Desarrollos. Busco sumarme a un equipo de desarrollo donde aportar lo que ya sé hacer y seguir creciendo.
+Desarrolladora full stack junior. Diseñé y desarrollé FRESKA, el sistema de gestión que un comercio usa todos los días para pedidos, facturas, cobros, stock y caja, desde la computadora y el celular, con pruebas automáticas para todo lo que toca dinero. Hice el frontend del portal de inversores de una constructora con Next.js y TypeScript, en uso. Busco sumarme a un equipo de desarrollo.
 
 ---
 
@@ -20,34 +20,38 @@ Desarrollé FRESKA, el sistema de gestión que hoy usa un comercio para llevar t
 ### FRESKA Gestión
 **Electron · Node.js · JavaScript · SQLite · PWA** · _Proyecto propio, en uso real_
 
-Sistema de gestión con aplicación de escritorio y acceso desde el celular mediante PWA, que diseñé y desarrollé de punta a punta para un comercio. Reemplaza el cuaderno, la calculadora y el Excel con los que llevaban todo el negocio. Lo usa el administrador todos los días, desde la computadora del negocio y desde el celular, con la misma base de datos. Incluye pedidos, facturas, cobros y cuenta corriente, cheques, gastos, otros ingresos y caja, proveedores y compras, productos y stock, comisiones de vendedores, estadísticas y reportes.
+Sistema de gestión con aplicación de escritorio y acceso desde el celular mediante PWA, que diseñé y desarrollé de punta a punta para un comercio. Reemplaza el cuaderno, la calculadora y el Excel con los que llevaban todo el negocio. Lo usa el dueño todos los días, desde la computadora del negocio y desde el celular, con la misma base de datos. Según el dueño, le ahorra un 25 % del tiempo. Incluye pedidos, facturas, cobros y cuenta corriente, cheques, gastos, otros ingresos y caja, proveedores y compras, productos y stock, comisiones de vendedores, estadísticas y reportes.
 
 - Relevé las necesidades con el usuario real, prioricé y rediseñé según su uso diario; documenté decisiones, manual y roadmap
 - Migré los datos de un Excel a una base de datos relacional (SQLite) con reglas de negocio
-- Usuarios con login, roles y permisos; anular una operación exige un motivo y el sistema avisa al administrador de las anulaciones de empleados
+- Usuarios con login, roles y permisos; anular una operación exige un motivo y el sistema avisa al dueño de las anulaciones de empleados
 - Servidor propio en Node (API por HTTP, sesiones por cookie HttpOnly/Secure/SameSite, permisos por rol, control de concurrencia) que ejecuta la misma lógica que la app de escritorio; PWA que reutiliza las pantallas adaptadas al celular
 - Tests automáticos para dinero y stock (más de 30 archivos), una prueba de 250 operaciones al azar por 8 semillas que verifica que los saldos cierren y una de 20 cobros simultáneos que no se pasan del saldo
 - Migraciones de base de datos probadas sobre copias antes de aplicarlas; instalador para Windows, versiones publicadas, copias de seguridad y manual de uso dentro de la app
+- Lo desarrollé con Claude Code: defino qué se construye, reviso y no doy nada por terminado sin tests.
 
 _Código: [github.com/sofigarnier1/freska-gestion](https://github.com/sofigarnier1/freska-gestion)_
 
 ### Pancho Piletas
-**Next.js · React · TypeScript · Tailwind CSS · Supabase** · _Freelance · cliente real · en desarrollo_
+**Next.js · React · TypeScript · Tailwind CSS · Supabase (PostgreSQL)** · _Freelance · en desarrollo_
 
-- Ideas, diseño y desarrollo de toda la landing (catálogo, pedido por WhatsApp, calculadora) y de la estética del backoffice de un negocio de cloro y service de piletas.
-- Trabajo en equipo con otro desarrollador.
+- Desarrollé la landing (catálogo de cloro, calculadora por pasos, pedido por WhatsApp) y pantallas del backoffice para que el dueño cargue los services que hace y venda cloro.
+- Lo diseñé a partir de cómo trabaja el dueño, buscando que sea lo más práctico posible para el día a día.
+- Escribí tablas, consultas y migraciones en PostgreSQL (Supabase), en equipo con otro desarrollador. Dominio adquirido; todavía sin publicar.
+
+_Código: [github.com/sofigarnier1/pancho-piletas](https://github.com/sofigarnier1/pancho-piletas)_
 
 ### Alinea Desarrollos
-**Next.js · React · TypeScript · Tailwind CSS** · _Freelance · cliente real_ · [alineadesarrollos.com.ar](https://www.alineadesarrollos.com.ar)
+**Next.js · React · TypeScript · Tailwind CSS** · _Freelance · ya en uso_ · [alineadesarrollos.com.ar](https://www.alineadesarrollos.com.ar)
 
-- Frontend de la web institucional, del portal del inversor y del panel de administración de una constructora, con tests end-to-end (Playwright), entregados y en producción.
+- Frontend de la web institucional, del portal del inversor y del panel de administración de una constructora, con tests end-to-end (Playwright), entregados y en uso.
 - Trabajo en equipo con otro desarrollador, que hizo el CRM y los flujos de automatización; repositorio en Azure DevOps y despliegue en Vercel y Azure App Service.
 
-### Sabina Accesorios
-**React · Node.js · Express · MongoDB** · _Proyecto grupal · UTN Programación IV_  
-[github.com/lucasperinotto/ecommerce-university-project](https://github.com/lucasperinotto/ecommerce-university-project)
+### Asistente y agente con IA
+**Claude API · RAG · Supabase (pgvector) · Python** · _Proyectos propios, en este portfolio_ · [github.com/sofigarnier1/agente-pedidos-freska](https://github.com/sofigarnier1/agente-pedidos-freska)
 
-E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz en React y las decisiones visuales (paleta de colores, diseño de pantallas). Además hice una ruta de la API REST con Express.
+- **Agente en Python que toma pedidos** con tres herramientas cerradas: los precios y las cuentas los resuelve el código, no el modelo. 28 de 30 casos de prueba (93 %), trampas incluidas.
+- **Asistente con RAG**: embeddings (OpenAI), pgvector en Supabase y API de Claude; responde solo con mis documentos y cita la fuente. Con tope de gasto.
 
 ### Proyectos académicos
 - **Sistema de Gestión de Almacenes (WMS)** — Java · SQL: movimientos y trazabilidad por usuario sobre base de datos relacional.
@@ -60,27 +64,21 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 **Desarrolladora de software freelance · Sistemas a medida para clientes (feb 2026 – Actualidad)**
 
 - FRESKA: diseño, desarrollo y mantenimiento del sistema de gestión que hoy usa un comercio
-- Pancho Piletas: ideas, diseño y desarrollo de toda la landing y de la estética del backoffice de un negocio de cloro y service de piletas, en equipo con otro desarrollador (en desarrollo)
-- Alinea Desarrollos: frontend de la web institucional, del portal del inversor y del panel de administración, con tests end-to-end, en producción, en equipo con otro desarrollador
+- Pancho Piletas: landing, pantallas del backoffice y base de datos (tablas, consultas y migraciones) de un negocio de cloro y service de piletas, en equipo con otro desarrollador (en desarrollo)
+- Alinea Desarrollos: frontend de la web institucional, del portal del inversor y del panel de administración, con tests end-to-end, en uso, en equipo con otro desarrollador
 
-**Community Manager y Creadora de Contenido · Freelance, híbrido (2022 – Actualidad)**
+**Community Manager y Creadora de Contenido · Freelance (ago 2024 – Actualidad)**
 
-- Redes de locales de indumentaria, un consultorio y un negocio de piletas: estrategia, calendario, foto y video, edición, publicación y respuesta a mensajes
-- Herramientas: Meta Business Suite, Meta Ads, Canva, CapCut, Google Analytics y TikTok Analytics; IA (Claude, Gemini, ChatGPT) para ideas, textos, imágenes y video
+- Redes de locales de indumentaria, un consultorio y un negocio de piletas: contenido, campañas en Meta Ads y trato directo con cada cliente
 
-**Atención al Cliente · Local de ropa masculina (2023 – 2026)**
+**Atención al Cliente · Local de ropa masculina (sep 2024 – abr 2026)**
 
-- Atención y asesoramiento, cobros, caja, reposición, vitrina, cambios y devoluciones
+- Atención y asesoramiento, cobros y caja
 
-**Ventas B2B y Customer Success · remoto (2023 – 2024)**
+**Ventas B2B · remoto (2023 – 2024)**
 
 - **Especialista en ventas (appointment setter)** — InnovaTech Solutions, agencias de turismo (may 2023 – dic 2024)
-- **Appointment setter** — ENBI Consulting, empresas de software, media jornada (feb – ago 2024): agenda de reuniones para el equipo comercial; hasta 25 reuniones agendadas en una semana
-- **Customer Success Manager** — contrato temporal, servicio online (abr – jul 2024): consultas por WhatsApp, problemas de acceso y derivación de casos
-
-**Cofundadora · Toco Madera (feb 2021 – feb 2023)**
-
-- Emprendimiento propio de venta online de productos de home office y fundas de madera personalizadas
+- **Appointment setter** — ENBI Consulting, empresas de software, media jornada (feb – ago 2024): agenda de reuniones para el equipo comercial; hasta 15 reuniones agendadas en una semana
 
 ---
 
@@ -97,13 +95,13 @@ E-commerce full-stack hecho en grupo. **Mi parte fue el frontend**: la interfaz 
 ## Habilidades
 
 - **Lenguajes:** JavaScript · TypeScript · Python · Java (POO) · SQL · HTML · CSS
-- **Frontend:** Next.js · React · Tailwind CSS · Framer Motion · diseño responsive
+- **Frontend:** Next.js · React · Tailwind CSS · Framer Motion · diseño responsive · PWA (2 proyectos)
 - **Backend:** Node.js · Express · API REST · Electron
-- **Diseño:** Figma · diseño de interfaces · Canva · CapCut · identidad visual
-- **Datos:** SQLite · MySQL · MongoDB · diseño relacional
-- **Herramientas:** Git · GitHub · Azure DevOps · Azure App Service · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven · npm
-- **Calidad y entrega:** pruebas automáticas · instaladores y actualizaciones
-- **Ventas y marketing:** Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · IA generativa
-- **Aprendiendo:** Spring Boot · inglés
+- **Diseño:** Figma · diseño de interfaces · identidad visual
+- **Datos:** SQLite · PostgreSQL (Supabase) · MySQL · MongoDB · diseño relacional
+- **Herramientas:** Git · GitHub · Azure DevOps · Azure App Service · Vercel · VS Code · npm
+- **IA:** desarrollo con Claude Code y Codex, revisando y probando lo que generan
+- **Calidad y entrega:** pruebas automáticas · tests end-to-end (Playwright) · instaladores y actualizaciones
+- **Aprendiendo:** TypeScript en Node · Docker · inglés
 
 **Idiomas:** Español nativo · Inglés básico (aprendiendo)

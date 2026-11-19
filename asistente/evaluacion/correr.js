@@ -29,7 +29,7 @@ const NO_SABE = /no lo s[eé]|no (figura|tengo)|no s[eé]/i;
       if (q.tipo === 'trampa') { if (!NO_SABE.test(r.respuesta)) { pasa = false; motivo = 'inventó: ' + r.respuesta.slice(0, 100); } }
       else if (q.tipo === 'responde') {
         const faltan = q.palabras.filter(p => !r.respuesta.toLowerCase().includes(p.toLowerCase()));
-        if (faltan.length) { pasa = false; motivo = 'falta mencionar: ' + faltan.join(', '); }
+        if (faltan.length) { pasa = false; motivo = 'falta mencionar: ' + faltan.join(', ') + '\n      respondió: ' + r.respuesta.replace(/\n/g, ' '); }
       } else if (!q.palabras.every(p => r.respuesta.toLowerCase().includes(p.toLowerCase()))) { pasa = false; motivo = 'no reflejó el límite declarado: ' + r.respuesta.slice(0, 100); }
     }
     if (pasa) ok++; else fallas.push(`✗ ${q.pregunta} — ${motivo}`);

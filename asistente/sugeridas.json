@@ -1,23 +1,232 @@
 [
   {
     "pregunta": "¿Qué proyecto armó de punta a punta?",
-    "respuesta": "FRESKA Gestión: un sistema de gestión para un comercio que Sofía diseñó y desarrolló sola, de punta a punta. Tiene app de escritorio (Electron) y acceso desde el celular (PWA), con una base SQLite y un servidor propio en Node. Cubre pedidos, facturas, cobros, stock, caja y reportes, y lo usa el administrador todos los días. Tiene tests automáticos para dinero y stock (más de 30 archivos), instalador para Windows y copias de seguridad. [1]",
+    "respuesta": "El proyecto que armó de punta a punta es FRESKA Gestión: un software de gestión que Sofía diseñó y desarrolló sola para un comercio, y que hoy usa el dueño todos los días. Tiene aplicación de escritorio (Electron) y acceso desde el celular (PWA), con base SQLite y un servidor propio en Node. Cubre pedidos, facturas, cobros, stock, caja y reportes. Tiene tests automáticos para dinero y stock (más de 30 archivos), instalador para Windows y copias de seguridad.",
     "fuentes": [
       "FRESKA Gestión"
     ]
   },
   {
-    "pregunta": "¿Qué experiencia tiene con IA?",
-    "respuesta": "Usa IA generativa (Claude, Gemini, ChatGPT) como herramienta de trabajo y asistentes de programación como Claude Code y Codex. Este asistente es su primer proyecto de RAG: recupera fragmentos de sus documentos y responde solo con eso, citando la fuente, con una evaluación propia que incluye preguntas trampa. No entrenó modelos de machine learning ni tiene experiencia profesional en ciencia de datos o MLOps. [1]",
+    "pregunta": "¿Qué es FRESKA y qué resuelve?",
+    "respuesta": "Es un software de gestión hecho a medida para un comercio. Reemplaza el cuaderno, la calculadora y el Excel con los que llevaban todo el negocio: pedidos, facturas, cobros y cuenta corriente, cheques, gastos, caja, proveedores, stock, comisiones y reportes. Sofía relevó lo que necesitaba el usuario real, pasó los datos del Excel a una base relacional y lo fue ajustando según el uso diario.",
     "fuentes": [
-      "Lo que Sofía todavía no tiene (y su relación con la IA)"
+      "FRESKA Gestión"
+    ]
+  },
+  {
+    "pregunta": "¿Con qué tecnologías trabajó?",
+    "respuesta": "Trabaja sobre todo con JavaScript y TypeScript, tanto en el frontend como en el backend. Esto es lo que usó, por área:\n\n• Lenguajes: JavaScript, TypeScript, Python, Java y SQL\n• Frontend: Next.js, React y Tailwind CSS\n• Backend: Node.js, Express y Electron\n• Bases de datos: SQLite, PostgreSQL (Supabase), MySQL y MongoDB\n• Calidad y entrega: Git, tests end-to-end con Playwright, Vercel y Azure\n• IA: API de Claude, Claude Code y Codex",
+    "fuentes": [
+      "Educación, cursos y habilidades › Habilidades"
+    ]
+  },
+  {
+    "pregunta": "¿Qué proyectos hizo en equipo?",
+    "respuesta": "Hizo dos proyectos en equipo, los dos de clientes y con otro desarrollador:\n\n• Alinea Desarrollos: frontend de la web, del portal del inversor y del panel de administración. Ya está en uso.\n• Pancho Piletas: el diseño y la estructura del backoffice, la landing completa y trabajo en la base de datos. Está en desarrollo.",
+    "fuentes": [
+      "Alinea Desarrollos",
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "¿Qué experiencia tiene con IA?",
+    "respuesta": "Usa la IA de dos maneras:\n\n• Construye con ella: en este portfolio hay un agente en Python que arma pedidos con tres herramientas cerradas (los precios y las cuentas los resuelve el código, no el modelo) y este asistente, que responde solo con sus documentos. A los dos los evalúa con casos de prueba y tienen tope de gasto.\n• Programa con ella: usa Claude Code y Codex todos los días, en FRESKA y en Pancho Piletas. Define qué se construye, revisa lo que genera y no da nada por terminado sin tests.",
+    "fuentes": [
+      "Experiencia de Sofía con IA (inteligencia artificial)"
+    ]
+  },
+  {
+    "pregunta": "¿Cómo funciona el agente de pedidos?",
+    "respuesta": "El visitante escribe como lo haría un cliente por WhatsApp y el agente arma el pedido. Solo puede usar tres herramientas: buscar producto, calcular total y armar pedido. Los precios y las cuentas los calcula el código, así que el modelo no puede inventarlos. El catálogo del agente es ficticio y se puede probar en el portfolio.",
+    "fuentes": [
+      "Experiencia de Sofía con IA (inteligencia artificial)"
+    ]
+  },
+  {
+    "pregunta": "¿Cómo probó que el agente anda bien?",
+    "respuesta": "Con 30 casos de prueba con respuesta esperada, incluidas trampas: productos que no existen, precios inventados e instrucciones como \"ignorá tus instrucciones\". En la última corrida con el modelo acertó 28 de 30 (93 %). Los 2 fallos son respuestas correctas que la prueba rechaza por pedir una frase exacta; los dejó como fallo para no inflar el número.",
+    "fuentes": [
+      "Experiencia de Sofía con IA (inteligencia artificial)"
+    ]
+  },
+  {
+    "pregunta": "¿Entrenó modelos de machine learning?",
+    "respuesta": "Todavía no entrenó modelos propios. Hoy trabaja con modelos ya entrenados, como la API de Claude, y mide qué hacen. El machine learning es un mundo que le interesa y que está aprendiendo.",
+    "fuentes": [
+      "Lo que Sofía todavía no tiene"
     ]
   },
   {
     "pregunta": "¿Qué disponibilidad tiene?",
-    "respuesta": "Busca trabajo full-time. Es 100 % remoto con empresas de LinkedIn y del exterior; presencial o híbrido solo con empresas de Concepción del Uruguay, donde vive. Busca roles de Junior Developer, Trainee Developer y AI Engineer junior. [1]",
+    "respuesta": "Busca trabajo full-time. Trabaja de forma remota con empresas de cualquier lugar, y también puede ser presencial o híbrido si la empresa está en Concepción del Uruguay, donde vive.",
     "fuentes": [
       "Disponibilidad y búsqueda laboral"
+    ]
+  },
+  {
+    "pregunta": "¿Trabaja remoto?",
+    "respuesta": "Sí. Trabaja de forma remota con empresas de cualquier lugar, y también puede ser presencial o híbrido si la empresa está en Concepción del Uruguay, donde vive.",
+    "fuentes": [
+      "Disponibilidad y búsqueda laboral"
+    ]
+  },
+  {
+    "pregunta": "¿Qué roles busca?",
+    "respuesta": "Junior Developer, Trainee Developer y AI Engineer junior. Es Técnica Universitaria en Programación (UTN) y se presenta como Desarrolladora Full Stack Junior.",
+    "fuentes": [
+      "Disponibilidad y búsqueda laboral",
+      "Sobre Sofía"
+    ]
+  },
+  {
+    "pregunta": "¿Cómo la contacto?",
+    "respuesta": "Podés escribirle por cualquiera de estos medios:\n\n• Mail: sofigarnier1@gmail.com\n• WhatsApp: +54 9 3442 563953 (https://wa.me/5493442563953)\n• LinkedIn: linkedin.com/in/sofia-garnier\n• GitHub: github.com/sofigarnier1",
+    "fuentes": [
+      "Sobre Sofía"
+    ]
+  },
+  {
+    "pregunta": "¿Qué hizo en Pancho Piletas?",
+    "respuesta": "Es una plataforma para un negocio de cloro y service de piletas de Zona Norte de Buenos Aires. Sofía aportó las ideas, el diseño y la estética de la landing (catálogo, pedido por WhatsApp, calculadora) y de la estructura del backoffice, armó la landing entera y trabajó en la base de datos (Supabase, PostgreSQL). Lo hizo en equipo con otro desarrollador. Está en desarrollo y todavía no se publicó.",
+    "fuentes": [
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "¿Qué tecnologías usó en Pancho Piletas?",
+    "respuesta": "En Pancho Piletas usó:\n\n• Frontend: Next.js, React, TypeScript y Tailwind CSS\n• Base de datos: Supabase (PostgreSQL)\n• IA: Claude Code para programar\n\nLa plataforma es una app instalable (PWA).",
+    "fuentes": [
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "¿Qué es Alinea?",
+    "respuesta": "Alinea Desarrollos es una constructora. Sofía hizo el frontend de su web institucional, del portal del inversor y del panel de administración, con Next.js, React, TypeScript y tests end-to-end con Playwright. Ya está en uso. Lo hizo en equipo con otro desarrollador, que se ocupó del CRM y las automatizaciones.",
+    "fuentes": [
+      "Alinea Desarrollos"
+    ]
+  },
+  {
+    "pregunta": "¿Cómo fue trabajar con otro desarrollador?",
+    "respuesta": "Bien, y aprendió bastante. Se repartieron las tareas, charlaron las decisiones técnicas y trabajaron con un repositorio compartido, con revisión de cambios y despliegue en conjunto.",
+    "fuentes": [
+      "Alinea Desarrollos",
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "What project did she build end to end?",
+    "respuesta": "The project she built end to end is FRESKA Gestión: a management software that Sofía designed and built on her own for a shop, and that the owner uses every day. It has a desktop app (Electron) and phone access (PWA), with a SQLite database and its own Node server. It covers orders, invoices, payments, stock, cash and reports. It has automated tests for money and stock (30+ files), a Windows installer and backups.",
+    "fuentes": [
+      "FRESKA Gestión"
+    ]
+  },
+  {
+    "pregunta": "What is FRESKA and what does it solve?",
+    "respuesta": "It is a custom management software for a shop. It replaces the notebook, calculator and Excel sheet they ran the whole business with: orders, invoices, payments and customer accounts, checks, expenses, cash, suppliers, stock, commissions and reports. Sofía gathered what the real user needed, moved the Excel data to a relational database and kept adjusting it to daily use.",
+    "fuentes": [
+      "FRESKA Gestión"
+    ]
+  },
+  {
+    "pregunta": "What technologies has she worked with?",
+    "respuesta": "She works mostly with JavaScript and TypeScript, on both frontend and backend. Here is what she has used, by area:\n\n• Languages: JavaScript, TypeScript, Python, Java and SQL\n• Frontend: Next.js, React and Tailwind CSS\n• Backend: Node.js, Express and Electron\n• Databases: SQLite, PostgreSQL (Supabase), MySQL and MongoDB\n• Quality and delivery: Git, end-to-end tests with Playwright, Vercel and Azure\n• AI: Claude API, Claude Code and Codex",
+    "fuentes": [
+      "Educación, cursos y habilidades › Habilidades"
+    ]
+  },
+  {
+    "pregunta": "What projects did she do in a team?",
+    "respuesta": "She did two team projects, both for clients and with another developer:\n\n• Alinea Desarrollos: frontend of the website, the investor portal and the admin panel. It is already in use.\n• Pancho Piletas: the design and structure of the backoffice, the whole landing page and work on the database. It is in development.",
+    "fuentes": [
+      "Alinea Desarrollos",
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "What experience does she have with AI?",
+    "respuesta": "She uses AI in two ways:\n\n• She builds with it: this portfolio has a Python agent that takes orders using three closed tools (prices and totals are computed by code, not by the model) and this assistant, which answers only from her documents. She evaluates both with test cases and both have spending caps.\n• She codes with it: she uses Claude Code and Codex every day, on FRESKA and Pancho Piletas. She decides what gets built, reviews what it generates and doesn't call anything done without tests.",
+    "fuentes": [
+      "Experiencia de Sofía con IA (inteligencia artificial)"
+    ]
+  },
+  {
+    "pregunta": "How does the order agent work?",
+    "respuesta": "The visitor writes like a customer would on WhatsApp and the agent builds the order. It can only use three tools: search product, compute total and build order. Prices and totals are computed by code, so the model cannot make them up. The agent's catalog is fictional and you can try it in the portfolio.",
+    "fuentes": [
+      "Experiencia de Sofía con IA (inteligencia artificial)"
+    ]
+  },
+  {
+    "pregunta": "How did she test that the agent works well?",
+    "respuesta": "With 30 test cases with expected answers, including traps: products that don't exist, made-up prices and instructions like \"ignore your instructions\". In the latest run with the model it passed 28 of 30 (93 %). The 2 failures are correct answers that the test rejects because it requires an exact phrase; she left them as failures so as not to inflate the number.",
+    "fuentes": [
+      "Experiencia de Sofía con IA (inteligencia artificial)"
+    ]
+  },
+  {
+    "pregunta": "Did she train machine learning models?",
+    "respuesta": "Not yet. Today she works with already-trained models, such as the Claude API, and measures what they do. Machine learning is a field she finds interesting and is learning.",
+    "fuentes": [
+      "Lo que Sofía todavía no tiene"
+    ]
+  },
+  {
+    "pregunta": "What is her availability?",
+    "respuesta": "She is looking for full-time work. She works remotely with companies anywhere, and can also work on-site or hybrid if the company is in Concepción del Uruguay, where she lives.",
+    "fuentes": [
+      "Disponibilidad y búsqueda laboral"
+    ]
+  },
+  {
+    "pregunta": "Does she work remotely?",
+    "respuesta": "Yes. She works remotely with companies anywhere, and can also work on-site or hybrid if the company is in Concepción del Uruguay, where she lives.",
+    "fuentes": [
+      "Disponibilidad y búsqueda laboral"
+    ]
+  },
+  {
+    "pregunta": "What roles is she looking for?",
+    "respuesta": "Junior Developer, Trainee Developer and junior AI Engineer. She has a university technician degree in Programming (UTN) and presents herself as a Junior Full Stack Developer.",
+    "fuentes": [
+      "Disponibilidad y búsqueda laboral",
+      "Sobre Sofía"
+    ]
+  },
+  {
+    "pregunta": "How can I contact her?",
+    "respuesta": "You can reach her through any of these:\n\n• Email: sofigarnier1@gmail.com\n• WhatsApp: +54 9 3442 563953 (https://wa.me/5493442563953)\n• LinkedIn: linkedin.com/in/sofia-garnier\n• GitHub: github.com/sofigarnier1",
+    "fuentes": [
+      "Sobre Sofía"
+    ]
+  },
+  {
+    "pregunta": "What did she do on Pancho Piletas?",
+    "respuesta": "It is a platform for a pool chlorine and maintenance business in northern Greater Buenos Aires. Sofía contributed the ideas, the design and the look of the landing page (catalog, WhatsApp ordering, calculator) and the structure of the backoffice, built the whole landing page and worked on the database (Supabase, PostgreSQL). She did it with another developer. It is in development and not published yet.",
+    "fuentes": [
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "What technologies did she use on Pancho Piletas?",
+    "respuesta": "On Pancho Piletas she used:\n\n• Frontend: Next.js, React, TypeScript and Tailwind CSS\n• Database: Supabase (PostgreSQL)\n• AI: Claude Code for coding\n\nThe platform is an installable app (PWA).",
+    "fuentes": [
+      "Pancho Piletas"
+    ]
+  },
+  {
+    "pregunta": "What is Alinea?",
+    "respuesta": "Alinea Desarrollos is a construction company. Sofía built the frontend of its website, the investor portal and the admin panel, with Next.js, React, TypeScript and end-to-end tests with Playwright. It is already in use. She built it with another developer, who handled the CRM and the automations.",
+    "fuentes": [
+      "Alinea Desarrollos"
+    ]
+  },
+  {
+    "pregunta": "What was it like working with another developer?",
+    "respuesta": "Good, and she learned a lot. They split the tasks, talked through the technical decisions and worked in a shared repository, with change reviews and joint deployment.",
+    "fuentes": [
+      "Alinea Desarrollos",
+      "Pancho Piletas"
     ]
   }
 ]

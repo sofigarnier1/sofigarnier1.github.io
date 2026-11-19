@@ -1,6 +1,19 @@
 {
-  "rewrites": [{ "source": "/p/:empresa", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/p/:empresa",
+      "destination": "/index.html"
+    }
+  ],
   "functions": {
-    "api/preguntar.js": { "includeFiles": "asistente/**" }
+    "api/preguntar.js": {
+      "includeFiles": "asistente/**"
+    },
+    "api/pedir.py": {
+      "includeFiles": "agente/**"
+    },
+    "api/contacto.js": {
+      "includeFiles": "asistente/**"
+    }
   }
 }

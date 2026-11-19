@@ -1,0 +1,18 @@
+{
+  "_nota": "Datos ficticios, copiados del mock de FRESKA (src/renderer/mock-freska.js). No son precios ni clientes reales.",
+  "productos": [
+    { "id": 1, "nombre": "Milanesas de pollo", "unidad": "kg", "precio_cliente": 4200, "precio_cf": 4800, "sinonimos": ["milanesa de pollo", "milanesas de pollo", "milas de pollo", "mila de pollo"] },
+    { "id": 2, "nombre": "Milanesas de carne", "unidad": "kg", "precio_cliente": 5300, "precio_cf": 6000, "sinonimos": ["milanesa de carne", "milanesas de carne", "milas de carne", "mila de carne", "milanesa de ternera", "milanesas de ternera"] },
+    { "id": 3, "nombre": "Chorizos frescos", "unidad": "kg", "precio_cliente": 3100, "precio_cf": 3500, "sinonimos": ["chorizo fresco", "chorizos frescos", "choris frescos"] },
+    { "id": 4, "nombre": "Chorizos secos", "unidad": "kg", "precio_cliente": 3800, "precio_cf": 4300, "sinonimos": ["chorizo seco", "chorizos secos", "choris secos"] },
+    { "id": 5, "nombre": "Hamburguesas", "unidad": "unidad", "precio_cliente": 3600, "precio_cf": 4100, "sinonimos": ["hamburguesa", "hamburguesas", "hambur", "burger", "burgers"] },
+    { "id": 6, "nombre": "Picada", "unidad": "unidad", "precio_cliente": 6200, "precio_cf": 7000, "sinonimos": ["picada", "picadas"] }
+  ],
+  "clientes": [
+    { "id": "1", "nombre": "Almacén Don Pepe", "lista": "cliente" },
+    { "id": "2", "nombre": "Restaurante La Parrilla", "lista": "cliente" },
+    { "id": "3", "nombre": "Kiosco El Sol", "lista": "cliente" },
+    { "id": "cf", "nombre": "Consumidor final", "lista": "cf" }
+  ],
+  "topes": { "kg": 100, "unidad": 200, "dias_adelante": 30 }
+}

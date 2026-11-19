@@ -7,6 +7,7 @@
 const fs = require('fs');
 const path = require('path');
 const N = require('../asistente/nucleo.js');
+const RAG = require('../asistente/rag.js');
 
 const MODELO = process.env.ASISTENTE_MODELO || 'claude-haiku-5-5';
 const MAX_PREGUNTA = 300;
@@ -38,7 +39,7 @@ async function llamarModelo(pedido) {
   const r = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
     headers: { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
-    body: JSON.stringify({ model: MODELO, max_tokens: MAX_TOKENS, temperature: 0, system: pedido.system, messages: [{ role: 'user', content: pedido.user }] }),
+    body: JSON.stringify({ model: MODELO, max_tokens: MAX_TOKENS, system: pedido.system, messages: [{ role: 'user', content: pedido.user }] }),
   });
   if (!r.ok) throw new Error('modelo ' + r.status);
   const j = await r.json();
@@ -51,8 +52,16 @@ async function responder(pregunta, { usarModelo = true } = {}) {
   if (SUG.has(k)) { const s = SUG.get(k); return { respuesta: s.respuesta, fuentes: s.fuentes, modo: 'guardada' }; }
   if (cache.has(k)) return { ...cache.get(k), modo: 'cache' };
 
-  const res = N.buscar(indice, pregunta);
-  if (!res.length || res[0].score < N.UMBRAL) return { respuesta: N.NO_SE, fuentes: [], modo: 'sin-datos' };
+  // Con modelo disponible se busca por significado (RAG: embeddings + Supabase); si no está configurado o falla, por palabras.
+  let res = null;
+  if (usarModelo && RAG.disponible()) {
+    try { res = await RAG.buscarVectorial(pregunta, N.K); if (!res.length) return { respuesta: N.NO_SE, fuentes: [], modo: 'sin-datos' }; }
+    catch (_) { res = null; }
+  }
+  if (!res) {
+    res = N.buscar(indice, pregunta);
+    if (!res.length || res[0].score < N.UMBRAL) return { respuesta: N.NO_SE, fuentes: [], modo: 'sin-datos' };
+  }
 
   let out;
   if (usarModelo && process.env.ANTHROPIC_API_KEY) {

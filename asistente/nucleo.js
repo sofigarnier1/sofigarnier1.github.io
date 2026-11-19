@@ -116,7 +116,7 @@ function armarPedido(pregunta, resultados) {
 function respuestaExtractiva(resultados) {
   const r = resultados[0].frag;
   const txt = r.texto.replace(/\*\*/g, '').replace(/^[-•]\s*/gm, '• ').trim();
-  return { respuesta: `Esto es lo que figura en mis documentos sobre eso:\n\n${txt}`, usadas: [1] };
+  return { respuesta: txt, usadas: [1] };
 }
 
 const NO_SE = 'Eso no lo sé: no figura en los documentos que tengo sobre Sofía. Podés escribirle a sofigarnier1@gmail.com.';

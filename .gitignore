@@ -48,3 +48,27 @@
 !asistente/evaluacion/
 !asistente/evaluacion/correr.js
 !asistente/evaluacion/preguntas.json
+
+# Agente "Pedí como cliente" (FRESKA, datos ficticios del mock)
+!agente/
+!agente/README.md
+!agente/catalogo.json
+!agente/herramientas.py
+!agente/agente.py
+!agente/evaluacion/
+!agente/evaluacion/evaluar.py
+!agente/evaluacion/pruebas.json
+!agente/evaluacion/resultados-*.json
+!api/pedir.py
+!requirements.txt
+!agente/widget.js
+!agente/widget.css
+!asistente/rag.js
+!asistente/rag/
+!asistente/rag/schema.sql
+!asistente/rag/indexar.js
+
+# Dejarle una pregunta a Sofía (desde el asistente)
+!api/contacto.js
+!asistente/rag/contacto.sql
+!asistente/evaluacion/cobertura.js

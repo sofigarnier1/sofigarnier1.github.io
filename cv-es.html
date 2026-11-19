@@ -58,7 +58,7 @@ a { color: inherit; text-decoration: none; }
 <div class="top">
 <div>
 <h1><span class="n1">Sofía</span> <em>Garnier</em></h1>
-<div class="role">&gt; Desarrolladora Junior</div>
+<div class="role">&gt; Desarrolladora Full Stack Junior</div>
 
 <div class="contact" style="margin-bottom:0;border-bottom:0;padding-bottom:0">
   <div><b>@</b><a href="mailto:sofigarnier1@gmail.com">sofigarnier1@gmail.com</a></div>
@@ -74,7 +74,7 @@ a { color: inherit; text-decoration: none; }
 
 <div class="row">
   <div class="label">01<b>PERFIL</b></div>
-  <p>Desarrollé FRESKA, el sistema de gestión que hoy usa un comercio para llevar todo el negocio: pedidos, facturas, cobros, stock y caja. También hice el frontend del portal de inversores de Alinea Desarrollos. Busco sumarme a un equipo de desarrollo donde aportar lo que ya sé hacer y seguir creciendo.</p>
+  <p>Desarrolladora full stack junior. Diseñé y desarrollé FRESKA, el sistema de gestión que un comercio usa todos los días para pedidos, facturas, cobros, stock y caja, desde la computadora y el celular, con pruebas automáticas para todo lo que toca dinero. Hice el frontend del portal de inversores de una constructora con Next.js y TypeScript, en uso. Busco sumarme a un equipo de desarrollo.</p>
 </div>
 
 <div class="row">
@@ -83,29 +83,41 @@ a { color: inherit; text-decoration: none; }
     <div class="item">
       <div class="head"><h3>FRESKA Gestión<span class="main-badge">En uso real</span></h3><span class="meta">Electron · Node.js · SQLite · PWA</span></div>
       <div class="sub">Proyecto propio · sistema de gestión con app de escritorio y acceso desde el celular (PWA)</div>
-      <p>Lo diseñé y desarrollé de punta a punta para un comercio. Reemplazó el cuaderno, la calculadora y el Excel con los que llevaban todo el negocio: pedidos, facturas, cobros y cuenta corriente, cheques, gastos, caja, proveedores, stock, comisiones, estadísticas y reportes. Lo usa el administrador todos los días, desde la computadora y desde el celular, con la misma base de datos. Lo desarrollé con el usuario real.</p>
+      <p>Lo diseñé y desarrollé de punta a punta para un comercio. Reemplazó el cuaderno, la calculadora y el Excel con los que llevaban todo el negocio: pedidos, facturas, cobros y cuenta corriente, cheques, gastos, caja, proveedores, stock, comisiones, estadísticas y reportes. Lo usa el dueño todos los días, desde la computadora y desde el celular, con la misma base de datos. Según el dueño, le ahorra un 25 % del tiempo. Lo desarrollé con el usuario real.</p>
       <ul>
-        <li>Migré los datos de un Excel a una base relacional (SQLite) con reglas de negocio; usuarios con login, roles y permisos, y anulaciones con motivo obligatorio que avisan al administrador.</li>
+        <li>Migré los datos de un Excel a una base relacional (SQLite) con reglas de negocio; usuarios con login, roles y permisos, y anulaciones con motivo obligatorio que avisan al dueño.</li>
         <li>Servidor propio en Node (API por HTTP, sesiones por cookie, permisos por rol, control de concurrencia) que comparte la lógica con la app de escritorio, y PWA para el celular.</li>
         <li>Tests automáticos para dinero y stock (más de 30 archivos): 250 operaciones al azar por 8 semillas y 20 cobros simultáneos sin pasarse del saldo.</li>
         <li>Migraciones probadas sobre copias de la base antes de aplicarlas; instalador para Windows, versiones publicadas, copias de seguridad y manual de uso dentro de la app.</li>
+        <li>Lo desarrollé con Claude Code: defino qué se construye, reviso y no doy nada por terminado sin tests.</li>
       </ul>
       <div class="note">Código: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
     </div>
 
     <div class="item">
-      <div class="head"><h3>Pancho Piletas<span class="main-badge">Cliente real</span></h3><span class="meta">Next.js · React · TypeScript · Tailwind · Supabase</span></div>
-      <div class="sub">Freelance · landing y backoffice de un negocio de cloro y service de piletas · en desarrollo</div>
+      <div class="head"><h3>Asistente y agente con IA<span class="main-badge">En mi portfolio</span></h3><span class="meta">Claude API · RAG · Supabase · Python</span></div>
+      <div class="sub">Proyectos propios · con casos de prueba y tope de gasto · <a href="https://github.com/sofigarnier1/agente-pedidos-freska">github.com/sofigarnier1/agente-pedidos-freska</a></div>
       <ul>
-        <li>Ideas, diseño y desarrollo de toda la landing (catálogo, pedido por WhatsApp, calculadora) y de la estética del backoffice.</li>
-        <li>Trabajo en equipo con otro desarrollador.</li>
+        <li><b>Agente en Python que toma pedidos</b> con tres herramientas cerradas: los precios y las cuentas los resuelve el código, no el modelo. <b>28 de 30 casos de prueba (93 %)</b>, trampas incluidas.</li>
+        <li><b>Asistente con RAG</b>: embeddings (OpenAI), <b>pgvector en Supabase</b> y <b>API de Claude</b>; responde solo con mis documentos y cita la fuente.</li>
       </ul>
     </div>
+
     <div class="item">
-      <div class="head"><h3>Alinea Desarrollos<span class="main-badge">Cliente real</span></h3><span class="meta">Next.js · React · TypeScript · Tailwind</span></div>
+      <div class="head"><h3>Pancho Piletas<span class="main-badge">En desarrollo</span></h3><span class="meta">Next.js · React · TypeScript · Tailwind · Supabase (PostgreSQL)</span></div>
+      <div class="sub">Freelance · landing y backoffice de un negocio de cloro y service de piletas · en desarrollo</div>
+      <ul>
+        <li>Desarrollé la landing (catálogo de cloro, calculadora por pasos, pedido por WhatsApp) y pantallas del backoffice para que el dueño cargue los services que hace y venda cloro.</li>
+        <li>Lo diseñé a partir de cómo trabaja el dueño, buscando que sea lo más práctico posible para el día a día.</li>
+        <li>Escribí tablas, consultas y migraciones en PostgreSQL (Supabase), en equipo con otro desarrollador. Dominio adquirido; todavía sin publicar.</li>
+      </ul>
+      <div class="note">Código: <a href="https://github.com/sofigarnier1/pancho-piletas">github.com/sofigarnier1/pancho-piletas</a></div>
+    </div>
+    <div class="item">
+      <div class="head"><h3>Alinea Desarrollos<span class="main-badge">Ya en uso</span></h3><span class="meta">Next.js · React · TypeScript · Tailwind</span></div>
       <div class="sub">Freelance · web institucional, portal del inversor y panel de administración de una constructora · <a href="https://alineadesarrollos.com.ar">alineadesarrollos.com.ar</a></div>
       <ul>
-        <li>Frontend de las tres partes, con tests end-to-end (Playwright), entregados y en producción.</li>
+        <li>Frontend de las tres partes, con tests end-to-end (Playwright), entregados y en uso.</li>
         <li>Trabajo en equipo con otro desarrollador, que hizo el CRM y los flujos de automatización.</li>
       </ul>
       <div class="note">Repositorio en Azure DevOps y despliegue en Vercel y Azure App Service.</div>
@@ -113,12 +125,12 @@ a { color: inherit; text-decoration: none; }
 
     <div class="item">
       <div class="head"><h3>Proyectos académicos</h3><span class="meta">React · Java · SQL</span></div>
-      <p><b style="color:var(--text);font-weight:600">Sabina Accesorios</b> (e-commerce grupal, React/Node/Express/MongoDB): mi parte fue el frontend, las decisiones visuales y una ruta de la API REST con Express. <span class="note"><a href="https://github.com/lucasperinotto/ecommerce-university-project">github.com/lucasperinotto/ecommerce-university-project</a></span> <b style="color:var(--text);font-weight:600">WMS</b> (Java, base relacional): movimientos y trazabilidad. <b style="color:var(--text);font-weight:600">Northwind</b>: consultas SQL.</p>
+      <p><b style="color:var(--text);font-weight:600">WMS</b> (Java, base relacional): movimientos y trazabilidad. <b style="color:var(--text);font-weight:600">Northwind</b>: consultas SQL.</p>
     </div>
   </div>
 </div>
 
-<div class="foot"><span>Sofía Garnier · Desarrolladora Junior</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
+<div class="foot"><span>Sofía Garnier · Desarrolladora Full Stack Junior</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
 </div>
 <div class="page">
 <div class="row" style="padding-top:0">
@@ -127,28 +139,22 @@ a { color: inherit; text-decoration: none; }
     <div class="item">
       <div class="head"><h3>Desarrolladora de software freelance</h3><span class="meta">2026 — Actualidad</span></div>
       <div class="sub">Sistemas a medida para clientes</div>
-      <p>FRESKA: diseño, desarrollo y mantenimiento del sistema de gestión que hoy usa un comercio. Alinea Desarrollos: frontend de la web institucional, del portal del inversor y del panel de administración, con tests end-to-end, en producción, en equipo con otro desarrollador.</p>
+      <p>FRESKA: diseño, desarrollo y mantenimiento del sistema de gestión que hoy usa un comercio. Alinea Desarrollos: frontend de la web institucional, del portal del inversor y del panel de administración, con tests end-to-end, en uso. Pancho Piletas: landing, pantallas del backoffice y base de datos, con tablas, consultas y migraciones (en desarrollo). Los dos últimos, en equipo con otro desarrollador.</p>
     </div>
     <div class="item">
-      <div class="head"><h3>Community Manager y Creadora de Contenido</h3><span class="meta">2022 — Actualidad</span></div>
-      <div class="sub">Freelance · híbrido</div>
-      <p>Para locales de indumentaria, un consultorio y un negocio de piletas: estrategia y calendario, foto y video, edición (Canva, CapCut), publicación en Meta Business Suite y campañas en Meta Ads, respuesta a mensajes y análisis de métricas. IA para ideas y textos (Claude) y para imágenes y video (Gemini, ChatGPT).</p>
+      <div class="head"><h3>Community Manager y Creadora de Contenido</h3><span class="meta">Ago 2024 — Actualidad</span></div>
+      <div class="sub">Freelance · redes de locales de indumentaria, un consultorio y un negocio de piletas: contenido, campañas en Meta Ads y trato directo con cada cliente</div>
     </div>
     <div class="item">
-      <div class="head"><h3>Atención al Cliente</h3><span class="meta">2023 — 2026</span></div>
-      <div class="sub">Local de ropa masculina · atención y asesoramiento, cobros, caja, reposición, cambios y devoluciones</div>
+      <div class="head"><h3>Atención al Cliente</h3><span class="meta">Sep 2024 — Abr 2026</span></div>
+      <div class="sub">Local de ropa masculina · atención y asesoramiento, cobros y caja</div>
     </div>
     <div class="item">
-      <div class="head"><h3>Ventas B2B y Customer Success · remoto</h3><span class="meta">2023 — 2024</span></div>
+      <div class="head"><h3>Ventas B2B · remoto</h3><span class="meta">2023 — 2024</span></div>
       <ul style="margin-top:.6mm">
         <li><b style="color:var(--text);font-weight:600">Especialista en ventas (appointment setter)</b> — InnovaTech Solutions, agencias de turismo (may 2023 – dic 2024).</li>
-        <li><b style="color:var(--text);font-weight:600">Appointment setter</b> — ENBI Consulting, empresas de software, media jornada (feb – ago 2024): agenda de reuniones para el equipo comercial; hasta 25 reuniones agendadas en una semana.</li>
-        <li><b style="color:var(--text);font-weight:600">Customer Success Manager</b> — contrato temporal, servicio online (abr – jul 2024): consultas por WhatsApp, problemas de acceso y derivación de casos.</li>
+        <li><b style="color:var(--text);font-weight:600">Appointment setter</b> — ENBI Consulting, empresas de software, media jornada (feb – ago 2024): agenda de reuniones para el equipo comercial; hasta 15 reuniones agendadas en una semana.</li>
       </ul>
-    </div>
-    <div class="item">
-      <div class="head"><h3>Toco Madera</h3><span class="meta">2021 — 2023</span></div>
-      <div class="sub">Cofundadora · emprendimiento propio de venta online de productos de home office y fundas de madera personalizadas</div>
     </div>
   </div>
 </div>
@@ -157,14 +163,14 @@ a { color: inherit; text-decoration: none; }
   <div class="label">04<b>HABILIDADES</b></div>
   <div class="skills">
     <div class="k">Lenguajes</div><div class="v">JavaScript · TypeScript · Python · Java (POO) · SQL · HTML · CSS</div>
-    <div class="k">Frontend</div><div class="v">Next.js · React · Tailwind CSS · Framer Motion · diseño responsive</div>
+    <div class="k">Frontend</div><div class="v">Next.js · React · Tailwind CSS · Framer Motion · diseño responsive · PWA (2 proyectos)</div>
     <div class="k">Backend</div><div class="v">Node.js · Express · API REST · Electron</div>
-    <div class="k">Diseño</div><div class="v">Figma · diseño de interfaces · Canva · CapCut · identidad visual</div>
-    <div class="k">Datos</div><div class="v">SQLite · MySQL · MongoDB · diseño relacional</div>
-    <div class="k">Herramientas</div><div class="v">Git · GitHub · Azure DevOps · Azure App Service · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven</div>
-    <div class="k">Calidad</div><div class="v">Pruebas automáticas · instaladores y actualizaciones · npm</div>
-    <div class="k">Ventas y marketing</div><div class="v">Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · IA generativa</div>
-    <div class="k">Aprendiendo</div><div class="v">Spring Boot · inglés</div>
+    <div class="k">Diseño</div><div class="v">Figma · diseño de interfaces · identidad visual</div>
+    <div class="k">Datos</div><div class="v">SQLite · PostgreSQL (Supabase) · MySQL · MongoDB · diseño relacional</div>
+    <div class="k">Herramientas</div><div class="v">Git · GitHub · Azure DevOps · Azure App Service · Vercel · VS Code</div>
+    <div class="k">Calidad</div><div class="v">Pruebas automáticas · tests end-to-end (Playwright) · instaladores y actualizaciones · npm</div>
+    <div class="k">IA</div><div class="v">Desarrollo con Claude Code y Codex, revisando y probando lo que generan</div>
+    <div class="k">Aprendiendo</div><div class="v">TypeScript en Node · Docker · inglés</div>
   </div>
 </div>
 
@@ -190,7 +196,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<div class="foot"><span>Sofía Garnier · Desarrolladora Junior</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
+<div class="foot"><span>Sofía Garnier · Desarrolladora Full Stack Junior</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
 </div>
 </body>
 </html>

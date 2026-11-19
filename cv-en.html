@@ -58,7 +58,7 @@ a { color: inherit; text-decoration: none; }
 <div class="top">
 <div>
 <h1><span class="n1">Sofía</span> <em>Garnier</em></h1>
-<div class="role">&gt; Junior Developer</div>
+<div class="role">&gt; Junior Full Stack Developer</div>
 
 <div class="contact" style="margin-bottom:0;border-bottom:0;padding-bottom:0">
   <div><b>@</b><a href="mailto:sofigarnier1@gmail.com">sofigarnier1@gmail.com</a></div>
@@ -74,7 +74,7 @@ a { color: inherit; text-decoration: none; }
 
 <div class="row">
   <div class="label">01<b>PROFILE</b></div>
-  <p>I developed FRESKA, the management system a store uses today to run its whole business: orders, invoices, payments, stock and cash register. I also built the frontend of Alinea Desarrollos' investor portal. I want to join a development team where I can contribute what I already know and keep growing.</p>
+  <p>Junior full stack developer. I designed and built FRESKA, the management system a store uses every day for orders, invoices, payments, stock and cash register, on the computer and on the phone, with automated tests for everything that touches money. I built the frontend of a construction company's investor portal with Next.js and TypeScript, in production. I want to join a development team.</p>
 </div>
 
 <div class="row">
@@ -83,22 +83,32 @@ a { color: inherit; text-decoration: none; }
     <div class="item">
       <div class="head"><h3>FRESKA Gestión<span class="main-badge">In real use</span></h3><span class="meta">Electron · Node.js · SQLite · PWA</span></div>
       <div class="sub">Personal project · management system with a desktop app and mobile access (PWA)</div>
-      <p>I designed and built it end to end for a store. It replaced the notebook, the calculator and the Excel file used to run the whole business: orders, invoices, payments and customer accounts, checks, expenses, cash register, suppliers, stock, commissions, statistics and reports. The administrator uses it every day, from the computer and from the phone, on the same database. I built it with the real user.</p>
+      <p>I designed and built it end to end for a store. It replaced the notebook, the calculator and the Excel file used to run the whole business: orders, invoices, payments and customer accounts, checks, expenses, cash register, suppliers, stock, commissions, statistics and reports. The owner uses it every day, from the computer and from the phone, on the same database. I built it with the real user.</p>
       <ul>
-        <li>Migrated the data from an Excel file to a relational database (SQLite) with business rules; user login, roles and permissions, and voids with a mandatory reason that notify the administrator.</li>
+        <li>Migrated the data from an Excel file to a relational database (SQLite) with business rules; user login, roles and permissions, and voids with a mandatory reason that notify the owner.</li>
         <li>Custom Node server (HTTP API, cookie sessions, role-based permissions, concurrency control) sharing its logic with the desktop app, and a PWA for the phone.</li>
         <li>Automated tests for money and stock (30+ files): 250 random operations across 8 seeds and 20 simultaneous payments never exceeding the balance.</li>
         <li>Migrations tested on copies of the database before being applied; Windows installer, published versions, backups and a built-in user manual.</li>
+        <li>Built with Claude Code: I decide what gets built, I review it, and nothing is done without tests.</li>
       </ul>
       <div class="note">Code: <a href="https://github.com/sofigarnier1/freska-gestion">github.com/sofigarnier1/freska-gestion</a></div>
     </div>
 
     <div class="item">
-      <div class="head"><h3>Pancho Piletas<span class="main-badge">Real client</span></h3><span class="meta">Next.js · React · TypeScript · Tailwind · Supabase</span></div>
+      <div class="head"><h3>AI assistant and agent<span class="main-badge">In my portfolio</span></h3><span class="meta">Claude API · RAG · Supabase · Python</span></div>
+      <div class="sub">Projects of my own · with test cases and a spending cap · <a href="https://github.com/sofigarnier1/agente-pedidos-freska">github.com/sofigarnier1/agente-pedidos-freska</a></div>
+      <ul>
+        <li><b>Python agent that takes orders</b> with three closed tools: prices and totals are computed by code, not by the model. <b>28 of 30 test cases (93 %)</b>, traps included.</li>
+        <li><b>RAG assistant</b>: embeddings (OpenAI), <b>pgvector in Supabase</b> and the <b>Claude API</b>; it answers only from my documents and cites its source.</li>
+      </ul>
+    </div>
+
+    <div class="item">
+      <div class="head"><h3>Pancho Piletas<span class="main-badge">Real client</span></h3><span class="meta">Next.js · React · TypeScript · Tailwind · Supabase (PostgreSQL)</span></div>
       <div class="sub">Freelance · landing page and back office for a pool chlorine and maintenance business · in development</div>
       <ul>
         <li>Ideas, design and development of the whole landing page (catalog, WhatsApp ordering, calculator) and of the back office look and feel.</li>
-        <li>Teamwork with another developer.</li>
+        <li>Work on the project database (Supabase, PostgreSQL). Together with another developer.</li>
       </ul>
     </div>
     <div class="item">
@@ -113,12 +123,12 @@ a { color: inherit; text-decoration: none; }
 
     <div class="item">
       <div class="head"><h3>Academic projects</h3><span class="meta">React · Java · SQL</span></div>
-      <p><b style="color:var(--text);font-weight:600">Sabina Accesorios</b> (group e-commerce, React/Node/Express/MongoDB): my part was the frontend, the visual decisions and one REST API route with Express. <span class="note"><a href="https://github.com/lucasperinotto/ecommerce-university-project">github.com/lucasperinotto/ecommerce-university-project</a></span> <b style="color:var(--text);font-weight:600">WMS</b> (Java, relational database): stock movements and traceability. <b style="color:var(--text);font-weight:600">Northwind</b>: SQL queries.</p>
+      <p><b style="color:var(--text);font-weight:600">WMS</b> (Java, relational database): stock movements and traceability. <b style="color:var(--text);font-weight:600">Northwind</b>: SQL queries.</p>
     </div>
   </div>
 </div>
 
-<div class="foot"><span>Sofía Garnier · Junior Developer</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
+<div class="foot"><span>Sofía Garnier · Junior Full Stack Developer</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
 </div>
 <div class="page">
 <div class="row" style="padding-top:0">
@@ -127,28 +137,22 @@ a { color: inherit; text-decoration: none; }
     <div class="item">
       <div class="head"><h3>Freelance software developer</h3><span class="meta">2026 — Present</span></div>
       <div class="sub">Custom systems for clients</div>
-      <p>FRESKA: design, development and maintenance of the management system a store uses today. Alinea Desarrollos: frontend of the corporate website, investor portal and admin panel, with end-to-end tests, in production, together with another developer.</p>
+      <p>FRESKA: design, development and maintenance of the management system a store uses today. Alinea Desarrollos: frontend of the corporate website, investor portal and admin panel, with end-to-end tests, in production. Pancho Piletas: landing page, back office look and feel and database work (in development). The last two, together with another developer.</p>
     </div>
     <div class="item">
-      <div class="head"><h3>Community Manager and Content Creator</h3><span class="meta">2022 — Present</span></div>
-      <div class="sub">Freelance · hybrid</div>
-      <p>For clothing stores, a medical office and a pool business: strategy and calendar, photo and video, editing (Canva, CapCut), publishing with Meta Business Suite and Meta Ads campaigns, answering messages and analyzing metrics. AI for ideas and copy (Claude) and for images and video (Gemini, ChatGPT).</p>
+      <div class="head"><h3>Community Manager and Content Creator</h3><span class="meta">Aug 2024 — Present</span></div>
+      <div class="sub">Freelance · social media for clothing stores, a medical office and a pool business: content, Meta Ads campaigns and direct contact with each client</div>
     </div>
     <div class="item">
-      <div class="head"><h3>Customer Service</h3><span class="meta">2023 — 2026</span></div>
-      <div class="sub">Men's clothing store · serving and advising customers, payments, cash register, restocking, exchanges and returns</div>
+      <div class="head"><h3>Customer Service</h3><span class="meta">Sep 2024 — Apr 2026</span></div>
+      <div class="sub">Men's clothing store · serving and advising customers, payments and cash register</div>
     </div>
     <div class="item">
-      <div class="head"><h3>B2B Sales and Customer Success · remote</h3><span class="meta">2023 — 2024</span></div>
+      <div class="head"><h3>B2B Sales · remote</h3><span class="meta">2023 — 2024</span></div>
       <ul style="margin-top:.6mm">
         <li><b style="color:var(--text);font-weight:600">Sales specialist (appointment setter)</b> — InnovaTech Solutions, travel agencies (May 2023 – Dec 2024).</li>
-        <li><b style="color:var(--text);font-weight:600">Appointment setter</b> — ENBI Consulting, software companies, part-time (Feb – Aug 2024): scheduling meetings for the sales team; up to 25 meetings scheduled in one week.</li>
-        <li><b style="color:var(--text);font-weight:600">Customer Success Manager</b> — temporary contract, online service (Apr – Jul 2024): questions on WhatsApp, access problems and escalating cases.</li>
+        <li><b style="color:var(--text);font-weight:600">Appointment setter</b> — ENBI Consulting, software companies, part-time (Feb – Aug 2024): scheduling meetings for the sales team; up to 15 meetings scheduled in one week.</li>
       </ul>
-    </div>
-    <div class="item">
-      <div class="head"><h3>Toco Madera</h3><span class="meta">2021 — 2023</span></div>
-      <div class="sub">Co-founder · own business selling home office products and custom wooden cases online</div>
     </div>
   </div>
 </div>
@@ -157,14 +161,14 @@ a { color: inherit; text-decoration: none; }
   <div class="label">04<b>SKILLS</b></div>
   <div class="skills">
     <div class="k">Languages</div><div class="v">JavaScript · TypeScript · Python · Java (OOP) · SQL · HTML · CSS</div>
-    <div class="k">Frontend</div><div class="v">Next.js · React · Tailwind CSS · Framer Motion · responsive design</div>
+    <div class="k">Frontend</div><div class="v">Next.js · React · Tailwind CSS · Framer Motion · responsive design · PWA (2 projects)</div>
     <div class="k">Backend</div><div class="v">Node.js · Express · REST API · Electron</div>
-    <div class="k">Design</div><div class="v">Figma · interface design · Canva · CapCut · visual identity</div>
-    <div class="k">Data</div><div class="v">SQLite · MySQL · MongoDB · relational design</div>
-    <div class="k">Tools</div><div class="v">Git · GitHub · Azure DevOps · Vercel · VS Code · Codex · Claude Code · Eclipse · Maven</div>
-    <div class="k">Quality</div><div class="v">Automated testing · installers and updates · npm</div>
-    <div class="k">Sales and marketing</div><div class="v">Meta Ads · Meta Business Suite · Sales Navigator · CRM · WhatsApp · Excel · generative AI</div>
-    <div class="k">Learning</div><div class="v">Spring Boot · English</div>
+    <div class="k">Design</div><div class="v">Figma · interface design · visual identity</div>
+    <div class="k">Data</div><div class="v">SQLite · PostgreSQL (Supabase) · MySQL · MongoDB · relational design</div>
+    <div class="k">Tools</div><div class="v">Git · GitHub · Azure DevOps · Vercel · VS Code</div>
+    <div class="k">Quality</div><div class="v">Automated testing · end-to-end tests (Playwright) · installers and updates · npm</div>
+    <div class="k">AI</div><div class="v">Development with Claude Code and Codex; I review and test what they generate</div>
+    <div class="k">Learning</div><div class="v">TypeScript on Node · Docker · English</div>
   </div>
 </div>
 
@@ -190,7 +194,7 @@ a { color: inherit; text-decoration: none; }
   </div>
 </div>
 
-<div class="foot"><span>Sofía Garnier · Junior Developer</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
+<div class="foot"><span>Sofía Garnier · Junior Full Stack Developer</span><span>Concepción del Uruguay, Entre Ríos, AR · 2026</span></div>
 </div>
 </body>
 </html>

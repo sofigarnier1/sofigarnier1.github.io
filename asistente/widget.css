@@ -2,33 +2,126 @@
 .asis-btn { position: fixed; right: 18px; bottom: 18px; z-index: 90; width: 68px; height: 68px; padding: 0; border: 3px solid var(--primary); border-radius: 50%; cursor: pointer;
   background: var(--surface2); box-shadow: 0 8px 24px rgba(122,46,110,.35); animation: asis-flota 4s ease-in-out infinite; transition: transform var(--t), box-shadow var(--t); }
 .asis-btn img { display: block; width: 100%; height: 100%; border-radius: 50%; object-fit: cover; object-position: center 20%; }
-.asis-btn::after { content: ''; position: absolute; right: -2px; bottom: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+.asis-btn::after { content: ''; position: absolute; right: -2px; bottom: 2px; width: 14px; height: 14px; border-radius: 50%; background: #2fa65a; /* verde "en línea" */ border: 2px solid var(--bg); }
 .asis-btn:hover, .asis-btn:focus-visible { transform: scale(1.08); box-shadow: 0 12px 30px rgba(122,46,110,.45); animation-play-state: paused; }
 .asis-globo { position: absolute; right: 78px; top: 50%; transform: translateY(-50%) translateX(6px); white-space: nowrap; background: var(--primary); color: #fff; font: 600 .82rem/1 'Inter', sans-serif;
   padding: 10px 14px; border-radius: 20px; opacity: 0; pointer-events: none; transition: opacity var(--t), transform var(--t); }
-.asis-globo::after { content: ''; position: absolute; right: -5px; top: 50%; width: 10px; height: 10px; background: var(--primary); transform: translateY(-50%) rotate(45deg); }
 .asis-btn:hover .asis-globo, .asis-btn:focus-visible .asis-globo, .asis-btn.saluda .asis-globo { opacity: 1; transform: translateY(-50%); }
 @keyframes asis-flota { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @media (prefers-reduced-motion: reduce) { .asis-btn { animation: none; } }
+.asis-btn { touch-action: none; z-index: 92; -webkit-user-select: none; user-select: none; } /* en el celu, arrastrar no mueve la página */
+.asis-btn img { -webkit-user-drag: none; pointer-events: none; }
+.asis-btn.pegando { transition: left .25s ease, top .25s ease, transform var(--t); }
+.asis-btn.activo { animation: none; box-shadow: 0 0 0 4px var(--surface2), 0 8px 24px rgba(122,46,110,.35); }
+.asis-btn.activo .asis-globo { opacity: 0 !important; }
+.asis-btn.arrastrando { cursor: grabbing; animation: none; transition: none; transform: scale(1.08); }
+.asis-btn.arrastrando .asis-globo { opacity: 0; }
+.asis-btn.izq .asis-globo { right: auto; left: 78px; }
 .asis-panel { position: fixed; right: 16px; bottom: 16px; z-index: 91; width: min(380px, calc(100vw - 32px)); height: min(560px, calc(100vh - 32px)); display: none; flex-direction: column;
   background: var(--bg); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 16px 48px rgba(43,27,46,.22); overflow: hidden; }
 .asis-panel.abierto { display: flex; }
-.asis-cab { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; background: var(--primary); color: #fff; }
+.asis-panel.arrastrando { user-select: none; }
+.asis-panel.arrastrando .asis-cab { cursor: grabbing; }
+@media (max-width: 520px) { .asis-cab { cursor: default; } }
+.asis-cab { cursor: grab; touch-action: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 14px; background: var(--primary); color: #fff; }
 .asis-cab strong { font-size: .92rem; }
 .asis-cab small { display: block; font-size: .72rem; opacity: .85; font-weight: 400; }
 .asis-x { background: none; border: 0; color: #fff; font-size: 1.4rem; line-height: 1; cursor: pointer; width: 36px; height: 36px; }
-.asis-msgs { flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.asis-msgs { position: relative; flex: 1; overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 10px; }
 .asis-m { max-width: 88%; padding: 10px 12px; border-radius: 12px; font-size: .86rem; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere; }
 .asis-m.yo { align-self: flex-end; background: var(--primary); color: #fff; border-bottom-right-radius: 4px; }
 .asis-m.ia { align-self: flex-start; background: var(--surface); color: var(--text); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
 .asis-fuentes { margin-top: 6px; font-size: .72rem; color: var(--dim); white-space: normal; }
 .asis-aviso { margin-top: 6px; font-size: .72rem; color: var(--dim); font-style: italic; white-space: normal; }
-.asis-sug { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 14px 10px; }
-.asis-sug button { border: 1px solid var(--border); background: var(--surface2); color: var(--primary-d); font: 500 .76rem 'Inter', sans-serif; padding: 7px 11px; border-radius: 20px; cursor: pointer; }
+.asis-sug { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 4px 14px 10px; }
+.asis-sug button { display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); background: var(--surface2); color: var(--primary-d); font: 600 .8rem 'Inter', sans-serif; padding: 10px 12px; border-radius: 12px; cursor: pointer; text-align: left; }
 .asis-sug button:hover { background: #ecd8e8; }
+.asis-modo { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; margin: 0 14px 10px; padding: 10px 12px; border: 1px solid var(--primary); border-radius: 12px; background: var(--surface2); font-size: .78rem; color: var(--primary-d); font-weight: 500; }
+.asis-modo button { border: 1px solid var(--primary); background: var(--primary); color: #fff; font: 600 .76rem 'Inter', sans-serif; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
+.asis-modo button:hover { background: var(--primary-d); }
 .asis-form { display: flex; gap: 8px; padding: 10px 14px 6px; border-top: 1px solid var(--border); }
 .asis-form input { flex: 1; min-width: 0; height: 40px; padding: 0 12px; border: 1px solid var(--border); border-radius: 20px; background: var(--surface); color: var(--text); font: .88rem 'Inter', sans-serif; }
 .asis-form button { height: 40px; padding: 0 16px; border: 0; border-radius: 20px; background: var(--accent); color: #2b1b2e; font: 700 .84rem 'Inter', sans-serif; cursor: pointer; }
 .asis-form button:disabled { opacity: .55; cursor: default; }
 .asis-nota { padding: 0 14px 10px; font-size: .68rem; color: var(--dim); }
 @media (max-width: 520px) { .asis-panel { right: 8px; bottom: 8px; width: calc(100vw - 16px); height: calc(100vh - 16px); } }
+
+/* Botón de tamaño y chat minimizado (solo con foto y chat lado a lado, no en el celu) */
+.asis-tam { background: none; border: 0; color: #fff; font-size: 1.05rem; line-height: 1; cursor: pointer; width: 32px; height: 36px; margin-left: auto; opacity: .85; }
+.asis-tam:hover { opacity: 1; }
+.asis-panel.min .asis-msgs, .asis-panel.min .asis-sug, .asis-panel.min .asis-modo, .asis-panel.min .asis-form, .asis-panel.min .asis-nota { display: none; }
+.asis-panel.min { border-radius: 14px; }
+@media (max-width: 520px) { .asis-tam { display: none; } }
+/* El chat nunca anima su posición ni su tamaño: así acompaña a la foto sin retraso */
+.asis-panel, .asis-btn.arrastrando { transition: none !important; }
+/* El globito ahora lleva una frase más larga: se parte en renglones y no se sale de la pantalla */
+.asis-globo { white-space: normal; width: max-content; max-width: min(250px, calc(100vw - 110px)); line-height: 1.3; text-align: left; }
+/* La flecha de tamaño: igual que la ×, pegada a ella */
+.asis-tam { font-size: 1.4rem; width: 36px; height: 36px; margin-left: auto; margin-right: -8px; opacity: 1; }
+.asis-tam { font-size: 2rem; padding: 0; }
+
+/* Cards de sugeridas dentro del chat, pegadas al saludo */
+.asis-sug { padding: 0; margin-top: -2px; }
+.asis-sug button { justify-content: flex-start; text-align: left; }
+.asis-sug button svg { flex: none; color: var(--primary); }
+.asis-fila { display: flex; align-items: flex-end; gap: 8px; }
+.asis-fila .asis-m { max-width: calc(100% - 44px); }
+.asis-av { flex: none; width: 34px; height: 34px; border-radius: 50%; object-fit: cover; object-position: center 20%; border: 2px solid var(--primary); background: var(--surface2); }
+/* Agente: franja de abajo, como antes */
+.asis-modo { margin: 0; padding: 8px 14px; border: 0; border-top: 1px dashed var(--border); border-radius: 0; background: none; color: var(--dim); font-size: .76rem; font-weight: 400; }
+.asis-modo button { background: transparent; color: var(--primary-d); }
+.asis-modo button:hover { background: var(--surface2); }
+/* Minimizado: sin flechas ni × */
+.asis-panel.min .asis-tam, .asis-panel.min .asis-x { display: none; }
+/* Globito: flecha hacia la foto que se mueve */
+.asis-globo::after { content: ''; position: absolute; right: -6px; top: 50%; margin-top: -7px; border: 7px solid transparent; border-left-color: var(--primary); border-right: 0; }
+.asis-btn.izq .asis-globo::after { right: auto; left: -6px; border-left-color: transparent; border-right: 7px solid var(--primary); border-left: 0; }
+.asis-btn.saluda .asis-globo { animation: asis-senala 1s ease-in-out infinite; }
+.asis-btn.saluda.izq .asis-globo { animation-name: asis-senala-izq; }
+@keyframes asis-senala { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(8px); } }
+@keyframes asis-senala-izq { 0%, 100% { transform: translateY(-50%) translateX(0); } 50% { transform: translateY(-50%) translateX(-8px); } }
+@media (prefers-reduced-motion: reduce) { .asis-btn.saluda .asis-globo { animation: none; } }
+.asis-modo { justify-content: center; }
+.asis-modo span:empty { display: none; }
+
+/* Preguntas de un tema: una por renglón + volver a los temas */
+.asis-sug.asis-preg { grid-template-columns: 1fr; }
+.asis-sug.asis-preg button { font-weight: 500; font-size: .8rem; }
+.asis-sug .asis-volver { background: none; border-color: transparent; color: var(--dim); font-weight: 600; font-size: .76rem; padding: 4px 6px; }
+.asis-sug .asis-volver:hover { background: none; color: var(--primary-d); }
+
+.asis-sug.asis-preg.asis-plegada { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+
+.asis-m a { color: var(--primary); text-decoration: underline; overflow-wrap: anywhere; }
+.asis-m.yo a { color: #fff; }
+
+/* "Escribiendo…": tres puntitos que saltan en onda */
+.asis-m.escribiendo { display: flex; gap: 6px; align-items: center; padding: 15px 18px; }
+.asis-m.escribiendo i { width: 8px; height: 8px; border-radius: 50%; background: var(--primary); opacity: .3; animation: asis-punto .9s ease-in-out infinite; }
+.asis-m.escribiendo i:nth-child(2) { animation-delay: .15s; }
+.asis-m.escribiendo i:nth-child(3) { animation-delay: .3s; }
+@keyframes asis-punto { 0%, 60%, 100% { transform: translateY(0) scale(.85); opacity: .3; } 30% { transform: translateY(-7px) scale(1.15); opacity: 1; } }
+/* Cada mensaje entra con un fundido y un leve ascenso */
+.asis-m, .asis-fila { animation: asis-entra .35s ease-out both; }
+.asis-fila .asis-m { animation: none; }
+@keyframes asis-entra { from { opacity: 0; transform: translateY(10px) scale(.97); } to { opacity: 1; transform: none; } }
+.asis-sug { animation: asis-entra .35s ease-out both; }
+/* Estas animaciones son chicas y se dejan aunque el sistema pida menos movimiento (el de la foto flotando sí se respeta) */
+
+/* Entrada más notoria: el mensaje de ella viene de la derecha, los del chat de la izquierda, con un pequeño rebote */
+.asis-m, .asis-fila { animation: asis-entra-ia .6s cubic-bezier(.2, .9, .3, 1.25) both; }
+.asis-m.yo { animation-name: asis-entra-yo; }
+.asis-fila .asis-m { animation: none; }
+@keyframes asis-entra-ia { from { opacity: 0; transform: translate(-28px, 14px) scale(.9); } to { opacity: 1; transform: none; } }
+@keyframes asis-entra-yo { from { opacity: 0; transform: translate(28px, 14px) scale(.9); } to { opacity: 1; transform: none; } }
+.asis-sug { animation: asis-entra-ia .6s cubic-bezier(.2, .9, .3, 1.25) .15s both; }
+/* El casillero no queda con el aro grueso al estar seleccionado */
+.asis-form input:focus, .asis-form input:focus-visible { outline: none; border-color: var(--primary); box-shadow: none; }
+
+/* Dejarle una pregunta a Sofía (aparece cuando el asistente no sabe) */
+.asis-dejar { display: block; margin-top: 8px; border: 1px solid var(--primary); background: none; color: var(--primary-d); font: 600 .76rem 'Inter', sans-serif; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
+.asis-dejar:hover { background: var(--surface2); }
+.asis-dejarf { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; white-space: normal; }
+.asis-dejarf input { height: 34px; box-sizing: border-box; padding: 0 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); font: inherit; font-size: .8rem; }
+.asis-dejarf button { align-self: flex-start; height: 34px; padding: 0 16px; border: 0; border-radius: 17px; background: var(--primary); color: #fff; font: 600 .78rem 'Inter', sans-serif; cursor: pointer; }
+.asis-dejarf button:disabled { opacity: .55; cursor: default; }

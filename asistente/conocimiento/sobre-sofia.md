@@ -1,6 +1,6 @@
 # Sobre Sofía
 
-Sofía Garnier es Técnica Universitaria en Programación (UTN, Facultad Regional Concepción del Uruguay, egresada en julio de 2026, promedio 8,67). Vive en Concepción del Uruguay, Entre Ríos, Argentina. Busca roles de Junior Developer o Trainee Developer (y ahora también AI Engineer junior). Contacto: sofigarnier1@gmail.com · linkedin.com/in/sofia-garnier · github.com/sofigarnier1 · portfolio sofia-garnier.vercel.app.
+Sofía Garnier es Técnica Universitaria en Programación (UTN, Facultad Regional Concepción del Uruguay, egresada en julio de 2026, promedio 8,67). Vive en Concepción del Uruguay, Entre Ríos, Argentina. Busca roles de Junior Developer o Trainee Developer (y ahora también AI Engineer junior). Contacto: sofigarnier1@gmail.com · WhatsApp +54 9 3442 563953 (https://wa.me/5493442563953) · linkedin.com/in/sofia-garnier · github.com/sofigarnier1 · portfolio sofia-garnier.vercel.app.
 
 ## Presentación
 
