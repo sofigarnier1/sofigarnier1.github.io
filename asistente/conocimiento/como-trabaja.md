@@ -1,16 +1,10 @@
 # Cómo trabaja Sofía
 
-Esta es la forma de trabajar de Sofía, dicha por ella: cómo decide, cómo aprende, cómo recibe críticas y cómo se organiza.
+Esta es la forma de trabajar de Sofía, dicha por ella: cómo decide, cómo aprende y cómo se organiza.
 
 ## Cómo aprende algo nuevo
 
 Cuando tiene que aprender una tecnología que no conoce, le pregunta a la IA, busca videos en YouTube y va aprendiendo mientras hace, sobre la marcha, aplicándolo en el proyecto.
-
-## Cómo recibe críticas y desacuerdos
-
-- Cuestiona las correcciones: si alguien le dice que algo está mal, necesita entender por qué; no le alcanza con "porque se hace así".
-- Defiende su criterio: si tomó una decisión después de investigar y analizar, no la cambia solo porque otra persona opine distinto.
-- Es receptiva a los argumentos: cuando alguien le explica algo y tiene sentido, lo incorpora. Si una respuesta no la convence, lo plantea y busca entender mejor.
 
 ## Cómo se organiza
 
